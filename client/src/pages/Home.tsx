@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'wouter';
+import { motion } from 'framer-motion';
 import { 
   Bot, 
   Search, 
@@ -18,6 +19,26 @@ import {
 } from 'lucide-react';
 
 const APP_URL = 'https://app.owlfenc.com';
+
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const scaleIn = {
+  initial: { opacity: 0, scale: 0.9 },
+  animate: { opacity: 1, scale: 1 },
+  transition: { duration: 0.5 }
+};
 
 const stats = [
   {
@@ -103,20 +124,36 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-chart-2/10" />
-        <div className="container mx-auto max-w-7xl px-4 relative z-10">
+        <motion.div 
+          className="container mx-auto max-w-7xl px-4 relative z-10"
+          initial="initial"
+          animate="animate"
+          variants={staggerContainer}
+        >
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6" variant="secondary" data-testid="badge-ai-powered">
-              <Zap className="w-3 h-3 mr-1" />
-              AI-Powered Construction Management
-            </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-foreground to-chart-2 bg-clip-text text-transparent">
+            <motion.div {...fadeIn}>
+              <Badge className="mb-6" variant="secondary" data-testid="badge-ai-powered">
+                <Zap className="w-3 h-3 mr-1" />
+                AI-Powered Construction Management
+              </Badge>
+            </motion.div>
+            <motion.h1 
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-foreground to-chart-2 bg-clip-text text-transparent"
+              {...fadeIn}
+            >
               Build Faster, Win More Jobs
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+            </motion.h1>
+            <motion.p 
+              className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto"
+              {...fadeIn}
+            >
               Owl Fenc is the AI-powered platform that helps contractors create estimates 10x faster, 
               generate legal contracts, and manage projects effortlessly.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              {...fadeIn}
+            >
               <a href={`${APP_URL}/signup`} data-testid="button-hero-cta">
                 <Button size="lg" className="text-lg px-8 py-6">
                   <Target className="w-5 h-5 mr-2" />
@@ -128,95 +165,140 @@ export default function Home() {
                   View Pricing
                 </Button>
               </Link>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Stats Section */}
       <section className="py-12 border-y bg-card/50">
-        <div className="container mx-auto max-w-7xl px-4">
+        <motion.div 
+          className="container mx-auto max-w-7xl px-4"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
+        >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center" data-testid={`stat-${index}`}>
+              <motion.div 
+                key={index} 
+                className="text-center" 
+                data-testid={`stat-${index}`}
+                variants={scaleIn}
+              >
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
                   {stat.value}
                 </div>
                 <div className="text-lg font-semibold mb-1">{stat.label}</div>
                 <div className="text-sm text-muted-foreground">{stat.description}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Key Features */}
       <section className="py-20">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Everything You Need to Succeed
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Powerful tools designed specifically for construction professionals
             </p>
-          </div>
+          </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+          >
             {features.map((feature, index) => (
-              <Card key={index} className="hover-elevate transition-all" data-testid={`feature-card-${index}`}>
-                <CardContent className="p-6">
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4`}>
-                    <feature.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.description}</p>
-                </CardContent>
-              </Card>
+              <motion.div key={index} variants={fadeIn}>
+                <Card className="hover-elevate transition-all h-full" data-testid={`feature-card-${index}`}>
+                  <CardContent className="p-6">
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4`}>
+                      <feature.icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-muted-foreground">{feature.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Target Audience */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto max-w-7xl px-4">
-          <div className="text-center mb-16">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Built for Construction Professionals
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Whether you specialize in fencing or manage multiple projects, Owl Fenc adapts to your workflow
             </p>
-          </div>
+          </motion.div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+          >
             {targetAudiences.map((audience, index) => (
-              <Card key={index} className="hover-elevate transition-all" data-testid={`audience-card-${index}`}>
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                    <audience.icon className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">{audience.title}</h3>
-                  <p className="text-muted-foreground mb-6">{audience.description}</p>
-                  <div className="space-y-2">
-                    {audience.specialties.map((specialty, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className="w-4 h-4 text-primary" />
-                        <span>{specialty}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              <motion.div key={index} variants={fadeIn}>
+                <Card className="hover-elevate transition-all h-full" data-testid={`audience-card-${index}`}>
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                      <audience.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3">{audience.title}</h3>
+                    <p className="text-muted-foreground mb-6">{audience.description}</p>
+                    <div className="space-y-2">
+                      {audience.specialties.map((specialty, idx) => (
+                        <div key={idx} className="flex items-center gap-2 text-sm">
+                          <CheckCircle2 className="w-4 h-4 text-primary" />
+                          <span>{specialty}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20">
-        <div className="container mx-auto max-w-7xl px-4">
+        <motion.div 
+          className="container mx-auto max-w-7xl px-4"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
           <Card className="bg-gradient-to-br from-primary to-chart-2 text-primary-foreground">
             <CardContent className="p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -239,7 +321,7 @@ export default function Home() {
               </div>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       </section>
     </div>
   );

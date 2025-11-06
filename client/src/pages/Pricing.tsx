@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
 import { Check, X } from 'lucide-react';
 
 const APP_URL = 'https://app.owlfenc.com';
@@ -103,6 +104,20 @@ const pricingPlans: PricingPlan[] = [
   },
 ];
 
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
 export default function Pricing() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
 
@@ -116,7 +131,12 @@ export default function Pricing() {
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <Badge className="mb-6" variant="secondary" data-testid="badge-pricing">
             Simple, Transparent Pricing
           </Badge>
@@ -153,17 +173,22 @@ export default function Pricing() {
               <Badge className="ml-2" variant="default">Save up to 17%</Badge>
             </button>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
+          initial="initial"
+          animate="animate"
+          variants={staggerContainer}
+        >
           {pricingPlans.map((plan) => (
-            <Card 
-              key={plan.id} 
-              className={`relative hover-elevate transition-all ${
-                plan.popular ? 'border-primary shadow-lg' : ''
-              }`}
-              data-testid={`plan-${plan.code.toLowerCase()}`}
-            >
+            <motion.div key={plan.id} variants={fadeIn}>
+              <Card 
+                className={`relative hover-elevate transition-all h-full ${
+                  plan.popular ? 'border-primary shadow-lg' : ''
+                }`}
+                data-testid={`plan-${plan.code.toLowerCase()}`}
+              >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <Badge className="bg-primary text-primary-foreground" data-testid="badge-most-popular">
@@ -232,8 +257,9 @@ export default function Pricing() {
                 </a>
               </CardFooter>
             </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* FAQ Section */}
         <div className="mt-20 max-w-3xl mx-auto">

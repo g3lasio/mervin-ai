@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { motion } from 'framer-motion';
 import { 
   Bot, 
   Calculator, 
@@ -131,11 +132,30 @@ const features = {
   }
 };
 
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
 export default function Features() {
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <Badge className="mb-6" variant="secondary" data-testid="badge-features">
             Complete Feature Set
           </Badge>
@@ -146,7 +166,7 @@ export default function Features() {
             Owl Fenc provides a comprehensive suite of tools designed specifically for construction professionals. 
             From AI-powered estimates to payment processing, we've got you covered.
           </p>
-        </div>
+        </motion.div>
 
         <Tabs defaultValue="estimates" className="w-full">
           <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 mb-12 h-auto">
@@ -177,23 +197,30 @@ export default function Features() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                initial="initial"
+                animate="animate"
+                variants={staggerContainer}
+              >
                 {category.items.map((feature, index) => (
-                  <Card key={index} className="hover-elevate transition-all" data-testid={`feature-${key}-${index}`}>
-                    <CardHeader>
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                          <feature.icon className="w-5 h-5 text-primary" />
+                  <motion.div key={index} variants={fadeIn}>
+                    <Card className="hover-elevate transition-all h-full" data-testid={`feature-${key}-${index}`}>
+                      <CardHeader>
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                            <feature.icon className="w-5 h-5 text-primary" />
+                          </div>
+                          <CardTitle className="text-xl">{feature.title}</CardTitle>
                         </div>
-                        <CardTitle className="text-xl">{feature.title}</CardTitle>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground">{feature.description}</p>
-                    </CardContent>
-                  </Card>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground">{feature.description}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </TabsContent>
           ))}
         </Tabs>

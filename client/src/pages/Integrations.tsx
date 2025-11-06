@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { motion } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 import { SiStripe, SiOpenai, SiGooglecloud, SiQuickbooks, SiPostgresql } from 'react-icons/si';
 
@@ -127,11 +128,30 @@ const integrations: Integration[] = [
 
 const categories = Array.from(new Set(integrations.map(i => i.category)));
 
+const fadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
 export default function Integrations() {
   return (
     <div className="min-h-screen py-20">
       <div className="container mx-auto max-w-7xl px-4">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <Badge className="mb-6" variant="secondary" data-testid="badge-integrations">
             Powerful Integrations
           </Badge>
@@ -142,7 +162,7 @@ export default function Integrations() {
             Owl Fenc integrates seamlessly with industry-leading platforms to provide 
             you with a complete construction management solution.
           </p>
-        </div>
+        </motion.div>
 
         {/* Category filters */}
         <div className="flex flex-wrap gap-3 justify-center mb-12">
@@ -161,9 +181,15 @@ export default function Integrations() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          initial="initial"
+          animate="animate"
+          variants={staggerContainer}
+        >
           {integrations.map((integration, index) => (
-            <Card key={index} className="hover-elevate transition-all" data-testid={`integration-${integration.name.toLowerCase().replace(/\s+/g, '-')}`}>
+            <motion.div key={index} variants={fadeIn}>
+              <Card className="hover-elevate transition-all h-full" data-testid={`integration-${integration.name.toLowerCase().replace(/\s+/g, '-')}`}>
               <CardHeader>
                 <div className="flex items-start justify-between mb-4">
                   <div 
@@ -208,11 +234,18 @@ export default function Integrations() {
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Coming Soon Section */}
-        <div className="mt-20">
+        <motion.div 
+          className="mt-20"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <Card className="bg-muted/30">
             <CardContent className="p-12 text-center">
               <h2 className="text-3xl font-bold mb-4">More Integrations Coming Soon</h2>
@@ -229,7 +262,7 @@ export default function Integrations() {
               </div>
             </CardContent>
           </Card>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

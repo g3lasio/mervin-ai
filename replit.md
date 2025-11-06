@@ -25,6 +25,7 @@ This is a standalone, static landing page for **Owl Fenc**, completely independe
 - **Build Tool:** Vite
 - **Routing:** Wouter (lightweight client-side routing)
 - **UI Framework:** shadcn/ui + Tailwind CSS
+- **Animations:** Framer Motion for smooth transitions and interactions
 - **Icons:** Lucide React + React Icons
 - **Design:** Orange/Blue color scheme for construction industry
 
@@ -102,6 +103,14 @@ The build outputs to `dist/` directory ready for static deployment.
 
 ## Recent Changes
 
+- **November 6, 2025:** Added Framer Motion animations throughout the site
+  - Hero section fade-in and stagger animations on Home page
+  - Scroll-triggered animations for stats, features, and audience cards
+  - Smooth entrance animations on Features page (per-category tabs)
+  - Staggered card animations on Pricing page
+  - Integration cards with stagger effect on Integrations page
+  - Scale animations for CTA sections
+  - whileInView animations for better performance (only animate when visible)
 - Initial setup with all 4 main pages
 - Header with responsive navigation
 - Footer with 4-column layout
