@@ -1,0 +1,62 @@
+Necesito que implementes las siguientes mejoras al landing page de Owl Fenc. Lee todo el contexto antes de empezar.
+
+## CONTEXTO DEL PROYECTO
+
+Owl Fenc es una plataforma de gestión de construcción con IA para contratistas. Este landing page es un proyecto independiente que redirige a la app principal en https://app.owlfenc.com/
+
+**IMPORTANTE:** El branding correcto es "Owl Fenc" (sin 'e' al final).
+
+---
+
+## TAREA 1: AGREGAR SECCIÓN DE ESTADÍSTICAS AL HOME PAGE
+
+**Ubicación:** Después del hero section, antes de "Everything You Need to Succeed"
+
+**Código a agregar:**
+
+```tsx
+{/* Statistics Section */}
+<section className="py-20 bg-gradient-to-br from-primary/5 via-background to-background">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        Why Contractors Choose Owl Fenc
+      </h2>
+      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        Join hundreds of contractors transforming their businesses with AI-powered tools
+      </p>
+    </div>
+    
+    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow">
+        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+          10x
+        </div>
+        <div className="text-xl font-semibold mb-2">Faster Estimates</div>
+        <p className="text-muted-foreground">
+          Generate quotes in minutes, not hours
+        </p>
+      </div>
+      
+      <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow">
+        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+          98%
+        </div>
+        <div className="text-xl font-semibold mb-2">Calculation Accuracy</div>
+        <p className="text-muted-foreground">
+          AI-powered precision for materials & labor
+        </p>
+      </div>
+      
+      <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow">
+        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+          +40%
+        </div>
+        <div className="text-xl font-semibold mb-2">More Jobs Won</div>
+        <p className="text-muted-foreground">
+          Professional proposals close more deals
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
