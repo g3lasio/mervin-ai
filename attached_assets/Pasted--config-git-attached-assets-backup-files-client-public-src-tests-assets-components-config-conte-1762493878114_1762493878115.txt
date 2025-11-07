@@ -1,0 +1,706 @@
+.config
+.git
+attached_assets
+backup_files
+client
+public
+src
+__tests__
+assets
+components
+config
+contexts
+data
+hooks
+i18n
+lib
+mervin-ai
+core
+ConversationEngine.ts
+LanguageDetector.ts
+mervin-v2
+pages
+services
+styles
+templates
+types
+utils
+App.tsx
+index.css
+main.tsx
+test-smart-coordinator.ts
+index.html
+dist
+docs
+email-analysis-reports
+health-check
+migrations
+public
+scripts
+server
+ai
+config
+constants
+firestore-rules
+lib
+mervin-v2
+middleware
+routes
+scripts
+services
+nationwide
+new-backend
+aduConstructionExpertService.ts
+advancedLaborPricingService.ts
+advancedSecurityService.ts
+alertingService.ts
+alternativePdfService.ts
+antiAbuseService.ts
+auditLogExportService.ts
+backupDisasterRecoveryService.ts
+chatService.ts
+CompanyProfileService.ts
+contractGenerator.ts
+contractMigrationService.ts
+contractorEmailService.ts
+contractorPaymentService.ts
+contractquestionflow.ts
+conversation-service.ts
+DatabaseEstimateStorage.ts
+deepSearchRefinementService.ts
+deepSearchService.ts
+digitalCertification.ts
+DigitalContractService.ts
+documentService.ts
+dualSignatureService.ts
+email.ts
+emailService.ts
+enhancedLocationPricingService.ts
+enhancedPermitService.ts
+estimateEmailService.ts
+estimatorService.ts
+estimatorService.ts.bak
+exactFormatSignatureService.ts
+expertContractorService.ts
+firebaseContractService.ts
+firebaseContractsService.ts
+firebaseEstimatesService.ts
+firebaseSearchService.ts
+firebaseSettingsService.ts
+firebaseStorageService.ts
+firebaseSubscriptionService.ts
+generalContractorIntelligenceService.ts
+generateContract.ts
+hybridContractGenerator-broken.ts
+hybridContractGenerator.ts
+intelligentImportService.ts
+invoiceEmailService.ts
+invoiceService.ts
+kpiTrackingService.ts
+laborDeepSearchService.ts
+legalSealService.ts
+materialValidationService.ts
+MemoryService.ts
+memoryService.ts
+mervinEstimateService.ts
+mervinProfile.ts
+mervinRoles.ts
+mistralService.ts
+mockPropertyService.ts
+monthlyResetService.ts
+multiChannelDeliveryService.ts
+multiIndustryExpertService.ts
+nodemailerService.ts
+observabilityService.ts
+openaiService.ts
+otp-service.ts
+performanceOptimizationService.ts
+permitService.ts
+postgresUsageService.ts
+precisionQuantityCalculationService.ts
+premiumPdfService.ts
+productionUsageService.ts
+projectDescriptionAI.ts
+projectPaymentService.ts
+promptGeneratorService.ts
+propertyService.ts
+propertyStorageService.ts
+proxyService.ts
+
+npm run dev
+24m
+ • 
+25 minutes ago
+
+Production
+Status
+Gelasio published about 24 hours ago
+Visibility
+Public
+Domain
+https://owl-fenc.replit.app
+https://app.owlfenc.com
+Type
+Autoscale
+(4 vCPU / 8 GiB RAM / 3 Max)
+See all usage
+7a01928c
+
+g3lasio
+Gelasio
+published 4 days ago
+0c704de0
+
+g3lasio
+Gelasio
+published 7 days ago
+c5516b02
+
+g3lasio
+Gelasio
+published 8 days ago
+7be9a941
+
+g3lasio
+Gelasio
+published 8 days ago
+62c41e86
+
+g3lasio
+Gelasio
+published 8 days ago
+dfc786c0
+
+g3lasio
+Gelasio
+published 8 days ago
+7c7a36dd
+
+g3lasio
+Gelasio
+published 15 days ago
+a2559501
+
+g3lasio
+Gelasio
+published 17 days ago
+ec526952
+
+g3lasio
+Gelasio
+published 30 days ago
+0bce266c
+
+g3lasio
+Gelasio
+published about 1 month ago
+15b464ff
+
+g3lasio
+Gelasio
+published about 1 month ago
+bef496b6
+
+g3lasio
+Gelasio
+failed to publish about 1 month ago
+d663e6d2
+
+g3lasio
+Gelasio
+published about 1 month ago
+1107977e
+
+g3lasio
+Gelasio
+published about 1 month ago
+e29be6e8
+
+g3lasio
+Gelasio
+failed to publish about 1 month ago
+3aaad040
+
+g3lasio
+Gelasio
+published about 2 months ago
+60b33146
+
+g3lasio
+Gelasio
+failed to publish about 2 months ago
+53fdb71f
+
+g3lasio
+Gelasio
+failed to publish about 2 months ago
+63489ac8
+
+g3lasio
+Gelasio
+failed to publish about 2 months ago
+Loading your page…
+
+ANÁLISIS COMPLETO DE PRECISIÓN EN CÁLCULO DE CANTIDADES DE MATERIALES
+
+🎯 PROBLEMA IDENTIFICADO: CONTRATISTAS NUEVOS SIN EXPERIENCIA
+
+El Problema Real
+
+Los contratistas nuevos enfrentan una crisis de conocimiento en cálculo de materiales:
+
+No saben QUÉ comprar exactamente
+"Necesito madera para framing" ➜ ¿2x4, 2x6, 2x8? ¿Cuántos?
+"Necesito concreto para fundación" ➜ ¿Cuántas yardas? ¿Qué PSI?
+"Necesito plomería" ➜ ¿PEX, cobre? ¿1/2", 3/4"? ¿Cuánto?
+No saben CUÁNTO comprar
+Sin fórmulas precisas de contratista
+Sin factores de desperdicio apropiados
+Sin conocimiento de unidades de medida
+Resulta en sobrecostos masivos
+Compran 50% más material "por si acaso"
+O compran 30% menos y tienen que hacer múltiples viajes
+Pierden credibilidad con clientes
+🔍 ANÁLISIS DEL SISTEMA ACTUAL VS MEJORADO
+
+SISTEMA ANTERIOR (Limitaciones Críticas)
+
+1. Cálculos Genéricos sin Precisión
+
+// Ejemplo del problema anterior
+"lumber": "50 pieces of 2x4" // ¿De qué longitud? ¿Para qué uso?
+"concrete": "5 cubic yards" // ¿Cómo se calculó? ¿Incluye desperdicio?
+"wire": "electrical wire" // ¿Calibre? ¿Longitud? ¿THHN, Romex?
+2. Sin Fórmulas de Contratista
+
+Claude genera cantidades "estimadas" sin base real
+No incluye factores de desperdicio específicos por material
+No considera especificaciones técnicas precisas
+3. Sin Guía para Contratistas Nuevos
+
+No explica POR QUÉ se necesita esa cantidad
+No indica CUÁNDO ordenar cada material
+No advierte sobre errores comunes
+🚀 SISTEMA MEJORADO: PRECISIÓN QUIRÚRGICA
+
+1. Fórmulas de Contratista Real
+
+FOUNDATION (Ejemplo Detallado)
+
+CONCRETE - Fórmula Precisa:
+
+// ANTES: "5 cubic yards concrete"
+// AHORA: Cálculo paso a paso
+const slabArea = 1200; // sq ft
+const slabThickness = 4; // inches
+const concreteVolume = (slabArea × (4/12)) ÷ 27 = 14.8 cubic yards
+// Con factor de desperdicio de contratista real
+finalQuantity = Math.ceil(14.8 × 1.08) = 16 cubic yards
+REBAR - Cálculo por Grid:
+
+// ANTES: "rebar for foundation"
+// AHORA: Grid específico
+const rebarLinearFeet = 1200 × 2.5 = 3000 linear feet
+// Fórmula: área × 2.5 para grid #4 @ 18" O.C.
+// Con 15% desperdicio: 3450 linear feet final
+FRAMING LUMBER - Precisión por Elemento
+
+WALL STUDS:
+
+// ANTES: "lumber for framing"
+// AHORA: Cálculo preciso
+const wallPerimeter = 2 × (length + width) = 140 ft
+const studSpacing = 16; // inches on center
+const studCount = Math.ceil((140 × 12) ÷ 16) + 10 = 115 studs
+// Especificación exacta: "2x4x8 SPF Studs, Construction Grade"
+TOP/BOTTOM PLATES:
+
+// ANTES: Generic "plates"
+// AHORA: Específico por uso
+bottomPlate = 140 ft × 1.08 waste = 151 linear feet
+// "2x4x12 PT Bottom Plates, Ground Contact Rated"
+topPlates = 140 ft × 2 plates × 1.05 waste = 294 linear feet  
+// "2x4x12 SPF Regular, Construction Grade"
+2. Especificaciones Técnicas Precisas
+
+Antes vs Ahora - Comparación
+
+Material Anterior	Material Mejorado
+"Electrical wire"	"12-2 Romex Wire, 12 AWG copper with ground, THHN insulation"
+"Insulation"	"R-13 Fiberglass Batts, 3.5" thick, kraft-faced, 15" wide"
+"Drywall"	"1/2" Drywall Sheets 4x8, regular gypsum, tapered edges"
+"Concrete"	"Ready-Mix Concrete 3000 PSI, 4" slump, fiber reinforced"
+3. Factores de Desperdicio por Contratista
+
+Factores Específicos Implementados:
+
+Lumber: 10% (cortes, defectos, ajustes)
+Concrete: 8% (spillage, overrun, leveling)
+Rebar: 15% (overlaps, cuts, bending)
+Drywall: 15% (cuts around openings, breakage)
+Electrical Wire: 20% (routing, connections, service loops)
+Roofing Shingles: 10% (ridge, waste, starter course)
+4. Guía para Contratistas Nuevos
+
+A. Notas del Contratista (Ejemplo Real):
+
+contractorNotes: "Buy construction grade or better. Check for straightness. 
+                  Store off ground and covered. Order in 250ft rolls for wire."
+B. Timing de Órdenes:
+
+orderTiming: "Week 1 - Foundation phase"
+            "Week 2 - With framing lumber" 
+            "Week 4 - Rough-in electrical"
+C. Errores Comunes Evitados:
+
+commonMistakes: [
+  "Not ordering enough fasteners",
+  "Forgetting vapor barrier tape", 
+  "Insufficient waste factor on lumber",
+  "Wrong rebar spacing"
+]
+📊 RESULTADOS CUANTIFICABLES
+
+Ejemplo Real: ADU 1200 sq ft
+
+FOUNDATION MATERIALS - Comparación Directa
+
+SISTEMA ANTERIOR:
+
+- Concrete: "5 cubic yards" ❌
+- Rebar: "reinforcement for foundation" ❌
+- Vapor Barrier: "plastic sheeting" ❌
+Total: Información insuficiente para comprar
+SISTEMA MEJORADO:
+
+✅ Ready-Mix Concrete 3000 PSI: 16 cubic yards
+   Formula: (1200 sq ft × 4" ÷ 12) ÷ 27 = 14.8 cy + 8% waste
+   Specifications: 3000 PSI, 4" slump, fiber reinforced
+   Supplier: Local Ready-Mix Plant
+   Notes: Order 0.5 yards extra for spillage. Minimum order usually 3 yards.
+✅ #4 Rebar Grade 60: 3,450 linear feet  
+   Formula: 1200 sq ft × 2.5 = 3000 lf + 15% waste
+   Specifications: Grade 60, #4 (1/2" diameter), deformed bars
+   Notes: #4 bars in 18" grid both directions. Buy in 20ft lengths.
+✅ 6mil Plastic Vapor Barrier: 1,380 square feet
+   Formula: 1200 sq ft × 1.15 overlap = 1,380 sq ft
+   Notes: Overlap seams 6". Tape all joints with compatible tape.
+FRAMING LUMBER - Detalle Completo
+
+ANTES: "Lumber for framing: $5,000"
+
+AHORA:
+
+✅ 2x4x8 SPF Studs: 127 pieces
+   Formula: 140 ft perimeter × 12 ÷ 16" O.C. + 10 corners = 115 + 10% waste
+   Price: $4.25 each = $540
+   Notes: Construction grade or better. Check for straightness.
+✅ 2x4x12 PT Bottom Plates: 151 linear feet
+   Formula: 140 ft perimeter + 8% waste = 151 lf
+   Price: $1.85/lf = $279
+   Notes: Pressure treated for bottom plate only.
+✅ 2x6x12 Ceiling Joists: 26 pieces  
+   Formula: 30 ft width × 12 ÷ 16" O.C. + 1 = 24 + 5% waste
+   Price: $8.75 each = $228
+   Notes: Check span tables for your specific load requirements.
+🔧 FACTORES QUE DETERMINAN CANTIDAD PRECISA
+
+1. Dimensiones Específicas del Proyecto
+
+Square footage exacto (no estimaciones)
+Perímetro de paredes para studs y plates
+Altura de techo para cantidad de studs
+Número de aberturas (puertas, ventanas)
+2. Especificaciones de Construcción
+
+Spacing de studs (16" vs 24" O.C.)
+Tipo de fundación (slab, crawlspace, basement)
+Código local (sísmico, viento, nieve)
+Grado de materiales requerido
+3. Factores de Desperdicio por Material
+
+Lumber: 5-15% según tipo y aplicación
+Concrete: 5-10% según acceso y complejidad
+Rebar: 10-20% según cortes necesarios
+Wire: 15-25% según routing complexity
+4. Factores de Mercado y Disponibilidad
+
+Unidades de venta (lumber en 8ft, 10ft, 12ft)
+Órdenes mínimas (concrete: 3 yard minimum)
+Packaging (wire en rolls de 250ft)
+✅ BENEFICIOS INMEDIATOS PARA CONTRATISTAS NUEVOS
+
+1. Elimina Adivinanzas
+
+Saben exactamente QUÉ especificar al proveedor
+Tienen fórmulas probadas por contratistas expertos
+Entienden POR QUÉ necesitan esa cantidad
+2. Reduce Desperdicios y Sobrecostos
+
+Factores de waste apropiados incluidos
+No sobre-ordenan por inseguridad
+No sub-ordenan y hacen múltiples viajes
+3. Construye Credibilidad Profesional
+
+Estimados precisos aumentan confianza del cliente
+Conocimiento técnico aparenta experiencia
+Timing correcto de órdenes evita retrasos
+4. Educación Continua
+
+Aprenden fórmulas de contratista real
+Entienden especificaciones técnicas
+Desarrollan intuición para futuros proyectos
+🎯 CASO DE USO REAL: CONTRATISTA NUEVO
+
+Situación: Carlos, contratista nuevo, necesita construir ADU 1200 sq ft
+
+ANTES del Sistema Mejorado:
+
+Carlos: "Necesito madera para framing"
+Lumber Yard: "¿Qué dimensiones? ¿Cuántos? ¿Para qué uso?"
+Carlos: "No sé... dame como $3,000 de madera"
+Resultado: Materiales incorrectos, cantidad inadecuada, múltiples viajes
+DESPUÉS del Sistema Mejorado:
+
+Carlos tiene lista específica:
+- 127 piezas de 2x4x8 SPF Construction Grade  
+- 151 linear feet de 2x4x12 PT para bottom plates
+- 26 piezas de 2x6x12 para ceiling joists
+- Especificaciones técnicas exactas
+- Notas de instalación incluidas
+Lumber Yard: "Perfecto, tenemos todo en stock. ¿Delivery mañana?"
+Resultado: Una sola orden, materiales correctos, proyecto sin retrasos
+🚀 CONCLUSIÓN: REVOLUCIÓN EN PRECISIÓN
+
+El sistema mejorado transforma contratistas nuevos en profesionales informados:
+
+Precisión Quirúrgica: Cálculos basados en fórmulas de contratista real
+Especificaciones Técnicas: Saben exactamente qué pedir al proveedor
+Factores de Desperdicio: Incluidos para cada tipo de material
+Guía Educativa: Aprenden mientras calculan
+Timing Profesional: Saben cuándo ordenar cada material
+Resultado: Contratistas nuevos pueden competir con experiencia usando conocimiento sistematizado del sistema DeepSearch mejorado.
+Add public-facing pages and update application routing structure
+9 hours ago
+Improve authentication flow and update public landing page navigation
+3 minutes of work
+otra cosa he visto que has estado cometiendo muchas veces un error muy repetido. y es el de el nombre estas usando : "Owl Fence" eso es un error ya te habia recordado y confirmado que el nombre correcto es: "Owl Fenc" sin la E es demasiado importante para mi eso,
+puedes revisar eso por favor?
+9 hours ago
+9 hours ago
+Correct company name spelling across the application
+5 minutes of work
+Me gusta mucho lo que has hecho hasta ahora — el progreso se ve excelente y el resultado está tomando una dirección sólida.
+
+Hablando en términos de corto plazo, esta web app estará disponible muy pronto para que todos los contratistas puedan utilizarla y sacarle provecho real.
+
+Sin embargo, quiero dejar algo claro respecto al Landing Page:
+Debe ser completamente independiente del proyecto principal.
+
+La razón es simple: en un futuro cercano planeo que la app de OwlFenc evolucione a una aplicación nativa para iOS y Android, y el landing page no debe incluirse dentro del APK.
+El usuario no debería ver la página de presentación cada vez que abra la app — eso rompería la experiencia de uso.
+
+¿Te parece razonable?
+
+Siguiendo esa línea, necesito que me ayudes a separar por completo el Landing Page del proyecto principal.
+Quiero que el landing sea un proyecto independiente, con su propio entorno y despliegue, mientras la web app principal permanece enfocada en la funcionalidad interna.
+
+De preferencia, manejemos ambos dentro de Replit, pero como proyectos totalmente separados para mantener orden, escalabilidad y control en el desarrollo.
+8 hours ago
+dame todas las instrucciones de lo que deberia pasarle al agente, dame toda la documentacion coreecta de que debe incluir y de como te gustaria ver el producto final, el problema podria ser el contexto si pudiera el otro agente solo conocer el contexto de este estaria mejor pero es mejor que me des todo la documentacion. y la sencillez que mencionas todos los datos importantes desde pricigng fetures y etc, entregamelos en un documento markdown bien enriquecido.
+8 hours ago
+8 hours ago
+Add comprehensive instructions for a new independent landing page project
+3 minutes of work
+Este es el landing page creado : https://Owllanding.replit.app revisa el contenido y de manera precisa y detallada dime si cumple tus expectativas y que mas hace falta implementar.
+24 minutes ago
+Si tu puedes hacer directamente hacer esos cambios en ese proyecto también están en mi cuenta en Replit. Implementar todo lo mencionado.
+7 minutes ago
+Solo dame un resumen de lo que se necesita implementar, y lo otro dame mas contenido para para darle mas contexto al agente del otro proyecto y así tener precisión .
+6 minutes ago
+Perfecto, te voy a dar ambos:
+
+📋 RESUMEN EJECUTIVO - CAMBIOS NECESARIOS
+1. Home Page - Agregar Sección de Estadísticas
+Crear sección "By the Numbers" con 3 métricas:
+
+10x Faster Estimates
+98% Calculation Accuracy
++40% More Jobs Won
+2. Features Page - Completar 16 Features
+Expandir de 4 features a 16 distribuidas en 4 categorías:
+
+Estimates & AI (4) ✅ Ya tiene
+Legal & Contracts (4) ❌ Falta implementar
+Payments & Finance (4) ❌ Falta implementar
+Project Management (4) ❌ Falta implementar
+3. Páginas "Coming Soon"
+Crear página genérica para 5 links del footer:
+
+/about-owlfenc
+/about-mervin
+/privacy-policy
+/terms-of-service
+/legal-policy
+4. Meta Tags SEO
+Agregar títulos y descripciones únicas para cada página.
+
+5. Favicon
+Agregar ícono de Owl Fenc (búho).
+
+💬 PROMPT COMPLETO PARA EL AGENTE DEL PROYECTO OWLLANDING
+Copia todo lo siguiente y pégalo al agente:
+
+Necesito que implementes las siguientes mejoras al landing page de Owl Fenc. Lee todo el contexto antes de empezar.
+## CONTEXTO DEL PROYECTO
+Owl Fenc es una plataforma de gestión de construcción con IA para contratistas. Este landing page es un proyecto independiente que redirige a la app principal en https://app.owlfenc.com/
+**IMPORTANTE:** El branding correcto es "Owl Fenc" (sin 'e' al final).
+---
+## TAREA 1: AGREGAR SECCIÓN DE ESTADÍSTICAS AL HOME PAGE
+**Ubicación:** Después del hero section, antes de "Everything You Need to Succeed"
+**Código a agregar:**
+```tsx
+{/* Statistics Section */}
+<section className="py-20 bg-gradient-to-br from-primary/5 via-background to-background">
+  <div className="container mx-auto px-4">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        Why Contractors Choose Owl Fenc
+      </h2>
+      <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        Join hundreds of contractors transforming their businesses with AI-powered tools
+      </p>
+    </div>
+    
+    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow">
+        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+          10x
+        </div>
+        <div className="text-xl font-semibold mb-2">Faster Estimates</div>
+        <p className="text-muted-foreground">
+          Generate quotes in minutes, not hours
+        </p>
+      </div>
+      
+      <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow">
+        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+          98%
+        </div>
+        <div className="text-xl font-semibold mb-2">Calculation Accuracy</div>
+        <p className="text-muted-foreground">
+          AI-powered precision for materials & labor
+        </p>
+      </div>
+      
+      <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow">
+        <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+          +40%
+        </div>
+        <div className="text-xl font-semibold mb-2">More Jobs Won</div>
+        <p className="text-muted-foreground">
+          Professional proposals close more deals
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+TAREA 2: COMPLETAR FEATURES PAGE CON 16 FEATURES
+Problema: Actualmente solo muestra 4 features en "Estimates & AI". Necesitas agregar las otras 12 features en las 3 categorías restantes.
+
+Estructura completa de datos:
+
+const FEATURES_BY_CATEGORY = {
+  'Estimates & AI': [
+    {
+      icon: MessageSquare,
+      title: 'Mervin AI Assistant',
+      description: 'Create complete, accurate estimates in less than 60 seconds. Conversational AI powered by advanced automation and dynamic cost analysis delivers professional estimates through natural language chat.'
+    },
+    {
+      icon: Calculator,
+      title: 'Smart Calculators',
+      description: 'Specialized calculators for all construction trades and materials. Accurate quantities, labor costs, and pricing tailored to your market and specialty.'
+    },
+    {
+      icon: Search,
+      title: 'DeepSearch Material Intelligence',
+      description: 'Real-time pricing research across multiple suppliers. Automatically find the best deals on materials and stay competitive on every bid.'
+    },
+    {
+      icon: FileText,
+      title: 'Professional Templates',
+      description: 'Choose from Basic, Premium, or Luxury estimate templates. Customizable designs that make your proposals stand out from the competition.'
+    }
+  ],
+  'Legal & Contracts': [
+    {
+      icon: Scale,
+      title: 'Smart Contract Generator',
+      description: 'Generate formal legal contracts in 70 seconds with all required clauses. AI-powered legal protection specifically designed for construction projects with complete liability coverage.'
+    },
+    {
+      icon: PenTool,
+      title: 'Digital Signatures',
+      description: 'Legally-binding electronic signatures for contracts and agreements. Secure, fast, and accepted in all 50 states. Track signature status in real-time.'
+    },
+    {
+      icon: Home,
+      title: 'Property Verification',
+      description: 'AI-powered ownership verification using ATTOM Data. Prevent fraud and wasted time by confirming property ownership, boundaries, and HOA restrictions before creating estimates.'
+    },
+    {
+      icon: FileCheck,
+      title: 'Permit Advisor',
+      description: 'Navigate complex permit requirements with AI guidance. Get instant answers about local building codes, permit processes, and compliance requirements for your projects.'
+    }
+  ],
+  'Payments & Finance': [
+    {
+      icon: CreditCard,
+      title: 'Stripe Payment Processing',
+      description: 'Accept credit cards, debit cards, and ACH payments securely. PCI-compliant payment processing with automatic receipt generation and payment tracking.'
+    },
+    {
+      icon: Receipt,
+      title: 'Professional Invoicing',
+      description: 'Create and send professional invoices in under 60 seconds. Automated payment reminders, status tracking, and integration with your accounting software.'
+    },
+    {
+      icon: DollarSign,
+      title: 'Payment Tracking',
+      description: 'Monitor deposits, progress payments, and final payments. Track payment history, send automated reminders, and reconcile accounts effortlessly.'
+    },
+    {
+      icon: BookOpen,
+      title: 'QuickBooks Integration',
+      description: 'Seamless sync with QuickBooks Online. Automatic invoice sync, payment reconciliation, expense tracking, and financial reporting. Available on Master Contractor plan.'
+    }
+  ],
+  'Project Management': [
+    {
+      icon: LayoutDashboard,
+      title: 'Project Dashboard',
+      description: 'Centralized hub for managing all your projects. Track progress, deadlines, team members, and documents in one organized dashboard with real-time updates.'
+    },
+    {
+      icon: Clock,
+      title: 'Timeline Tracking',
+      description: 'Visual project timelines with milestone tracking. Set deadlines, track progress, and ensure projects stay on schedule with automated alerts for upcoming deadlines.'
+    },
+    {
+      icon: Users,
+      title: 'Client Management',
+      description: 'Organize client information, contact history, and project details. Store notes, preferences, and communication logs for better customer relationships.'
+    },
+    {
+      icon: Paperclip,
+      title: 'File Attachments',
+      description: 'Store and organize project documents, photos, permits, and contracts. Secure cloud storage with easy access from any device. Share files with clients instantly.'
+    }
+  ]
+};
+Importaciones necesarias al inicio del archivo:
+
+import { MessageSquare, Calculator, Search, FileText, Scale, PenTool, Home, FileCheck, CreditCard, Receipt, DollarSign, BookOpen, LayoutDashboard, Clock, Users, Paperclip } from 'lucide-react';
+Actualiza el componente Features.tsx para renderizar todas las categorías con este mapeo de datos.
