@@ -59,12 +59,12 @@ export default function Header() {
               Integrations
             </Link>
             <div className="flex items-center gap-3 ml-4">
-              <a href={APP_URL} data-testid="button-login">
+              <a href={APP_URL} target="_blank" rel="noopener noreferrer" data-testid="button-login">
                 <Button variant="ghost" size="sm">
                   Log In
                 </Button>
               </a>
-              <a href={APP_URL} data-testid="button-signup">
+              <a href={APP_URL} target="_blank" rel="noopener noreferrer" data-testid="button-signup">
                 <Button size="sm">
                   Start Free Trial
                 </Button>
@@ -117,12 +117,12 @@ export default function Header() {
                 Integrations
               </Link>
               <div className="pt-3 border-t flex flex-col gap-2">
-                <a href={APP_URL} className="w-full" data-testid="button-mobile-login">
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="w-full" data-testid="button-mobile-login">
                   <Button variant="outline" className="w-full">
                     Log In
                   </Button>
                 </a>
-                <a href={APP_URL} className="w-full" data-testid="button-mobile-signup">
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="w-full" data-testid="button-mobile-signup">
                   <Button className="w-full">
                     Start Free Trial
                   </Button>
