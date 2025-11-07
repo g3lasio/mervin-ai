@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 import { Check, X } from 'lucide-react';
 
 const APP_URL = 'https://app.owlfenc.com';
@@ -130,6 +131,11 @@ export default function Pricing() {
 
   return (
     <div className="min-h-screen py-20">
+      <Helmet>
+        <title>Pricing Plans - Owl Fenc</title>
+        <meta name="description" content="Choose the perfect plan for your construction business. From free to unlimited. 14-day trial with no credit card required." />
+      </Helmet>
+
       <div className="container mx-auto max-w-7xl px-4">
         <motion.div 
           className="text-center mb-16"

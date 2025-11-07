@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 import { 
   Bot, 
   Search, 
@@ -103,6 +104,11 @@ const targetAudiences = [
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>Owl Fenc - AI-Powered Construction Management for Contractors</title>
+        <meta name="description" content="Complete construction management platform with AI-powered estimates, legal contracts, property verification, and payment processing. Built for fence contractors and subcontractors." />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-chart-2/10" />

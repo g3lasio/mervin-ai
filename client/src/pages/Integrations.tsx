@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 import { CheckCircle2 } from 'lucide-react';
 import { SiStripe, SiOpenai, SiGooglecloud, SiQuickbooks, SiPostgresql } from 'react-icons/si';
 
@@ -145,6 +146,11 @@ const staggerContainer = {
 export default function Integrations() {
   return (
     <div className="min-h-screen py-20">
+      <Helmet>
+        <title>Integrations - Owl Fenc Platform</title>
+        <meta name="description" content="Owl Fenc integrates with Stripe, ATTOM Data, OpenAI, Claude, QuickBooks, and more to give you the most powerful construction management experience." />
+      </Helmet>
+
       <div className="container mx-auto max-w-7xl px-4">
         <motion.div 
           className="text-center mb-16"

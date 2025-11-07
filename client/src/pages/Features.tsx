@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 import { 
   Bot, 
   Calculator, 
@@ -149,6 +150,11 @@ const staggerContainer = {
 export default function Features() {
   return (
     <div className="min-h-screen py-20">
+      <Helmet>
+        <title>Features - Owl Fenc Construction Platform</title>
+        <meta name="description" content="Discover Owl Fenc's powerful features: AI estimates with Mervin, legal contract generation, property verification, payment processing, project management, and more." />
+      </Helmet>
+
       <div className="container mx-auto max-w-7xl px-4">
         <motion.div 
           className="text-center mb-16"
