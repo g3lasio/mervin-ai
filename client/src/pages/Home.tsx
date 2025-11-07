@@ -42,19 +42,19 @@ const scaleIn = {
 
 const stats = [
   {
-    value: '10x',
-    label: 'Faster Estimates',
-    description: 'Generate quotes in minutes, not hours'
+    value: '<60s',
+    label: 'Estimate Creation',
+    description: 'Generate complete, accurate estimates in under a minute'
   },
   {
-    value: '98%',
-    label: 'Calculation Accuracy',
-    description: 'AI-powered precision for materials & labor'
+    value: '70s',
+    label: 'Contract Generation',
+    description: 'Formal legal contracts with all clauses integrated'
   },
   {
-    value: '+40%',
-    label: 'More Jobs Won',
-    description: 'Professional proposals close more deals'
+    value: '1-100+',
+    label: 'Estimates Per Day',
+    description: 'Platform scales from simple jobs to enterprise volume'
   }
 ];
 
@@ -62,7 +62,7 @@ const features = [
   {
     icon: Bot,
     title: 'Mervin AI Assistant',
-    description: 'Chat with our AI to create detailed estimates in minutes. Just describe your project and Mervin handles the calculations.',
+    description: 'Create complete, accurate estimates in under 60 seconds. AI-powered automation and dynamic cost analysis through natural conversation.',
     gradient: 'from-primary to-chart-2'
   },
   {
@@ -73,26 +73,26 @@ const features = [
   },
   {
     icon: Shield,
-    title: 'Legal Defense Contracts',
-    description: 'AI-generated legal contracts that protect you. Every contract reviewed for compliance and clarity.',
+    title: 'Smart Contract Generator',
+    description: 'Generate formal project contracts in just 70 seconds with all legal clauses integrated. Complete protection, zero hassle.',
     gradient: 'from-primary to-chart-2'
   },
   {
     icon: FileText,
     title: 'Property Verification',
-    description: 'Verify ownership, boundaries, and restrictions with ATTOM Data integration before you start.',
+    description: 'AI-powered ownership verification prevents fraud and wasted time before you invest in creating estimates.',
     gradient: 'from-chart-2 to-primary'
   },
   {
     icon: CreditCard,
-    title: 'Stripe Payment Processing',
-    description: 'Accept credit cards, ACH, and digital payments. Get paid faster with automated invoicing.',
+    title: 'Integrated Payments & Invoicing',
+    description: 'Generate invoices in under 60 seconds. Accept payments through Stripe with integrated digital signatures.',
     gradient: 'from-primary to-chart-2'
   },
   {
     icon: TrendingUp,
-    title: 'Project Management',
-    description: 'Track all projects, timelines, and client communications in one centralized dashboard.',
+    title: 'Complete Project Management',
+    description: 'Manage scheduling, progress, documents, and communication from one centralized dashboard.',
     gradient: 'from-chart-2 to-primary'
   }
 ];

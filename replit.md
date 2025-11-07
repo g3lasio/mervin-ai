@@ -57,13 +57,19 @@ client/
 2. **Mero Patrón** - $49.99/month (Most Popular) - Professional contractors
 3. **Master Contractor** - $99.99/month - Unlimited everything
 
-### Core Features
-- Mervin AI Assistant (conversational estimate creation)
-- DeepSearch Material Intelligence (real-time pricing)
-- Legal Defense Contracts (AI-generated legal protection)
-- Property Verification (ATTOM Data integration)
-- Stripe Payment Processing
-- Project Management Dashboard
+### Core Features & System Capabilities
+
+The Owl Fenc system offers an automated, fast, and reliable ecosystem designed for contractors to work with precision, security, and professionalism:
+
+1. **AI-Powered Estimates** - Create complete, accurate estimates in under 60 seconds through intelligent automation and dynamic cost analysis
+2. **Smart Contract Generator** - Generate formal project contracts in just 70 seconds with all legal clauses and project data integrated
+3. **Integrated Digital Signatures** - Fast, secure signature collection without external providers, reducing friction and costs
+4. **Property Verification (Ownership Check)** - AI-powered ownership verification prevents fraud and wasted time before investing in estimates
+5. **Permit Advisor** - Automatically analyzes all possible required permits, including those both contractor and client might overlook
+6. **Invoice Generator** - Create professional invoices in under 60 seconds, ready to send immediately
+7. **Complete Project Management** - Manage scheduling, progress, documents, and communication from one centralized dashboard
+8. **DeepSearch Material Intelligence** - Real-time pricing research across multiple suppliers
+9. **Stripe Payment Processing** - Accept credit cards, ACH, and digital payments with automatic tracking
 
 ### Target Audience
 1. General Contractors (managing multi-million dollar projects to small jobs)
@@ -106,6 +112,15 @@ The build outputs to `dist/` directory ready for static deployment.
 
 ## Recent Changes
 
+- **November 7, 2025:** Added detailed system capabilities with specific timing metrics
+  - Updated Features.tsx with precise timing: estimates <60s, contracts 70s, invoices <60s
+  - Updated Home.tsx stats to showcase specific capabilities (<60s estimates, 70s contracts, 1-100+ estimates/day)
+  - Added "The Owl Fenc System" section to AboutOwlFenc.tsx detailing complete ecosystem
+  - Updated all feature descriptions to emphasize automation, speed, and reliability
+  - Changed "Fence Calculators" → "Smart Calculators" for all construction trades
+  - Changed "Professional Invoicing" → "Invoice Generator" with <60s generation time
+  - Changed "Project Dashboard" → "Complete Project Management" emphasizing centralized control
+  - Updated replit.md Core Features section with detailed capabilities and timing
 - **November 6, 2025:** Expanded content to reflect full construction industry scope
   - Updated all pages to emphasize platform works for ALL construction trades
   - Changed focus from "fencing contractors" to entire construction ecosystem

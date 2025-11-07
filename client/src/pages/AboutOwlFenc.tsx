@@ -121,6 +121,116 @@ export default function AboutOwlFenc() {
           </div>
         </motion.div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20"
+        >
+          <Card className="overflow-hidden">
+            <CardContent className="p-8 md:p-12">
+              <h2 className="text-3xl font-bold mb-6">The Owl Fenc System</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                An automated, fast, and reliable ecosystem designed for contractors to work with precision, 
+                security, and professionalism—reducing operational time and maximizing productivity.
+              </p>
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">AI-Powered Estimates in Under 60 Seconds</h3>
+                    <p className="text-muted-foreground">
+                      Create complete, accurate estimates in less than a minute thanks to intelligent automation 
+                      and dynamic cost analysis. No more hours spent calculating materials and labor.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Contract Generation in 70 Seconds</h3>
+                    <p className="text-muted-foreground">
+                      Once a client approves an estimate, generate a formal project contract with all data and 
+                      legal clauses integrated in just 70 seconds. Complete protection, zero hassle.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Target className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Integrated Digital Signatures</h3>
+                    <p className="text-muted-foreground">
+                      Fast, secure signature collection without depending on external providers. Reduce friction, 
+                      eliminate costs, and close deals faster with our built-in signing system.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">AI-Powered Ownership Verification</h3>
+                    <p className="text-muted-foreground">
+                      Prevent fraud and wasted time before investing resources in creating estimates. Verify real 
+                      property ownership with precise AI-powered data and comprehensive property information.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Target className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Automatic Permit Analysis</h3>
+                    <p className="text-muted-foreground">
+                      Identifies all possible required permits for your project—including those you and your client 
+                      might overlook. Ensure regulatory compliance and prevent costly delays.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Professional Invoices in Under 60 Seconds</h3>
+                    <p className="text-muted-foreground">
+                      Generate professional invoices for completed projects in less than a minute, ready to send 
+                      or share immediately with automatic tracking and payment management.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Centralized Project Management</h3>
+                    <p className="text-muted-foreground">
+                      Manage scheduling, progress, documents, and communication for every project from one powerful 
+                      dashboard. Designed for maximum efficiency, control, and real-time visibility.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
         <div className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>

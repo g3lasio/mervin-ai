@@ -30,7 +30,7 @@ const features = {
       {
         icon: Bot,
         title: 'Mervin AI Assistant',
-        description: 'Conversational AI that creates detailed estimates through natural language. Just chat with Mervin about your project, and get professional estimates in minutes.'
+        description: 'Create complete, accurate estimates in less than 60 seconds. Conversational AI powered by advanced automation and dynamic cost analysis delivers professional estimates through natural language chat.'
       },
       {
         icon: Calculator,
@@ -57,22 +57,22 @@ const features = {
       {
         icon: Shield,
         title: 'Smart Contract Generator',
-        description: 'AI-powered legal contracts that protect your business. Every contract includes industry-standard clauses, payment terms, and liability protection.'
+        description: 'Generate formal project contracts in just 70 seconds once a client approves an estimate. AI-powered contracts include all project data, industry-standard clauses, payment terms, and comprehensive liability protection.'
       },
       {
         icon: PenTool,
         title: 'Digital Signatures',
-        description: 'Legally-binding electronic signatures integrated into every contract. Clients can sign from any device, speeding up your approval process.'
+        description: 'Fully integrated, legally-binding electronic signatures with no external providers required. Fast, secure, and friction-free process for both clients and contractors. Sign from any device, reducing costs and approval time.'
       },
       {
         icon: MapPin,
-        title: 'Property Verification',
-        description: 'ATTOM Data integration for comprehensive property research. Verify ownership, boundaries, HOA restrictions, and property values before you bid.'
+        title: 'Property Verification (Ownership Check)',
+        description: 'AI-powered ownership verification prevents fraud and wasted time before you invest in creating estimates. Get precise ownership data, property boundaries, HOA restrictions, and values through ATTOM Data integration.'
       },
       {
         icon: FileCheck,
         title: 'Permit Advisor',
-        description: 'Navigate complex permit requirements with AI guidance. Get recommendations for local regulations, required permits, and compliance documentation.'
+        description: 'Automatically analyzes and identifies all possible permits required for your project—including those both you and your client might overlook. AI-powered recommendations ensure full regulatory compliance and prevent costly delays.'
       }
     ]
   },
@@ -88,8 +88,8 @@ const features = {
       },
       {
         icon: Receipt,
-        title: 'Professional Invoicing',
-        description: 'Create and send professional invoices in seconds. Track payment status, send automatic reminders, and manage outstanding balances effortlessly.'
+        title: 'Invoice Generator',
+        description: 'Generate professional invoices for completed projects in less than 60 seconds. Ready to send or share immediately with automatic tracking, payment reminders, and balance management.'
       },
       {
         icon: TrendingUp,
@@ -110,8 +110,8 @@ const features = {
     items: [
       {
         icon: LayoutDashboard,
-        title: 'Project Dashboard',
-        description: 'Centralized hub for all your projects. See active jobs, upcoming deadlines, and project status at a glance with customizable widgets.'
+        title: 'Complete Project Management',
+        description: 'Manage scheduling, progress, documents, and communication for every project from one centralized dashboard. Designed for maximum efficiency and control with real-time updates and customizable views.'
       },
       {
         icon: Clock,
