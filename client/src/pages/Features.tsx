@@ -34,8 +34,8 @@ const features = {
       },
       {
         icon: Calculator,
-        title: 'Fence Calculators',
-        description: 'Specialized calculators for wood, vinyl, and chain-link fencing. Accurate material quantities, labor costs, and pricing tailored to your market.'
+        title: 'Smart Calculators',
+        description: 'Specialized calculators for all construction trades and materials. Accurate quantities, labor costs, and pricing tailored to your market and specialty.'
       },
       {
         icon: Search,

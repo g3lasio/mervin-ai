@@ -99,22 +99,22 @@ const features = [
 
 const targetAudiences = [
   {
-    icon: Hammer,
-    title: 'Fencing Contractors',
-    description: 'Specialists in wood, vinyl, chain-link, and ornamental fencing',
-    specialties: ['Residential Fencing', 'Commercial Projects', 'Fence Repair']
-  },
-  {
     icon: Building2,
     title: 'General Contractors',
-    description: 'Managing multiple projects and subcontractors efficiently',
+    description: 'Managing multiple projects and trades efficiently—from $500 jobs to multi-million dollar developments',
     specialties: ['Multi-Project Management', 'Subcontractor Coordination', 'Budget Control']
   },
   {
     icon: Users,
-    title: 'Subcontractors',
-    description: 'Professionals working with GCs on large-scale projects',
-    specialties: ['Quick Estimates', 'Professional Proposals', 'Payment Tracking']
+    title: 'Specialized Contractors',
+    description: 'Electrical, plumbing, HVAC, roofing, painting, flooring, and all trades',
+    specialties: ['Quick Estimates', 'Professional Proposals', 'Material Pricing']
+  },
+  {
+    icon: Hammer,
+    title: 'Service Contractors',
+    description: 'Cleaning, hauling, demolition, landscaping, and maintenance services',
+    specialties: ['Rapid Quoting', 'Volume Operations', 'Payment Processing']
   }
 ];
 
@@ -147,8 +147,9 @@ export default function Home() {
               className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto"
               {...fadeIn}
             >
-              Owl Fenc is the AI-powered platform that helps contractors create estimates 10x faster, 
-              generate legal contracts, and manage projects effortlessly.
+              Owl Fenc is the AI-powered platform that helps ALL construction professionals—from cleaning 
+              crews to general contractors—create estimates 10x faster, generate legal contracts, and manage 
+              projects effortlessly. Handle 1 or 100 estimates per day with ease.
             </motion.p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -251,10 +252,11 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Built for Construction Professionals
+              Built for ALL Construction Trades
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Whether you specialize in fencing or manage multiple projects, Owl Fenc adapts to your workflow
+              From simple hauling jobs to complex multi-million dollar projects—Owl Fenc adapts to your 
+              trade, your volume, and your workflow
             </p>
           </motion.div>
           

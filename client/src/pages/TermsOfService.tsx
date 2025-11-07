@@ -42,8 +42,9 @@ export default function TermsOfService() {
               <section>
                 <h2 className="text-2xl font-bold mb-4">2. Description of Service</h2>
                 <p className="text-muted-foreground mb-4">
-                  Owl Fenc provides an AI-powered construction management platform designed for fencing 
-                  contractors and construction professionals. Our services include:
+                  Owl Fenc provides an AI-powered construction management platform designed for ALL 
+                  construction professionals—from cleaning and hauling contractors to general contractors 
+                  managing multi-million dollar projects. Our services include:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-muted-foreground">
                   <li>Mervin AI Assistant for conversational estimate creation</li>

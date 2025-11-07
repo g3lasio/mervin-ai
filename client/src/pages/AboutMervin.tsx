@@ -16,8 +16,8 @@ const capabilities = [
     title: 'Natural Conversations',
     description: 'Talk to Mervin in plain English, just like texting a colleague. No technical jargon or complicated forms.',
     examples: [
-      '"Create an estimate for 100 feet of cedar fence"',
-      '"What\'s the current price for vinyl posts?"',
+      '"Create an estimate for bathroom remodeling"',
+      '"What\'s the current price for 2x4 lumber?"',
       '"Show me my projects with pending invoices"',
     ],
   },
@@ -77,8 +77,9 @@ export default function AboutMervin() {
             Your AI Construction Assistant
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Mervin is more than just a chatbot—it's your intelligent business partner that 
-            understands fencing, construction, and what it takes to run a successful contracting business.
+            Mervin is more than just a chatbot—it's your intelligent business partner that understands 
+            ALL construction trades—from cleaning and hauling to electrical, plumbing, roofing, and 
+            general contracting. Built to handle everything from simple jobs to complex million-dollar projects.
           </p>
         </motion.div>
 
@@ -98,9 +99,10 @@ export default function AboutMervin() {
                 <div>
                   <h2 className="text-3xl font-bold mb-4">What Makes Mervin Different</h2>
                   <p className="text-muted-foreground text-lg">
-                    Unlike generic AI assistants, Mervin is specifically trained on the fencing and 
-                    construction industry. It understands material types, labor requirements, local building 
-                    codes, and the unique challenges contractors face every day.
+                    Unlike generic AI assistants, Mervin is specifically trained on the ENTIRE construction 
+                    industry across all trades. It understands material types, labor requirements, local building 
+                    codes, and the unique challenges contractors face every day—whether you're doing basic 
+                    hauling, specialized electrical work, or managing complex multi-trade projects.
                   </p>
                 </div>
               </div>
@@ -212,12 +214,13 @@ export default function AboutMervin() {
                 <p>
                   The more you use Mervin, the smarter it gets. Every conversation, estimate, and 
                   project helps Mervin understand your unique business needs, pricing strategies, 
-                  and preferred workflows.
+                  and preferred workflows—regardless of your trade or specialty.
                 </p>
                 <p>
                   Mervin uses this knowledge to provide increasingly personalized and accurate assistance. 
                   It learns your typical markup percentages, favorite material suppliers, regional 
-                  pricing variations, and even seasonal patterns in your business.
+                  pricing variations, seasonal patterns, and can even handle high-volume operations—
+                  up to 100 estimates per day for busy contractors.
                 </p>
                 <p>
                   <strong>Privacy First:</strong> All your data is encrypted and used only to improve 

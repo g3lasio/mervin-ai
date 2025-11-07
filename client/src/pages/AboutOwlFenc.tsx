@@ -14,8 +14,8 @@ const fadeIn = {
 const values = [
   {
     icon: Hammer,
-    title: 'Built for Contractors',
-    description: 'Every feature designed with real fencing contractors in mind, solving actual problems they face daily.',
+    title: 'Built for All Trades',
+    description: 'Every feature designed for the entire construction industry—from cleaning and hauling to electrical, plumbing, roofing, and general contracting.',
   },
   {
     icon: Zap,
@@ -34,8 +34,8 @@ const values = [
   },
   {
     icon: Target,
-    title: 'Focused Mission',
-    description: 'Dedicated to making construction management accessible, affordable, and effective for all.',
+    title: 'Scalable for Any Size',
+    description: 'Whether you do 1 estimate per month or 100 per day, from $500 jobs to million-dollar projects—Owl Fenc scales with you.',
   },
   {
     icon: TrendingUp,
@@ -61,8 +61,9 @@ export default function AboutOwlFenc() {
             Revolutionizing Construction Management
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Owl Fenc is the AI-powered platform built specifically for fencing contractors and 
-            construction professionals who want to streamline their operations and grow their business.
+            Owl Fenc is the AI-powered platform built for ALL construction professionals—from cleaning 
+            and hauling to general contractors managing million-dollar projects. Streamline your operations 
+            and grow your business, whether you handle 1 or 100 estimates per day.
           </p>
         </motion.div>
 
@@ -78,21 +79,24 @@ export default function AboutOwlFenc() {
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Owl Fenc was born from a simple observation: fencing contractors were drowning in paperwork, 
-                  spending more time on administrative tasks than actual construction work. We saw talented 
-                  professionals losing jobs because they couldn't create estimates fast enough, facing legal 
-                  disputes due to poorly written contracts, and struggling to manage multiple projects simultaneously.
+                  Owl Fenc was born from a simple observation: contractors across ALL construction trades were 
+                  drowning in paperwork, spending more time on administrative tasks than actual work. We saw talented 
+                  professionals—from cleaning crews to general contractors—losing jobs because they couldn't create 
+                  estimates fast enough, facing legal disputes due to poorly written contracts, and struggling to 
+                  manage multiple projects simultaneously.
                 </p>
                 <p>
                   Our founders, coming from both the construction industry and Silicon Valley tech sector, 
-                  recognized that artificial intelligence could solve these problems. But it had to be done 
-                  right—AI that actually understands the fencing business, not just generic project management software.
+                  recognized that artificial intelligence could solve these problems across the entire construction 
+                  ecosystem. But it had to be done right—AI that actually understands construction work at every 
+                  level, from simple hauling jobs to complex multi-million dollar projects, not just generic 
+                  project management software.
                 </p>
                 <p>
-                  After two years of development and feedback from hundreds of contractors, we launched Owl Fenc 
-                  as the first AI-powered platform specifically designed for fencing professionals. Today, we're 
-                  helping contractors save an average of 15 hours per week, increase their bid win rate by 40%, 
-                  and grow their business with confidence.
+                  After two years of development and feedback from hundreds of contractors across all trades, we 
+                  launched Owl Fenc as the first AI-powered platform designed for the ENTIRE construction industry. 
+                  Today, we're helping contractors save an average of 15 hours per week, increase their bid win rate 
+                  by 40%, and grow their business with confidence—whether they're doing 1 estimate per week or 100 per day.
                 </p>
               </div>
             </CardContent>
@@ -109,8 +113,10 @@ export default function AboutOwlFenc() {
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Mission</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              To empower every fencing contractor with enterprise-level tools and AI assistance, 
-              leveling the playing field and helping small businesses compete with larger companies.
+              To empower EVERY construction professional—from solo operators doing cleaning and hauling 
+              to general contractors managing multi-million dollar projects—with enterprise-level tools 
+              and AI assistance, leveling the playing field and helping businesses of all sizes compete 
+              and thrive.
             </p>
           </div>
         </motion.div>

@@ -7,7 +7,7 @@
 
 ## Overview
 
-This is a standalone, static landing page for **Owl Fenc**, completely independent from the main product application. It showcases the platform's features, pricing plans, and integrations for fencing contractors and construction professionals.
+This is a standalone, static landing page for **Owl Fenc**, completely independent from the main product application. It showcases the platform's features, pricing plans, and integrations for ALL construction professionals—from cleaning and hauling contractors to general contractors managing multi-million dollar projects. The platform is designed to scale from 1 to 100+ estimates per day.
 
 ## Key Features
 
@@ -17,7 +17,7 @@ This is a standalone, static landing page for **Owl Fenc**, completely independe
   - Pricing: 3 subscription plans with monthly/yearly billing toggle
   - Integrations: 8 major integrations (Stripe, ATTOM Data, OpenAI, Claude, Google AI, QuickBooks, PostgreSQL, SendGrid)
   
-- **Additional Pages:** About Owl Fenc, About Mervin AI, Privacy Policy, Terms of Service, Legal Policy (Coming Soon placeholders)
+- **Additional Pages:** About Owl Fenc, About Mervin AI, Privacy Policy, Terms of Service, Legal Policy (all with full professional content)
 
 ## Tech Stack
 
@@ -66,9 +66,12 @@ client/
 - Project Management Dashboard
 
 ### Target Audience
-1. Fencing Contractors (wood, vinyl, chain-link specialists)
-2. General Contractors (multi-project management)
-3. Subcontractors (working with GCs)
+1. General Contractors (managing multi-million dollar projects to small jobs)
+2. Specialized Contractors (electrical, plumbing, HVAC, roofing, painting, flooring, fencing, etc.)
+3. Service Contractors (cleaning, hauling, demolition, landscaping, maintenance)
+4. Subcontractors (all trades working with GCs)
+
+**Note:** While the platform was initially conceived with fencing in mind, it is designed for the ENTIRE construction industry across all trades and project sizes.
 
 ## External Links
 
@@ -103,6 +106,13 @@ The build outputs to `dist/` directory ready for static deployment.
 
 ## Recent Changes
 
+- **November 6, 2025:** Expanded content to reflect full construction industry scope
+  - Updated all pages to emphasize platform works for ALL construction trades
+  - Changed focus from "fencing contractors" to entire construction ecosystem
+  - Added emphasis on scalability (1-100+ estimates per day)
+  - Created full content pages: About Owl Fenc, About Mervin AI, Privacy Policy, Terms of Service, Legal Policy
+  - Updated target audiences to include general contractors, specialized contractors, and service contractors
+  - Removed excessive fencing focus—now includes cleaning, hauling, electrical, plumbing, HVAC, roofing, etc.
 - **November 6, 2025:** Added Framer Motion animations throughout the site
   - Hero section fade-in and stagger animations on Home page
   - Scroll-triggered animations for stats, features, and audience cards
