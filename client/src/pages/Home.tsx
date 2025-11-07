@@ -40,24 +40,6 @@ const scaleIn = {
   transition: { duration: 0.5 }
 };
 
-const stats = [
-  {
-    value: '<60s',
-    label: 'Estimate Creation',
-    description: 'Generate complete, accurate estimates in under a minute'
-  },
-  {
-    value: '70s',
-    label: 'Contract Generation',
-    description: 'Formal legal contracts with all clauses integrated'
-  },
-  {
-    value: '1-100+',
-    label: 'Estimates Per Day',
-    description: 'Platform scales from simple jobs to enterprise volume'
-  }
-];
-
 const features = [
   {
     icon: Bot,
@@ -171,32 +153,50 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 border-y bg-card/50">
-        <motion.div 
-          className="container mx-auto max-w-7xl px-4"
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={staggerContainer}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div 
-                key={index} 
-                className="text-center" 
-                data-testid={`stat-${index}`}
-                variants={scaleIn}
-              >
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-lg font-semibold mb-1">{stat.label}</div>
-                <div className="text-sm text-muted-foreground">{stat.description}</div>
-              </motion.div>
-            ))}
+      {/* Statistics Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Why Contractors Choose Owl Fenc
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Join hundreds of contractors transforming their businesses with AI-powered tools
+            </p>
           </div>
-        </motion.div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow" data-testid="stat-0">
+              <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+                10x
+              </div>
+              <div className="text-xl font-semibold mb-2">Faster Estimates</div>
+              <p className="text-muted-foreground">
+                Generate quotes in minutes, not hours
+              </p>
+            </div>
+            
+            <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow" data-testid="stat-1">
+              <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+                98%
+              </div>
+              <div className="text-xl font-semibold mb-2">Calculation Accuracy</div>
+              <p className="text-muted-foreground">
+                AI-powered precision for materials & labor
+              </p>
+            </div>
+            
+            <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow" data-testid="stat-2">
+              <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+                +40%
+              </div>
+              <div className="text-xl font-semibold mb-2">More Jobs Won</div>
+              <p className="text-muted-foreground">
+                Professional proposals close more deals
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Key Features */}
