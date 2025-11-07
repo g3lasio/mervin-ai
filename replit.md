@@ -82,9 +82,10 @@ The Owl Fenc system offers an automated, fast, and reliable ecosystem designed f
 ## External Links
 
 All Call-to-Action buttons redirect to the main application:
-- **Signup:** https://app.owlfenc.com/signup
-- **Login:** https://app.owlfenc.com/login
+- **All CTAs:** https://app.owlfenc.com (app automatically handles login/signup flow)
 - **Pricing** (internal): /pricing
+
+Note: The main app at app.owlfenc.com redirects to the login page, which includes a signup option. All "Start Free Trial", "Get Started", and "Log In" buttons point to app.owlfenc.com to leverage this unified entry point.
 
 ## Development
 
@@ -112,6 +113,11 @@ The build outputs to `dist/` directory ready for static deployment.
 
 ## Recent Changes
 
+- **November 7, 2025:** Updated all CTA redirections to unified app entry point
+  - Changed all signup/login links to point to app.owlfenc.com (no /signup or /login paths)
+  - App automatically handles login page with integrated signup option
+  - Simplified user experience with single entry point for all authentication flows
+  - Updated Header, Home, Pricing, About Owl Fenc, and About Mervin pages
 - **November 7, 2025:** Added detailed system capabilities with specific timing metrics
   - Updated Features.tsx with precise timing: estimates <60s, contracts 70s, invoices <60s
   - Updated Home.tsx stats to showcase specific capabilities (<60s estimates, 70s contracts, 1-100+ estimates/day)

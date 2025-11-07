@@ -155,7 +155,7 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               {...fadeIn}
             >
-              <a href={`${APP_URL}/signup`} data-testid="button-hero-cta">
+              <a href={APP_URL} data-testid="button-hero-cta">
                 <Button size="lg" className="text-lg px-8 py-6">
                   <Target className="w-5 h-5 mr-2" />
                   Start Free Trial
@@ -310,7 +310,7 @@ export default function Home() {
                 Join hundreds of contractors who are saving time and winning more jobs with Owl Fenc
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href={`${APP_URL}/signup`} data-testid="button-cta-signup">
+                <a href={APP_URL} data-testid="button-cta-signup">
                   <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
                     Start Free Trial
                   </Button>

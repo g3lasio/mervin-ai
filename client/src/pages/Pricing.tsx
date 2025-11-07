@@ -246,7 +246,7 @@ export default function Pricing() {
               </CardContent>
 
               <CardFooter>
-                <a href={`${APP_URL}/signup`} className="w-full" data-testid={`button-cta-${plan.code.toLowerCase()}`}>
+                <a href={APP_URL} className="w-full" data-testid={`button-cta-${plan.code.toLowerCase()}`}>
                   <Button 
                     variant={plan.ctaVariant} 
                     className="w-full"

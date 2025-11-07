@@ -247,12 +247,12 @@ export default function AboutMervin() {
                 with Mervin's AI assistance.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <a href="https://app.owlfenc.com/signup" target="_blank" rel="noopener noreferrer">
+                <a href="https://app.owlfenc.com" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" data-testid="button-signup">
                     Start Free Trial
                   </Button>
                 </a>
-                <a href="https://app.owlfenc.com/login" target="_blank" rel="noopener noreferrer">
+                <a href="https://app.owlfenc.com" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" variant="outline" data-testid="button-login">
                     Sign In
                   </Button>

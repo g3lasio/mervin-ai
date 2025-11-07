@@ -275,7 +275,7 @@ export default function AboutOwlFenc() {
                 for their business management needs.
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
-                <a href="https://app.owlfenc.com/signup" target="_blank" rel="noopener noreferrer">
+                <a href="https://app.owlfenc.com" target="_blank" rel="noopener noreferrer">
                   <Button size="lg" data-testid="button-signup">
                     Get Started Free
                   </Button>
