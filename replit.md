@@ -15,7 +15,7 @@ This is a standalone, static landing page for **Owl Fenc**, completely independe
   - Home: Hero section, key features, target audiences, stats
   - Features: 16+ features organized in 4 categories (Estimates & AI, Legal & Contracts, Payments & Finance, Project Management)
   - Pricing: 3 subscription plans with monthly/yearly billing toggle
-  - Integrations: 8 major integrations (Stripe, ATTOM Data, OpenAI, Claude, Google AI, QuickBooks, PostgreSQL, SendGrid)
+  - Integrations: 4 major integrations (Stripe, OpenAI, Claude, QuickBooks) + ATTOM Data as data source
   
 - **Additional Pages:** About Owl Fenc, About Mervin AI, Privacy Policy, Terms of Service, Legal Policy (all with full professional content)
 
@@ -113,6 +113,12 @@ The build outputs to `dist/` directory ready for static deployment.
 
 ## Recent Changes
 
+- **November 8, 2025:** Simplified integrations page for honesty and professionalism
+  - Removed integrations that aren't actually offered: Google AI, PostgreSQL, SendGrid
+  - Kept only real integrations: Stripe (Payments), OpenAI (AI), Claude (AI), QuickBooks (Accounting - Premium)
+  - Clarified ATTOM Data as the platform's data source (not a user-available integration)
+  - Updated page content to Spanish for consistency
+  - Made the page more realistic and professional, being honest with users
 - **November 7, 2025:** Updated all CTA redirections to unified app entry point
   - Changed all signup/login links to point to app.owlfenc.com (no /signup or /login paths)
   - App automatically handles login page with integrated signup option

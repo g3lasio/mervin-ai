@@ -2,8 +2,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
-import { CheckCircle2 } from 'lucide-react';
-import { SiStripe, SiOpenai, SiGooglecloud, SiQuickbooks, SiPostgresql } from 'react-icons/si';
+import { CheckCircle2, Database } from 'lucide-react';
+import { SiStripe, SiOpenai, SiQuickbooks } from 'react-icons/si';
 
 interface Integration {
   name: string;
@@ -31,21 +31,8 @@ const integrations: Integration[] = [
     icon: SiStripe,
   },
   {
-    name: 'ATTOM Data',
-    category: 'Property Intelligence',
-    description: 'Comprehensive property data and ownership verification',
-    features: [
-      'Property ownership verification',
-      'Boundary and lot size information',
-      'HOA and deed restriction data',
-      'Property value estimates',
-    ],
-    status: 'active',
-    color: 'hsl(var(--primary))',
-  },
-  {
     name: 'OpenAI',
-    category: 'AI Models',
+    category: 'AI Intelligence',
     description: 'Advanced AI for estimates, contracts, and customer communication',
     features: [
       'GPT-4 for intelligent conversations',
@@ -59,7 +46,7 @@ const integrations: Integration[] = [
   },
   {
     name: 'Claude (Anthropic)',
-    category: 'AI Models',
+    category: 'AI Intelligence',
     description: 'Advanced AI reasoning for complex construction scenarios',
     features: [
       'Deep analysis of project requirements',
@@ -69,20 +56,6 @@ const integrations: Integration[] = [
     ],
     status: 'active',
     color: '#f97316',
-  },
-  {
-    name: 'Google AI',
-    category: 'AI Models',
-    description: 'Google Gemini for multimodal AI capabilities',
-    features: [
-      'Image analysis for project planning',
-      'Document processing and extraction',
-      'Multilingual support',
-      'Real-time data processing',
-    ],
-    status: 'active',
-    color: '#4285f4',
-    icon: SiGooglecloud,
   },
   {
     name: 'QuickBooks',
@@ -97,33 +70,6 @@ const integrations: Integration[] = [
     status: 'premium',
     color: '#2ca01c',
     icon: SiQuickbooks,
-  },
-  {
-    name: 'PostgreSQL (Neon)',
-    category: 'Database',
-    description: 'Scalable, secure database with automatic backups',
-    features: [
-      'Multi-tenant data isolation',
-      'Automatic daily backups',
-      'Point-in-time recovery',
-      'Serverless scaling',
-    ],
-    status: 'active',
-    color: '#3b82f6',
-    icon: SiPostgresql,
-  },
-  {
-    name: 'SendGrid',
-    category: 'Email',
-    description: 'Reliable email delivery for estimates, contracts, and notifications',
-    features: [
-      'Estimate and contract delivery',
-      'Payment reminders',
-      'Project status updates',
-      'Email tracking and analytics',
-    ],
-    status: 'active',
-    color: '#1a82e2',
   },
 ];
 
@@ -147,8 +93,8 @@ export default function Integrations() {
   return (
     <div className="min-h-screen py-20">
       <Helmet>
-        <title>Integrations - Owl Fenc Platform</title>
-        <meta name="description" content="Owl Fenc integrates with Stripe, ATTOM Data, OpenAI, Claude, QuickBooks, and more to give you the most powerful construction management experience." />
+        <title>Integraciones - Owl Fenc Platform</title>
+        <meta name="description" content="Owl Fenc se integra con Stripe, OpenAI, Claude y QuickBooks para brindarte una experiencia completa de gestión de construcción. Powered by ATTOM Data." />
       </Helmet>
 
       <div className="container mx-auto max-w-7xl px-4">
@@ -159,14 +105,14 @@ export default function Integrations() {
           transition={{ duration: 0.6 }}
         >
           <Badge className="mb-6" variant="secondary" data-testid="badge-integrations">
-            Powerful Integrations
+            Integraciones Disponibles
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Connect with the Tools You Already Use
+            Conecta con las Herramientas que Necesitas
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Owl Fenc integrates seamlessly with industry-leading platforms to provide 
-            you with a complete construction management solution.
+            Owl Fenc se integra con plataformas líderes de la industria para brindarte 
+            una solución completa de gestión de construcción.
           </p>
         </motion.div>
 
@@ -244,7 +190,7 @@ export default function Integrations() {
           ))}
         </motion.div>
 
-        {/* Coming Soon Section */}
+        {/* Data Sources Section */}
         <motion.div 
           className="mt-20"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -253,18 +199,38 @@ export default function Integrations() {
           transition={{ duration: 0.6 }}
         >
           <Card className="bg-muted/30">
-            <CardContent className="p-12 text-center">
-              <h2 className="text-3xl font-bold mb-4">More Integrations Coming Soon</h2>
-              <p className="text-xl text-muted-foreground mb-6 max-w-2xl mx-auto">
-                We're constantly adding new integrations to help you work more efficiently. 
-                Have a suggestion? Let us know!
-              </p>
-              <div className="flex flex-wrap gap-3 justify-center">
-                <Badge variant="outline" className="px-4 py-2">Xero</Badge>
-                <Badge variant="outline" className="px-4 py-2">Zapier</Badge>
-                <Badge variant="outline" className="px-4 py-2">Slack</Badge>
-                <Badge variant="outline" className="px-4 py-2">Google Calendar</Badge>
-                <Badge variant="outline" className="px-4 py-2">DocuSign</Badge>
+            <CardContent className="p-12">
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Database className="w-8 h-8 text-primary" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold mb-3">Datos de Propiedad Confiables</h2>
+                  <p className="text-muted-foreground mb-4 max-w-3xl">
+                    Owl Fenc utiliza <strong>ATTOM Data</strong> como fuente de datos para verificación de propiedad, 
+                    información de lotes, y datos de HOA. Esta información está integrada directamente en el sistema 
+                    para brindarte datos precisos y actualizados sobre cada propiedad. <strong>No requiere configuración 
+                    por parte del cliente</strong> — funciona automáticamente.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-muted-foreground">Verificación de titularidad de propiedad</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-muted-foreground">Información de límites y tamaño de lote</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-muted-foreground">Datos de HOA y restricciones de escritura</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-muted-foreground">Estimaciones de valor de propiedad</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>
