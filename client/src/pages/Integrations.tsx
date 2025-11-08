@@ -73,8 +73,6 @@ const integrations: Integration[] = [
   },
 ];
 
-const categories = Array.from(new Set(integrations.map(i => i.category)));
-
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -115,23 +113,6 @@ export default function Integrations() {
             una solución completa de gestión de construcción.
           </p>
         </motion.div>
-
-        {/* Category filters */}
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
-          <Badge variant="outline" className="px-4 py-2 cursor-pointer hover-elevate">
-            All Integrations ({integrations.length})
-          </Badge>
-          {categories.map((category) => (
-            <Badge 
-              key={category} 
-              variant="outline" 
-              className="px-4 py-2 cursor-pointer hover-elevate"
-              data-testid={`filter-${category.toLowerCase().replace(/\s+/g, '-')}`}
-            >
-              {category} ({integrations.filter(i => i.category === category).length})
-            </Badge>
-          ))}
-        </div>
 
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
