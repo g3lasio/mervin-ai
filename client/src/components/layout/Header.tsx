@@ -2,6 +2,7 @@ import { Link, useLocation } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import logoBlack from '@assets/Black logo - no background_1762890715119.png';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,9 +17,11 @@ export default function Header() {
       <div className="container mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2" data-testid="link-home">
-            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
-              Owl Fenc
-            </div>
+            <img 
+              src={logoBlack} 
+              alt="Owl Fenc" 
+              className="h-10 w-auto dark:invert"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6">
