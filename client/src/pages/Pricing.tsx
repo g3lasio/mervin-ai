@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
-import { Check, X } from 'lucide-react';
+import { Check, X, Sparkles } from 'lucide-react';
 
 const APP_URL = 'https://app.owlfenc.com';
 
@@ -26,6 +26,7 @@ interface PricingPlan {
   features: Feature[];
   cta: string;
   ctaVariant: 'default' | 'outline';
+  leadprimeDiscount?: boolean;
 }
 
 const pricingPlans: PricingPlan[] = [
@@ -41,17 +42,17 @@ const pricingPlans: PricingPlan[] = [
     features: [
       { name: '5 basic estimates per month', included: true, note: 'With watermark' },
       { name: '1 AI estimate per month', included: true, note: 'With watermark' },
-
-      { name: 'Legal contracts', included: false },
-      { name: 'Property verification', included: false },
-      { name: 'Project management', included: false },
+      { name: '5 DeepSearch queries', included: true, note: 'Material cost calculator' },
+      { name: '5 legal contracts', included: true },
+      { name: '5 property verifications', included: true },
+      { name: '5 permit advisor queries', included: true },
       { name: 'Invoicing', included: false },
       { name: 'Payment tracking', included: false },
-      { name: 'Permit advisor', included: false },
       { name: 'Community support', included: true },
     ],
     cta: 'Get Started Free',
     ctaVariant: 'outline',
+    leadprimeDiscount: false,
   },
   {
     id: 9,
@@ -59,23 +60,24 @@ const pricingPlans: PricingPlan[] = [
     code: 'mero_patron',
     motto: 'Para contratistas profesionales',
     price: 49.99,
-    yearlyPrice: 499.90,
+    yearlyPrice: 509.88,
     description: 'Most popular for growing contractors',
     popular: true,
     features: [
-      { name: '50 basic estimates per month', included: true, note: 'No watermark' },
-      { name: '20 AI estimates per month', included: true, note: 'No watermark' },
-
-      { name: '50 legal contracts per month', included: true },
-      { name: '15 property verifications', included: true },
-      { name: 'Unlimited projects', included: true },
+      { name: '50 total queries per month', included: true, note: 'Estimates, contracts, verifications, permits' },
+      { name: 'No watermark on documents', included: true },
+      { name: 'DeepSearch material calculator', included: true },
+      { name: 'Legal contracts & signatures', included: true },
+      { name: 'Property verification', included: true },
+      { name: 'Permit advisor', included: true },
       { name: 'Unlimited invoicing', included: true },
       { name: 'Basic payment tracking', included: true },
-      { name: '10 permit advisor queries', included: true },
       { name: 'Email support', included: true },
+      { name: '30% discount on LeadPrime CRM', included: true, note: 'Exclusive benefit' },
     ],
     cta: 'Start Free Trial',
     ctaVariant: 'default',
+    leadprimeDiscount: true,
   },
   {
     id: 6,
@@ -83,25 +85,24 @@ const pricingPlans: PricingPlan[] = [
     code: 'MASTER_CONTRACTOR',
     motto: 'Sin límites para profesionales',
     price: 99.99,
-    yearlyPrice: 999.90,
+    yearlyPrice: 1019.89,
     description: 'Unlimited everything for professionals',
     popular: false,
     features: [
-      { name: 'Unlimited basic estimates', included: true, note: 'No watermark' },
-      { name: 'Unlimited AI estimates', included: true, note: 'No watermark' },
-
+      { name: 'Unlimited estimates', included: true, note: 'Basic & AI' },
+      { name: 'Unlimited DeepSearch queries', included: true },
       { name: 'Unlimited legal contracts', included: true },
       { name: 'Unlimited property verifications', included: true },
-      { name: 'Unlimited projects', included: true },
-      { name: 'Unlimited invoicing', included: true },
-      { name: 'Pro payment tracking', included: true },
       { name: 'Unlimited permit advisor', included: true },
+      { name: 'Unlimited invoicing', included: true },
+      { name: 'No watermark on documents', included: true },
+      { name: 'Pro payment tracking', included: true },
       { name: 'Priority support', included: true },
-
-      { name: 'Advanced analytics', included: true },
+      { name: '30% discount on LeadPrime CRM', included: true, note: 'Exclusive benefit' },
     ],
     cta: 'Start Free Trial',
     ctaVariant: 'default',
+    leadprimeDiscount: true,
   },
 ];
 
@@ -176,7 +177,7 @@ export default function Pricing() {
               data-testid="button-billing-yearly"
             >
               Yearly
-              <Badge className="ml-2" variant="default">Save up to 17%</Badge>
+              <Badge className="ml-2" variant="default">Save up to 15%</Badge>
             </button>
           </div>
         </motion.div>
@@ -209,13 +210,13 @@ export default function Pricing() {
                 <div className="mt-4">
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl font-bold">
-                      ${billingCycle === 'monthly' ? plan.price : (plan.yearlyPrice / 12).toFixed(2)}
+                      ${billingCycle === 'monthly' ? plan.price.toFixed(2) : (plan.yearlyPrice / 12).toFixed(2)}
                     </span>
                     <span className="text-muted-foreground">/month</span>
                   </div>
                   {billingCycle === 'yearly' && plan.price > 0 && (
                     <div className="text-sm text-muted-foreground mt-2">
-                      ${plan.yearlyPrice}/year • Save ${calculateYearlySavings(plan.price, plan.yearlyPrice)}
+                      ${plan.yearlyPrice.toFixed(2)}/year • Save ${calculateYearlySavings(plan.price, plan.yearlyPrice)}
                     </div>
                   )}
                   {billingCycle === 'monthly' && plan.price > 0 && (
@@ -249,6 +250,16 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
+
+                {/* LeadPrime Discount Badge */}
+                {plan.leadprimeDiscount && (
+                  <div className="mt-6 p-3 bg-gradient-to-r from-primary/10 to-chart-2/10 rounded-lg border border-primary/20">
+                    <div className="flex items-center gap-2 text-sm font-medium">
+                      <Sparkles className="w-4 h-4 text-primary" />
+                      <span>Includes 30% off LeadPrime CRM</span>
+                    </div>
+                  </div>
+                )}
               </CardContent>
 
               <CardFooter>
@@ -267,6 +278,41 @@ export default function Pricing() {
           ))}
         </motion.div>
 
+        {/* LeadPrime CRM Info Section */}
+        <motion.div
+          className="mb-16 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <Card className="bg-gradient-to-br from-primary/5 to-chart-2/5 border-primary/20">
+            <CardContent className="p-8">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Sparkles className="w-6 h-6 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2">Exclusive Benefit: LeadPrime CRM Discount</h3>
+                  <p className="text-muted-foreground mb-4">
+                    All paid Owl Fenc members get <strong>30% off LeadPrime CRM</strong> - our powerful mobile CRM 
+                    designed specifically for contractors. Manage leads, track your sales pipeline, and never miss 
+                    a follow-up opportunity.
+                  </p>
+                  <a 
+                    href="https://leadprime.chyrris.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="outline">
+                      Learn More About LeadPrime
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
         {/* FAQ Section */}
         <div className="mt-20 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
@@ -279,6 +325,32 @@ export default function Pricing() {
                 <p className="text-muted-foreground">
                   Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately, 
                   and we'll prorate any differences in your billing.
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">What is DeepSearch?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  DeepSearch is our intelligent material cost calculator that generates detailed material lists 
+                  with accurate pricing and labor costs in just a few clicks. It eliminates the need to manually 
+                  add materials to your estimates.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">How do the query limits work?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  For the Mero Patrón plan, you get 50 total queries per month that can be used across all features: 
+                  estimates, legal contracts, property verifications, and permit advisor queries. Use them however 
+                  you need based on your workflow.
                 </p>
               </CardContent>
             </Card>
