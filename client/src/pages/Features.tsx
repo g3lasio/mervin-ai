@@ -38,11 +38,7 @@ const features = {
         title: 'Smart Calculators',
         description: 'Specialized calculators for all construction trades and materials. Accurate quantities, labor costs, and pricing tailored to your market and specialty.'
       },
-      {
-        icon: Search,
-        title: 'DeepSearch Material Intelligence',
-        description: 'Real-time pricing research across multiple suppliers. Automatically find the best deals on materials and stay competitive on every bid.'
-      },
+
       {
         icon: FileText,
         title: 'Professional Templates',
@@ -57,13 +53,13 @@ const features = {
     items: [
       {
         icon: Shield,
-        title: 'Smart Contract Generator',
-        description: 'Generate formal project contracts in just 70 seconds once a client approves an estimate. AI-powered contracts include all project data, industry-standard clauses, payment terms, and comprehensive liability protection.'
+        title: 'Legal Defense Engine',
+        description: 'Replace Rocket Lawyer with our AI-powered contract generator. In just 70 seconds, create contracts with protective clauses tailored to your specific project risks. Includes Change Orders, Lien Waivers, Independent Contractor Agreements, and more—all with industry-standard legal protection.'
       },
       {
         icon: PenTool,
-        title: 'Digital Signatures',
-        description: 'Fully integrated, legally-binding electronic signatures with no external providers required. Fast, secure, and friction-free process for both clients and contractors. Sign from any device, reducing costs and approval time.'
+        title: 'Dual-Signature System (No DocuSign Needed)',
+        description: 'Save $300/year by eliminating your DocuSign subscription. Our built-in dual-signature system provides legally-binding electronic signatures for both contractor and client. Sign from any device with automatic audit trails and legal compliance—all included in your Owl Fenc subscription.'
       },
       {
         icon: MapPin,
@@ -97,11 +93,7 @@ const features = {
         title: 'Payment Tracking',
         description: 'Monitor deposits, progress payments, and final balances. Visual dashboards show your cash flow and help you stay on top of collections.'
       },
-      {
-        icon: BookOpen,
-        title: 'QuickBooks Integration',
-        description: 'Seamlessly sync with QuickBooks for complete financial management. Automatic invoice sync, payment reconciliation, and expense tracking.'
-      }
+
     ]
   },
   'management': {
@@ -111,7 +103,7 @@ const features = {
     items: [
       {
         icon: LayoutDashboard,
-        title: 'Complete Project Management',
+        title: 'Project Management',
         description: 'Manage scheduling, progress, documents, and communication for every project from one centralized dashboard. Designed for maximum efficiency and control with real-time updates and customizable views.'
       },
       {

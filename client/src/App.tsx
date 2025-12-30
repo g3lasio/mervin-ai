@@ -8,7 +8,8 @@ import Footer from "@/components/layout/Footer";
 import Home from "@/pages/Home";
 import Features from "@/pages/Features";
 import Pricing from "@/pages/Pricing";
-import Integrations from "@/pages/Integrations";
+import Resources from "@/pages/Resources";
+
 import AboutOwlFenc from "@/pages/AboutOwlFenc";
 import AboutMervin from "@/pages/AboutMervin";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -22,7 +23,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/features" component={Features} />
       <Route path="/pricing" component={Pricing} />
-      <Route path="/integrations" component={Integrations} />
+      <Route path="/resources" component={Resources} />
+
       <Route path="/about-owlfenc" component={AboutOwlFenc} />
       <Route path="/about-mervin" component={AboutMervin} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />

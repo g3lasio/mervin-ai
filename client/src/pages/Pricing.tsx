@@ -41,7 +41,7 @@ const pricingPlans: PricingPlan[] = [
     features: [
       { name: '5 basic estimates per month', included: true, note: 'With watermark' },
       { name: '1 AI estimate per month', included: true, note: 'With watermark' },
-      { name: '3 DeepSearch queries', included: true },
+
       { name: 'Legal contracts', included: false },
       { name: 'Property verification', included: false },
       { name: 'Project management', included: false },
@@ -65,7 +65,7 @@ const pricingPlans: PricingPlan[] = [
     features: [
       { name: '50 basic estimates per month', included: true, note: 'No watermark' },
       { name: '20 AI estimates per month', included: true, note: 'No watermark' },
-      { name: '50 DeepSearch queries', included: true },
+
       { name: '50 legal contracts per month', included: true },
       { name: '15 property verifications', included: true },
       { name: 'Unlimited projects', included: true },
@@ -89,7 +89,7 @@ const pricingPlans: PricingPlan[] = [
     features: [
       { name: 'Unlimited basic estimates', included: true, note: 'No watermark' },
       { name: 'Unlimited AI estimates', included: true, note: 'No watermark' },
-      { name: 'Unlimited DeepSearch', included: true },
+
       { name: 'Unlimited legal contracts', included: true },
       { name: 'Unlimited property verifications', included: true },
       { name: 'Unlimited projects', included: true },
@@ -97,7 +97,7 @@ const pricingPlans: PricingPlan[] = [
       { name: 'Pro payment tracking', included: true },
       { name: 'Unlimited permit advisor', included: true },
       { name: 'Priority support', included: true },
-      { name: 'QuickBooks integration', included: true },
+
       { name: 'Advanced analytics', included: true },
     ],
     cta: 'Start Free Trial',

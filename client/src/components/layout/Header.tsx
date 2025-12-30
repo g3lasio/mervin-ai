@@ -26,15 +26,6 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center space-x-6">
             <Link 
-              href="/" 
-              className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
-                isActive('/') ? 'text-foreground' : 'text-muted-foreground'
-              }`}
-              data-testid="link-home-nav"
-            >
-              Home
-            </Link>
-            <Link 
               href="/features" 
               className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
                 isActive('/features') ? 'text-foreground' : 'text-muted-foreground'
@@ -53,14 +44,15 @@ export default function Header() {
               Pricing
             </Link>
             <Link 
-              href="/integrations" 
+              href="/resources" 
               className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
-                isActive('/integrations') ? 'text-foreground' : 'text-muted-foreground'
+                isActive('/resources') ? 'text-foreground' : 'text-muted-foreground'
               }`}
-              data-testid="link-integrations"
+              data-testid="link-resources"
             >
-              Integrations
+              Resources
             </Link>
+
             <div className="flex items-center gap-3 ml-4">
               <a href={APP_URL} target="_blank" rel="noopener noreferrer" data-testid="button-login">
                 <Button variant="ghost" size="sm">
@@ -88,14 +80,6 @@ export default function Header() {
           <nav className="md:hidden py-4 border-t">
             <div className="flex flex-col space-y-3">
               <Link 
-                href="/" 
-                className="text-sm font-medium hover-elevate px-3 py-2 rounded-md"
-                onClick={() => setMobileMenuOpen(false)}
-                data-testid="link-mobile-home"
-              >
-                Home
-              </Link>
-              <Link 
                 href="/features" 
                 className="text-sm font-medium hover-elevate px-3 py-2 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
@@ -112,13 +96,14 @@ export default function Header() {
                 Pricing
               </Link>
               <Link 
-                href="/integrations" 
+                href="/resources" 
                 className="text-sm font-medium hover-elevate px-3 py-2 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
-                data-testid="link-mobile-integrations"
+                data-testid="link-mobile-resources"
               >
-                Integrations
+                Resources
               </Link>
+
               <div className="pt-3 border-t flex flex-col gap-2">
                 <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="w-full" data-testid="button-mobile-login">
                   <Button variant="outline" className="w-full">

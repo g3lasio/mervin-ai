@@ -20,8 +20,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/integrations" className="text-muted-foreground hover:text-foreground transition-colors text-sm" data-testid="link-footer-integrations">
-                  Integrations
+                <Link href="/resources" className="text-muted-foreground hover:text-foreground transition-colors text-sm" data-testid="link-footer-resources">
+                  Resources
                 </Link>
               </li>
             </ul>
