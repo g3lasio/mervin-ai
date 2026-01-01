@@ -9,6 +9,9 @@ import Home from "@/pages/Home";
 import Features from "@/pages/Features";
 import Pricing from "@/pages/Pricing";
 import Resources from "@/pages/Resources";
+import DocsHome from "@/pages/docs/DocsHome";
+import CreatingFirstEstimate from "@/pages/docs/CreatingFirstEstimate";
+import ComingSoonDoc from "@/pages/docs/ComingSoonDoc";
 
 import AboutOwlFenc from "@/pages/AboutOwlFenc";
 import AboutMervin from "@/pages/AboutMervin";
@@ -24,6 +27,18 @@ function Router() {
       <Route path="/features" component={Features} />
       <Route path="/pricing" component={Pricing} />
       <Route path="/resources" component={Resources} />
+      <Route path="/docs" component={DocsHome} />
+      <Route path="/docs/getting-started/creating-first-estimate" component={CreatingFirstEstimate} />
+      <Route path="/docs/:category/:slug">
+        {(params) => (
+          <ComingSoonDoc
+            title="Documentation Article"
+            description="This article is coming soon"
+            category={params.category}
+            categoryTitle={params.category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+          />
+        )}
+      </Route>
 
       <Route path="/about-owlfenc" component={AboutOwlFenc} />
       <Route path="/about-mervin" component={AboutMervin} />
