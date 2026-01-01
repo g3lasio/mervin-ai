@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link } from 'wouter';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { motion } from 'framer-motion';
@@ -10,21 +9,14 @@ import { Helmet } from 'react-helmet';
 import { 
   BookOpen, 
   Search,
-  FileText, 
-  Video, 
-  Code,
   CheckCircle2,
   Zap,
-  Shield,
-  TrendingUp,
   Bot,
   Users,
-  CreditCard,
-  Settings,
-  Lock,
-  MapPin,
   ChevronRight,
-  Sparkles
+  Sparkles,
+  ArrowRight,
+  ExternalLink
 } from 'lucide-react';
 
 const fadeIn = {
@@ -33,122 +25,40 @@ const fadeIn = {
   transition: { duration: 0.6 }
 };
 
-// Documentation sections aligned with real Owl Fenc features
-const docSections = [
+// ONLY articles with real content
+const availableArticles = [
   {
-    icon: Zap,
-    title: 'Getting Started',
-    slug: 'getting-started',
-    description: 'Set up your account and start creating estimates',
-    articles: [
-      { title: 'Creating Your First Estimate with Mervin AI', slug: 'creating-first-estimate', time: '10 min read' },
-      { title: 'Frequently Asked Questions', slug: 'faq', time: '12 min read' },
-      { title: 'Setting Up Your Company Profile', slug: 'company-profile', time: '5 min read' },
-      { title: 'Getting Started with Mervin AI', slug: 'getting-started-guide', time: '7 min read' },
-      { title: 'Understanding Your Dashboard', slug: 'understanding-dashboard', time: '6 min read' }
-    ]
+    id: 1,
+    title: 'Creating Your First Estimate with Owl Fenc',
+    category: 'getting-started',
+    categoryTitle: 'Getting Started',
+    categoryIcon: Zap,
+    description: 'Complete guide to creating professional estimates with AI assistance, PDF generation, and client delivery',
+    readTime: '10 min read',
+    slug: 'creating-first-estimate',
+    featured: true
   },
   {
-    icon: Bot,
-    title: 'Mervin AI Assistant',
-    slug: 'mervin-ai',
-    description: 'Master the AI-powered estimation system',
-    articles: [
-      { title: 'Using Mervin AI for Estimates', slug: 'mervin-ai-estimates', time: '10 min read' },
-      { title: 'AI-Powered Project Descriptions', slug: 'ai-descriptions', time: '6 min read' },
-      { title: 'Understanding AI Calculations', slug: 'ai-calculations', time: '8 min read' }
-    ]
+    id: 2,
+    title: 'Managing Your Client Database',
+    category: 'clients',
+    categoryTitle: 'Client Management',
+    categoryIcon: Users,
+    description: 'Complete guide to adding, editing, deleting, and organizing your clients',
+    readTime: '8 min read',
+    slug: 'managing-clients',
+    featured: true
   },
   {
-    icon: FileText,
-    title: 'Estimates & Proposals',
-    slug: 'estimates',
-    description: 'Create professional estimates manually or with AI',
-    articles: [
-      { title: 'Manual Estimate Creation', slug: 'manual-estimates', time: '12 min read' },
-      { title: 'Managing Line Items', slug: 'line-items', time: '8 min read' },
-      { title: 'Estimate Templates', slug: 'estimate-templates', time: '6 min read' },
-      { title: 'Sharing Estimates', slug: 'sharing-estimates', time: '5 min read' }
-    ]
-  },
-  {
-    icon: Shield,
-    title: 'Legal Contracts & Signatures',
-    slug: 'contracts',
-    description: 'Generate contracts and collect electronic signatures',
-    articles: [
-      { title: 'Generating Legal Contracts', slug: 'generating-contracts', time: '8 min read' },
-      { title: 'Electronic Signatures', slug: 'e-signatures', time: '7 min read' },
-      { title: 'Contract Templates', slug: 'contract-templates', time: '6 min read' },
-      { title: 'Legal Compliance', slug: 'legal-compliance', time: '9 min read' }
-    ]
-  },
-  {
-    icon: MapPin,
-    title: 'Property Verification',
-    slug: 'property-verification',
-    description: 'Verify property ownership before creating estimates',
-    articles: [
-      { title: 'How Property Verification Works', slug: 'property-verification-guide', time: '6 min read' },
-      { title: 'Understanding Property Reports', slug: 'property-reports', time: '7 min read' },
-      { title: 'Avoiding Fraud', slug: 'fraud-prevention', time: '9 min read' }
-    ]
-  },
-  {
-    icon: FileText,
-    title: 'Permit Advisor',
-    slug: 'permits',
-    description: 'Identify required permits for your projects',
-    articles: [
-      { title: 'Using the Permit Advisor', slug: 'permit-advisor-guide', time: '8 min read' },
-      { title: 'Permit Requirements by Type', slug: 'permit-requirements', time: '10 min read' },
-      { title: 'Compliance Updates', slug: 'compliance-updates', time: '7 min read' }
-    ]
-  },
-  {
-    icon: CreditCard,
-    title: 'Payments & Invoicing',
-    slug: 'payments',
-    description: 'Generate invoices and track payments',
-    articles: [
-      { title: 'Creating Invoices', slug: 'creating-invoices', time: '6 min read' },
-      { title: 'Payment Processing', slug: 'payment-processing', time: '10 min read' },
-      { title: 'Tracking Payments', slug: 'tracking-payments', time: '5 min read' },
-      { title: 'Owl Funding Options', slug: 'owl-funding', time: '12 min read' }
-    ]
-  },
-  {
-    icon: Users,
-    title: 'Client Management',
-    slug: 'clients',
-    description: 'Organize and manage your client database',
-    articles: [
-      { title: 'Managing Your Client Database', slug: 'managing-clients', time: '8 min read' },
-      { title: 'Client Communication', slug: 'client-communication', time: '7 min read' },
-      { title: 'Project History', slug: 'project-history', time: '5 min read' }
-    ]
-  },
-  {
-    icon: Settings,
-    title: 'Account & Settings',
-    slug: 'settings',
-    description: 'Customize your account and preferences',
-    articles: [
-      { title: 'Account Settings', slug: 'account-settings', time: '5 min read' },
-      { title: 'Subscription Management', slug: 'subscription-management', time: '6 min read' },
-      { title: 'Pricing Preferences', slug: 'pricing-preferences', time: '8 min read' }
-    ]
-  },
-  {
-    icon: Lock,
-    title: 'Security & Compliance',
-    slug: 'security',
-    description: 'Understand security features and legal compliance',
-    articles: [
-      { title: 'Data Security', slug: 'data-security', time: '8 min read' },
-      { title: 'Privacy Compliance', slug: 'privacy-compliance', time: '10 min read' },
-      { title: 'Two-Factor Authentication', slug: '2fa-setup', time: '5 min read' }
-    ]
+    id: 3,
+    title: 'Frequently Asked Questions',
+    category: 'getting-started',
+    categoryTitle: 'Getting Started',
+    categoryIcon: BookOpen,
+    description: 'Quick answers to common questions about features, capabilities, and limitations',
+    readTime: '12 min read',
+    slug: 'faq',
+    featured: false
   }
 ];
 
@@ -196,15 +106,14 @@ export default function DocsHome() {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState('docs');
 
-  const filteredSections = searchQuery.trim()
-    ? docSections.map(section => ({
-        ...section,
-        articles: section.articles.filter(
-          article =>
-            article.title.toLowerCase().includes(searchQuery.toLowerCase())
-        )
-      })).filter(section => section.articles.length > 0)
-    : docSections;
+  const filteredArticles = searchQuery.trim()
+    ? availableArticles.filter(article =>
+        article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        article.description.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : availableArticles;
+
+  const featuredArticles = availableArticles.filter(a => a.featured);
 
   return (
     <>
@@ -240,7 +149,7 @@ export default function DocsHome() {
               </h1>
               
               <p className="text-xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-                Search our knowledge base, browse documentation, or check the latest updates
+                Search our knowledge base or browse available documentation
               </p>
 
               {/* Search Bar */}
@@ -274,7 +183,7 @@ export default function DocsHome() {
 
             {/* Documentation Tab */}
             <TabsContent value="docs" className="space-y-8">
-              {filteredSections.length === 0 ? (
+              {filteredArticles.length === 0 ? (
                 <motion.div 
                   className="text-center py-16"
                   initial={{ opacity: 0 }}
@@ -287,55 +196,135 @@ export default function DocsHome() {
                   </p>
                 </motion.div>
               ) : (
-                <div className="grid gap-6">
-                  {filteredSections.map((section, index) => {
-                    const Icon = section.icon;
-                    return (
-                      <motion.div
-                        key={section.slug}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                      >
-                        <Card className="border-2 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:shadow-xl">
-                          <CardHeader>
-                            <div className="flex items-center gap-4">
-                              <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg">
-                                <Icon className="w-6 h-6 text-white" />
-                              </div>
-                              <div>
-                                <CardTitle className="text-2xl">{section.title}</CardTitle>
-                                <CardDescription className="text-base mt-1">
-                                  {section.description}
-                                </CardDescription>
-                              </div>
-                            </div>
-                          </CardHeader>
-                          <CardContent>
-                            <div className="grid md:grid-cols-2 gap-3">
-                              {section.articles.map((article) => (
-                                <Link 
-                                  key={article.slug} 
-                                  href={`/docs/${section.slug}/${article.slug}`}
-                                >
-                                  <div className="flex items-center justify-between p-4 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer group">
-                                    <div className="flex-1">
-                                      <h4 className="font-medium text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                                        {article.title}
-                                      </h4>
-                                      <p className="text-xs text-slate-500 mt-1">{article.time}</p>
+                <>
+                  {/* Featured Articles */}
+                  {!searchQuery && featuredArticles.length > 0 && (
+                    <div className="space-y-4">
+                      <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
+                        Featured Guides
+                      </h2>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {featuredArticles.map((article, index) => {
+                          const Icon = article.categoryIcon;
+                          return (
+                            <motion.div
+                              key={article.id}
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: index * 0.1 }}
+                            >
+                              <Link href={`/docs/${article.category}/${article.slug}`}>
+                                <Card className="h-full border-2 hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:shadow-xl cursor-pointer group">
+                                  <CardHeader>
+                                    <div className="flex items-start gap-4">
+                                      <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg">
+                                        <Icon className="w-6 h-6 text-white" />
+                                      </div>
+                                      <div className="flex-1">
+                                        <Badge variant="outline" className="mb-2">
+                                          {article.categoryTitle}
+                                        </Badge>
+                                        <CardTitle className="text-xl group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                          {article.title}
+                                        </CardTitle>
+                                        <CardDescription className="mt-2 text-base">
+                                          {article.description}
+                                        </CardDescription>
+                                      </div>
                                     </div>
-                                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                                  </CardHeader>
+                                  <CardContent>
+                                    <div className="flex items-center justify-between">
+                                      <span className="text-sm text-slate-500">{article.readTime}</span>
+                                      <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                              </Link>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* All Articles */}
+                  <div className="space-y-4">
+                    <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
+                      {searchQuery ? 'Search Results' : 'All Documentation'}
+                    </h2>
+                    <div className="space-y-3">
+                      {filteredArticles.map((article, index) => {
+                        const Icon = article.categoryIcon;
+                        return (
+                          <motion.div
+                            key={article.id}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.05 }}
+                          >
+                            <Link href={`/docs/${article.category}/${article.slug}`}>
+                              <Card className="border hover:border-blue-500 dark:hover:border-blue-400 transition-all duration-300 hover:shadow-lg cursor-pointer group">
+                                <CardContent className="p-6">
+                                  <div className="flex items-center gap-4">
+                                    <div className="p-2 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-lg">
+                                      <Icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                                    </div>
+                                    <div className="flex-1">
+                                      <div className="flex items-center gap-2 mb-1">
+                                        <Badge variant="outline" className="text-xs">
+                                          {article.categoryTitle}
+                                        </Badge>
+                                        <span className="text-xs text-slate-500">{article.readTime}</span>
+                                      </div>
+                                      <h3 className="font-semibold text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                                        {article.title}
+                                      </h3>
+                                      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                                        {article.description}
+                                      </p>
+                                    </div>
+                                    <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-1 transition-all flex-shrink-0" />
                                   </div>
-                                </Link>
-                              ))}
+                                </CardContent>
+                              </Card>
+                            </Link>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Coming Soon Notice */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    <Card className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20 border-blue-200 dark:border-blue-800">
+                      <CardContent className="p-6">
+                        <div className="flex items-start gap-4">
+                          <Sparkles className="w-6 h-6 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-1" />
+                          <div>
+                            <h3 className="font-semibold text-lg text-blue-900 dark:text-blue-100 mb-2">
+                              More Documentation Coming Soon
+                            </h3>
+                            <p className="text-blue-800 dark:text-blue-200 mb-4">
+                              We're actively working on comprehensive documentation for all Owl Fenc features. New guides are added regularly.
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                              <Badge variant="secondary">Contracts & Signatures</Badge>
+                              <Badge variant="secondary">Property Verification</Badge>
+                              <Badge variant="secondary">Permit Advisor</Badge>
+                              <Badge variant="secondary">Invoicing</Badge>
+                              <Badge variant="secondary">And more...</Badge>
                             </div>
-                          </CardContent>
-                        </Card>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </>
               )}
             </TabsContent>
 
@@ -366,18 +355,16 @@ export default function DocsHome() {
                       <div className="space-y-3">
                         {update.features.map((feature, idx) => (
                           <div key={idx} className="flex items-start gap-3">
-                            <CheckCircle2 className={`w-5 h-5 mt-0.5 ${
-                              feature.type === 'new' ? 'text-green-500' :
-                              feature.type === 'improved' ? 'text-blue-500' :
-                              'text-orange-500'
+                            <CheckCircle2 className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                              feature.type === 'new' 
+                                ? 'text-green-600 dark:text-green-400' 
+                                : 'text-blue-600 dark:text-blue-400'
                             }`} />
-                            <div className="flex-1">
-                              <Badge variant="outline" className="mb-1 text-xs">
-                                {feature.type}
+                            <div>
+                              <Badge variant={feature.type === 'new' ? 'default' : 'secondary'} className="mb-1">
+                                {feature.type === 'new' ? 'New' : 'Improved'}
                               </Badge>
-                              <p className="text-sm text-slate-700 dark:text-slate-300">
-                                {feature.text}
-                              </p>
+                              <p className="text-slate-700 dark:text-slate-300">{feature.text}</p>
                             </div>
                           </div>
                         ))}
@@ -389,29 +376,32 @@ export default function DocsHome() {
             </TabsContent>
           </Tabs>
 
-          {/* Help CTA */}
+          {/* Need Help CTA */}
           <motion.div
-            className="mt-16 text-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
+            className="mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
           >
-            <Card className="border-2 border-blue-200 dark:border-blue-800 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20">
-              <CardContent className="py-8">
-                <h3 className="text-2xl font-bold mb-2">Still need help?</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-6">
-                  Can't find what you're looking for? Our support team is here to assist you.
-                </p>
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700"
-                  asChild
-                >
-                  <a href="https://owlfenc.replit.app/support/get-support" target="_blank" rel="noopener noreferrer">
+            <Card className="bg-gradient-to-r from-slate-900 to-blue-900 dark:from-slate-800 dark:to-blue-800 border-0 text-white">
+              <CardContent className="p-8">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">Need personalized help?</h3>
+                    <p className="text-slate-200">
+                      Can't find what you're looking for? Submit a support ticket and our team will assist you.
+                    </p>
+                  </div>
+                  <a 
+                    href="https://owlfenc.replit.app/support/get-support"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-blue-900 rounded-lg font-semibold hover:bg-slate-100 transition-colors whitespace-nowrap"
+                  >
                     Get Support
-                    <ChevronRight className="ml-2 w-4 h-4" />
+                    <ExternalLink className="w-4 h-4" />
                   </a>
-                </Button>
+                </div>
               </CardContent>
             </Card>
           </motion.div>
