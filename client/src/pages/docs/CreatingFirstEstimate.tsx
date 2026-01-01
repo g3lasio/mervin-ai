@@ -1,30 +1,28 @@
 import DocArticle from './DocArticle';
 
 const content = `
-# Creating Your First Estimate with Mervin AI
+# Creating Your First Estimate with Owl Fenc
 
-Mervin AI provides a simple 4-step wizard to help you organize and calculate estimate data for your construction projects.
+Owl Fenc provides a powerful 4-step wizard to help you create professional estimates for your construction projects with AI assistance.
 
-## Important: Current Capabilities
+## What You Can Do
 
-**What This Tool Does:**
-- ✅ Organize client information
-- ✅ Create detailed project descriptions with AI assistance
+**Current Capabilities:**
+- ✅ Organize and save client information automatically
+- ✅ Create detailed project descriptions with AI enhancement
 - ✅ Add and calculate line items (materials, labor, costs)
 - ✅ Automatically calculate subtotals, tax, and totals
-- ✅ Store client data for future use
+- ✅ **Generate professional PDF estimates**
+- ✅ **Send estimates directly to clients via email**
+- ✅ **Save estimates permanently** - All estimates are saved to your account
+- ✅ **Share estimates with public links** - Send a link to clients for viewing
+- ✅ View complete history of all your estimates
 
-**Coming Soon (Not Yet Available):**
-- ⏳ PDF generation
-- ⏳ Email delivery to clients
-- ⏳ Persistent saving of estimates
-- ⏳ Download options
-
-Currently, the estimate tool helps you **organize and calculate** your project data. You'll need to manually transfer this information to your own documents or systems.
+Your estimates are automatically saved to your account and can be accessed anytime from the "Mis Estimados" page.
 
 ## Step 1: Navigate to Estimates
 
-1. Log into your Mervin AI account
+1. Log into your Owl Fenc account
 2. Click on **"Estimates"** in the sidebar
 3. Click the **"Create Estimate"** or **"New Estimate"** button
 
@@ -59,9 +57,9 @@ Enter your project information:
 
 **AI-Powered Description Enhancement:**
 - Use the **"Enhance with AI"** button to improve your project description
-- The AI will expand and clarify your project details
+- Mervin AI will expand and clarify your project details professionally
 - You can refine the AI-generated description before proceeding
-- This is one of the most powerful features currently available!
+- This feature uses your AI credits (check your plan limits)
 
 **Tips:**
 - Be specific in your project description for accurate estimates
@@ -92,9 +90,9 @@ Add all materials and labor to your estimate:
 - Tax: Optional tax percentage (automatically applied)
 - Total: Final amount including tax
 
-## Step 5: Review & Calculate (Step 4 of 4)
+## Step 5: Review & Finalize (Step 4 of 4)
 
-Final review of your estimate calculations:
+Final review and delivery options:
 
 **Review All Details:**
 - Verify client information is correct
@@ -108,55 +106,83 @@ Final review of your estimate calculations:
 - Include warranty information
 - Add project timeline
 
-**What You Can Do Next:**
-- Review all calculated totals
-- Make notes of the information for your records
-- Manually create your own PDF using this data
-- Copy/paste the information into your own documents
+**Delivery Options:**
+- **Generate PDF**: Download a professional PDF of your estimate
+- **Email to Client**: Send the estimate directly to your client's email
+- **Get Share Link**: Generate a public link to share with your client
+- **Save for Later**: All estimates are automatically saved to your account
+
+## Viewing Your Saved Estimates
+
+Access your estimate history from **"Mis Estimados"** in the sidebar:
+
+**What You Can Do:**
+- View all your saved estimates
+- See total value of all estimates
+- Filter by client or date
+- View detailed statistics
+- **Edit estimates** - Make changes to existing estimates
+- **View estimate details** - See complete information
+
+**Note:** Currently, you cannot delete estimates from your history. All estimates remain in your account for record-keeping purposes.
 
 ## Tips for Success
 
-✅ **Save Client Data**: Build your client database for faster future estimates
+✅ **Use AI Enhancement**: Mervin AI creates professional descriptions that impress clients
 
-✅ **Use AI Enhancement**: The ProjectDescriptionEnhancer is a powerful tool - use it!
+✅ **Save Client Data**: Build your client database for faster future estimates
 
 ✅ **Be Detailed**: Include all materials and labor for accurate calculations
 
-✅ **Keep Your Own Records**: Currently, you'll need to save this information externally
+✅ **Review Before Sending**: Double-check all calculations and details
 
-✅ **Double-Check Math**: Review all calculations before using
+✅ **Use PDF Generation**: Professional PDFs make a great impression
+
+✅ **Track Your Estimates**: Use "Mis Estimados" to monitor all your quotes
 
 ## Plan Limits
 
-Estimate creation limits vary by plan:
+Estimate creation and AI features vary by plan:
 
 **Primo Chambeador (Free):**
-- 5 basic estimates per month
-- 1 AI-enhanced estimate per month
+- 5 estimates per month
+- 1 AI-enhanced description per month
+- Basic PDF generation
 
 **Mero Patrón ($49.99/month):**
-- 50 basic estimates per month
-- 20 AI-enhanced estimates per month
+- 50 estimates per month
+- 20 AI-enhanced descriptions per month
+- Professional PDF templates
+- Email delivery
 
 **Master Contractor ($99.99/month):**
 - Unlimited estimates
+- Unlimited AI enhancements
+- Premium PDF templates
+- Priority support
 
 ## Common Questions
 
-**Q: Can I save my estimates?**
-A: Persistent saving is not yet implemented. We recommend copying the information to your own documents or systems.
+**Q: Are my estimates saved automatically?**
+A: Yes! All estimates are automatically saved to your account and stored securely in the cloud.
 
-**Q: Can I generate a PDF?**
-A: PDF generation is planned for a future update. Currently, you'll need to create your own documents using the calculated data.
+**Q: Can I generate a PDF of my estimate?**
+A: Yes! Click the "Generate PDF" button in the final step to download a professional PDF.
 
 **Q: Can I email estimates to clients?**
-A: Direct email functionality is not yet available. You can use the estimate tool to calculate totals, then create and send your own documents.
+A: Yes! You can send estimates directly to your client's email from the final step.
+
+**Q: Can I delete old estimates?**
+A: Currently, estimates cannot be deleted from your history. This ensures you maintain complete records for your business.
 
 **Q: What's the difference between basic and AI-enhanced estimates?**
-A: Using the "Enhance with AI" feature on the project description counts as an AI estimate and uses your AI credits.
+A: Using the "Enhance with AI" feature on the project description counts as an AI estimate and uses your AI credits. It creates more professional and detailed descriptions.
 
-**Q: Can I use my company logo and branding?**
-A: Company profile settings are available. Check Settings > Company Profile for available options.
+**Q: Can I edit an estimate after saving it?**
+A: Yes! Go to "Mis Estimados", find your estimate, and click the "Edit" button.
+
+**Q: How do I share an estimate with a client?**
+A: You can email it directly, generate a PDF to send manually, or use the share link feature to send a public URL.
 
 ---
 
@@ -166,22 +192,22 @@ Need more help? [Contact our support team](https://owlfenc.replit.app/support/ge
 export default function CreatingFirstEstimate() {
   return (
     <DocArticle
-      title="Creating Your First Estimate with Mervin AI"
-      description="Step-by-step guide to creating estimate data with the Owl Fenc platform"
+      title="Creating Your First Estimate with Owl Fenc"
+      description="Complete guide to creating professional estimates with AI assistance, PDF generation, and client delivery"
       content={content}
       category="getting-started"
       categoryTitle="Getting Started"
-      readTime="8 min read"
+      readTime="10 min read"
       relatedArticles={[
         {
-          title: "Setting Up Your Company Profile",
-          slug: "company-profile",
-          category: "getting-started"
+          title: "Managing Your Client Database",
+          slug: "managing-clients",
+          category: "clients"
         },
         {
-          title: "Understanding Your Dashboard",
-          slug: "understanding-dashboard",
-          category: "getting-started"
+          title: "Using Mervin AI for Project Descriptions",
+          slug: "ai-descriptions",
+          category: "mervin-ai"
         }
       ]}
     />

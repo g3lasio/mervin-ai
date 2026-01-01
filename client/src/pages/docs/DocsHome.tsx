@@ -41,7 +41,8 @@ const docSections = [
     slug: 'getting-started',
     description: 'Set up your account and start creating estimates',
     articles: [
-      { title: 'Creating Your First Estimate with Mervin AI', slug: 'creating-first-estimate', time: '8 min read' },
+      { title: 'Creating Your First Estimate with Mervin AI', slug: 'creating-first-estimate', time: '10 min read' },
+      { title: 'Frequently Asked Questions', slug: 'faq', time: '12 min read' },
       { title: 'Setting Up Your Company Profile', slug: 'company-profile', time: '5 min read' },
       { title: 'Getting Started with Mervin AI', slug: 'getting-started-guide', time: '7 min read' },
       { title: 'Understanding Your Dashboard', slug: 'understanding-dashboard', time: '6 min read' }
@@ -122,7 +123,7 @@ const docSections = [
     slug: 'clients',
     description: 'Organize and manage your client database',
     articles: [
-      { title: 'Managing Clients', slug: 'managing-clients', time: '6 min read' },
+      { title: 'Managing Your Client Database', slug: 'managing-clients', time: '8 min read' },
       { title: 'Client Communication', slug: 'client-communication', time: '7 min read' },
       { title: 'Project History', slug: 'project-history', time: '5 min read' }
     ]

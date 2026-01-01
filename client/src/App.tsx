@@ -11,6 +11,8 @@ import Pricing from "@/pages/Pricing";
 import Resources from "@/pages/Resources";
 import DocsHome from "@/pages/docs/DocsHome";
 import CreatingFirstEstimate from "@/pages/docs/CreatingFirstEstimate";
+import ManagingClients from "@/pages/docs/ManagingClients";
+import FrequentlyAskedQuestions from "@/pages/docs/FrequentlyAskedQuestions";
 import ComingSoonDoc from "@/pages/docs/ComingSoonDoc";
 
 import AboutOwlFenc from "@/pages/AboutOwlFenc";
@@ -29,6 +31,8 @@ function Router() {
       <Route path="/resources" component={Resources} />
       <Route path="/docs" component={DocsHome} />
       <Route path="/docs/getting-started/creating-first-estimate" component={CreatingFirstEstimate} />
+      <Route path="/docs/clients/managing-clients" component={ManagingClients} />
+      <Route path="/docs/getting-started/faq" component={FrequentlyAskedQuestions} />
       <Route path="/docs/:category/:slug">
         {(params) => (
           <ComingSoonDoc
