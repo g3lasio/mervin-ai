@@ -128,15 +128,17 @@ export default function Home() {
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-foreground to-chart-2 bg-clip-text text-transparent"
               {...fadeIn}
             >
-              Build Faster, Win More Jobs
+              Your AI Team Member That Never Sleeps
             </motion.h1>
             <motion.p 
               className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto"
               {...fadeIn}
             >
-              Owl Fenc is the AI-powered platform that helps ALL construction professionals—from cleaning 
-              crews to general contractors—create estimates 10x faster, generate legal contracts, and manage 
-              projects effortlessly. Handle 1 or 100 estimates per day with ease.
+              Generate estimates in 60 seconds. Create legal contracts in 70 seconds. Verify property ownership instantly. 
+              Close more deals, eliminate paperwork, and scale your construction business with AI that works as hard as you do.
+              <span className="block mt-4 text-2xl md:text-3xl font-semibold bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">
+                From $500 jobs to $5M+ projects—one platform, unlimited power.
+              </span>
             </motion.p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
