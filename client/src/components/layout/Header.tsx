@@ -44,9 +44,9 @@ export default function Header() {
               Pricing
             </Link>
             <Link 
-              href="/resources" 
+              href="/docs" 
               className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
-                isActive('/resources') ? 'text-foreground' : 'text-muted-foreground'
+                isActive('/docs') || isActive('/resources') ? 'text-foreground' : 'text-muted-foreground'
               }`}
               data-testid="link-resources"
             >
@@ -96,7 +96,7 @@ export default function Header() {
                 Pricing
               </Link>
               <Link 
-                href="/resources" 
+                href="/docs" 
                 className="text-sm font-medium hover-elevate px-3 py-2 rounded-md"
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid="link-mobile-resources"
