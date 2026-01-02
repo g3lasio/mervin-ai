@@ -59,6 +59,83 @@ const availableArticles = [
     readTime: '12 min read',
     slug: 'faq',
     featured: false
+  },
+  {
+    id: 4,
+    title: 'Contracts & Electronic Signatures',
+    category: 'contracts',
+    categoryTitle: 'Legal Contracts',
+    categoryIcon: Bot,
+    description: 'Generate legal contracts and collect electronic signatures from clients',
+    readTime: '15 min read',
+    slug: 'contracts-and-signatures',
+    featured: false
+  },
+  {
+    id: 5,
+    title: 'Property Ownership Verification',
+    category: 'property-verification',
+    categoryTitle: 'Property Verification',
+    categoryIcon: CheckCircle2,
+    description: 'Verify property ownership and protect against fraud before starting work',
+    readTime: '12 min read',
+    slug: 'property-verification',
+    featured: false
+  },
+  {
+    id: 6,
+    title: 'Permit Advisor Guide',
+    category: 'permits',
+    categoryTitle: 'Permit Advisor',
+    categoryIcon: BookOpen,
+    description: 'Identify and obtain required construction permits with AI assistance',
+    readTime: '14 min read',
+    slug: 'permit-advisor',
+    featured: false
+  },
+  {
+    id: 7,
+    title: 'Invoicing Guide',
+    category: 'invoicing',
+    categoryTitle: 'Invoicing',
+    categoryIcon: BookOpen,
+    description: 'Create and manage professional invoices for your projects',
+    readTime: '12 min read',
+    slug: 'invoicing',
+    featured: false
+  },
+  {
+    id: 8,
+    title: 'Payment Tracker Guide',
+    category: 'payments',
+    categoryTitle: 'Payment Tracker',
+    categoryIcon: BookOpen,
+    description: 'Track project payments and manage cash flow effectively',
+    readTime: '11 min read',
+    slug: 'payment-tracker',
+    featured: false
+  },
+  {
+    id: 9,
+    title: 'Owl Funding Guide',
+    category: 'funding',
+    categoryTitle: 'Owl Funding',
+    categoryIcon: BookOpen,
+    description: 'Offer financing options to clients and increase project close rates',
+    readTime: '10 min read',
+    slug: 'owl-funding',
+    featured: false
+  },
+  {
+    id: 10,
+    title: 'Pricing Settings Guide',
+    category: 'settings',
+    categoryTitle: 'Settings',
+    categoryIcon: BookOpen,
+    description: 'Configure your service catalog, labor rates, and pricing structure',
+    readTime: '10 min read',
+    slug: 'pricing-settings',
+    featured: false
   }
 ];
 
@@ -313,10 +390,10 @@ export default function DocsHome() {
                               We're actively working on comprehensive documentation for all Owl Fenc features. New guides are added regularly.
                             </p>
                             <div className="flex flex-wrap gap-2">
-                              <Badge variant="secondary">Contracts & Signatures</Badge>
-                              <Badge variant="secondary">Property Verification</Badge>
-                              <Badge variant="secondary">Permit Advisor</Badge>
-                              <Badge variant="secondary">Invoicing</Badge>
+                              <Badge variant="secondary">Advanced Analytics</Badge>
+                              <Badge variant="secondary">Mobile App</Badge>
+                              <Badge variant="secondary">Team Collaboration</Badge>
+                              <Badge variant="secondary">API Documentation</Badge>
                               <Badge variant="secondary">And more...</Badge>
                             </div>
                           </div>

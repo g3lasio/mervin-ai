@@ -13,6 +13,13 @@ import DocsHome from "@/pages/docs/DocsHome";
 import CreatingFirstEstimate from "@/pages/docs/CreatingFirstEstimate";
 import ManagingClients from "@/pages/docs/ManagingClients";
 import FrequentlyAskedQuestions from "@/pages/docs/FrequentlyAskedQuestions";
+import ContractsAndSignatures from "@/pages/docs/ContractsAndSignatures";
+import PropertyVerification from "@/pages/docs/PropertyVerification";
+import PermitAdvisor from "@/pages/docs/PermitAdvisor";
+import Invoicing from "@/pages/docs/Invoicing";
+import PaymentTracker from "@/pages/docs/PaymentTracker";
+import OwlFunding from "@/pages/docs/OwlFunding";
+import PricingSettings from "@/pages/docs/PricingSettings";
 import ComingSoonDoc from "@/pages/docs/ComingSoonDoc";
 
 import AboutOwlFenc from "@/pages/AboutOwlFenc";
@@ -33,6 +40,13 @@ function Router() {
       <Route path="/docs/getting-started/creating-first-estimate" component={CreatingFirstEstimate} />
       <Route path="/docs/clients/managing-clients" component={ManagingClients} />
       <Route path="/docs/getting-started/faq" component={FrequentlyAskedQuestions} />
+      <Route path="/docs/contracts/contracts-and-signatures" component={ContractsAndSignatures} />
+      <Route path="/docs/property-verification/property-verification" component={PropertyVerification} />
+      <Route path="/docs/permits/permit-advisor" component={PermitAdvisor} />
+      <Route path="/docs/invoicing/invoicing" component={Invoicing} />
+      <Route path="/docs/payments/payment-tracker" component={PaymentTracker} />
+      <Route path="/docs/funding/owl-funding" component={OwlFunding} />
+      <Route path="/docs/settings/pricing-settings" component={PricingSettings} />
       <Route path="/docs/:category/:slug">
         {(params) => (
           <ComingSoonDoc
