@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
-import { Check, X, Sparkles } from 'lucide-react';
+import { Check, X, Sparkles, Calendar } from 'lucide-react';
 
 const APP_URL = 'https://app.owlfenc.com';
 
@@ -40,14 +40,14 @@ const pricingPlans: PricingPlan[] = [
     description: 'Perfect for getting started',
     popular: false,
     features: [
-      { name: '5 basic estimates per month', included: true, note: 'With watermark' },
-      { name: '1 AI estimate per month', included: true, note: 'With watermark' },
-      { name: '5 DeepSearch queries', included: true, note: 'Material cost calculator' },
-      { name: '5 legal contracts', included: true },
+      { name: 'Unlimited basic estimates', included: true, note: 'With watermark' },
+      { name: '5 AI estimates per month', included: true, note: 'With watermark' },
       { name: '5 property verifications', included: true },
       { name: '5 permit advisor queries', included: true },
+      { name: 'Legal contracts', included: false, note: '14-day trial available' },
       { name: 'Invoicing', included: false },
       { name: 'Payment tracking', included: false },
+      { name: 'Projects management', included: false },
       { name: 'Community support', included: true },
     ],
     cta: 'Get Started Free',
@@ -60,20 +60,21 @@ const pricingPlans: PricingPlan[] = [
     code: 'mero_patron',
     motto: 'Para contratistas profesionales',
     price: 49.99,
-    yearlyPrice: 509.88,
+    yearlyPrice: 499.90,
     description: 'Most popular for growing contractors',
     popular: true,
     features: [
-      { name: '50 total queries per month', included: true, note: 'Estimates, contracts, verifications, permits' },
-      { name: 'No watermark on documents', included: true },
-      { name: 'DeepSearch material calculator', included: true },
-      { name: 'Legal contracts & signatures', included: true },
-      { name: 'Property verification', included: true },
-      { name: 'Permit advisor', included: true },
-      { name: 'Unlimited invoicing', included: true },
+      { name: '50 basic estimates per month', included: true, note: 'No watermark' },
+      { name: '50 AI estimates per month', included: true, note: 'No watermark' },
+      { name: '50 legal contracts per month', included: true },
+      { name: '50 property verifications', included: true },
+      { name: '50 permit advisor queries', included: true },
+      { name: '50 invoices per month', included: true },
+      { name: 'Unlimited projects', included: true },
       { name: 'Basic payment tracking', included: true },
-      { name: 'Email support', included: true },
+      { name: 'Access to networking/training events', included: true },
       { name: '30% discount on LeadPrime CRM', included: true, note: 'Exclusive benefit' },
+      { name: 'Priority support', included: true },
     ],
     cta: 'Start Free Trial',
     ctaVariant: 'default',
@@ -85,20 +86,21 @@ const pricingPlans: PricingPlan[] = [
     code: 'MASTER_CONTRACTOR',
     motto: 'Sin límites para profesionales',
     price: 99.99,
-    yearlyPrice: 1019.89,
+    yearlyPrice: 999.90,
     description: 'Unlimited everything for professionals',
     popular: false,
     features: [
-      { name: 'Unlimited estimates', included: true, note: 'Basic & AI' },
-      { name: 'Unlimited DeepSearch queries', included: true },
+      { name: 'Unlimited basic estimates', included: true, note: 'No watermark' },
+      { name: 'Unlimited AI estimates', included: true, note: 'No watermark' },
       { name: 'Unlimited legal contracts', included: true },
       { name: 'Unlimited property verifications', included: true },
       { name: 'Unlimited permit advisor', included: true },
       { name: 'Unlimited invoicing', included: true },
-      { name: 'No watermark on documents', included: true },
+      { name: 'Unlimited projects', included: true },
       { name: 'Pro payment tracking', included: true },
-      { name: 'Priority support', included: true },
+      { name: 'Access to networking/training events', included: true },
       { name: '30% discount on LeadPrime CRM', included: true, note: 'Exclusive benefit' },
+      { name: 'VIP support 24/7', included: true },
     ],
     cta: 'Start Free Trial',
     ctaVariant: 'default',
@@ -177,7 +179,7 @@ export default function Pricing() {
               data-testid="button-billing-yearly"
             >
               Yearly
-              <Badge className="ml-2" variant="default">Save up to 15%</Badge>
+              <Badge className="ml-2" variant="default">Save 2 months</Badge>
             </button>
           </div>
         </motion.div>
@@ -313,6 +315,31 @@ export default function Pricing() {
           </Card>
         </motion.div>
 
+        {/* Events Section for Paid Plans */}
+        <motion.div
+          className="mb-16 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <Card className="bg-gradient-to-br from-chart-2/5 to-primary/5 border-chart-2/20">
+            <CardContent className="p-8">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-lg bg-chart-2/10 flex items-center justify-center flex-shrink-0">
+                  <Calendar className="w-6 h-6 text-chart-2" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold mb-2">Networking & Training Events</h3>
+                  <p className="text-muted-foreground mb-4">
+                    Mero Patrón and Master Contractor members get exclusive access to networking events and 
+                    training sessions. Connect with other contractors, learn new skills, and grow your business.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
         {/* FAQ Section */}
         <div className="mt-20 max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
@@ -331,26 +358,26 @@ export default function Pricing() {
             
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl">What is DeepSearch?</CardTitle>
+                <CardTitle className="text-xl">What are AI estimates?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  DeepSearch is our intelligent material cost calculator that generates detailed material lists 
-                  with accurate pricing and labor costs in just a few clicks. It eliminates the need to manually 
-                  add materials to your estimates.
+                  AI estimates use our intelligent cost calculator to generate detailed material lists 
+                  with accurate pricing and labor costs automatically. It eliminates the need to manually 
+                  add materials to your estimates, saving you hours of work.
                 </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl">How do the query limits work?</CardTitle>
+                <CardTitle className="text-xl">How do the monthly limits work?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  For the Mero Patrón plan, you get 50 total queries per month that can be used across all features: 
-                  estimates, legal contracts, property verifications, and permit advisor queries. Use them however 
-                  you need based on your workflow.
+                  For the Mero Patrón plan, you get 50 of each feature per month: 50 basic estimates, 
+                  50 AI estimates, 50 contracts, 50 property verifications, 50 permit advisor queries, 
+                  and 50 invoices. Limits reset at the beginning of each billing cycle.
                 </p>
               </CardContent>
             </Card>
@@ -375,6 +402,19 @@ export default function Pricing() {
                 <p className="text-muted-foreground">
                   Yes! All paid plans include a 14-day free trial with full access to all features. 
                   No credit card required to start. The free Primo Chambeador plan is available forever.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">Can I create contracts on the free plan?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  The free Primo Chambeador plan allows you to explore the contract features in demo mode. 
+                  To create and send actual contracts, you can start a 14-day free trial or upgrade to 
+                  a paid plan.
                 </p>
               </CardContent>
             </Card>
