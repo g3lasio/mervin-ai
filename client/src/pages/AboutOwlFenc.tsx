@@ -1,294 +1,185 @@
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Link } from 'wouter';
-import { Hammer, Users, Target, Zap, Shield, TrendingUp } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
-};
-
-const values = [
-  {
-    icon: Hammer,
-    title: 'Built for All Trades',
-    description: 'Every feature designed for the entire construction industry—from cleaning and hauling to electrical, plumbing, roofing, and general contracting.',
-  },
-  {
-    icon: Zap,
-    title: 'Powered by AI',
-    description: 'Cutting-edge artificial intelligence that learns your business and helps you work smarter, not harder.',
-  },
-  {
-    icon: Shield,
-    title: 'Legal Protection',
-    description: 'Industry-first AI-generated contracts that protect your business from liability and disputes.',
-  },
-  {
-    icon: Users,
-    title: 'Customer First',
-    description: 'Built with feedback from hundreds of contractors to ensure it meets real-world needs.',
-  },
-  {
-    icon: Target,
-    title: 'Scalable for Any Size',
-    description: 'Whether you do 1 estimate per month or 100 per day, from $500 jobs to million-dollar projects—Owl Fenc scales with you.',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Continuous Growth',
-    description: 'Constantly evolving with new features, integrations, and improvements based on your feedback.',
-  },
-];
-
-export default function AboutOwlFenc() {
+export default function AboutOwlFence() {
   return (
-    <div className="min-h-screen py-20">
-      <div className="container mx-auto max-w-7xl px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Badge className="mb-6" variant="secondary" data-testid="badge-about">
-            About Owl Fenc
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Revolutionizing Construction Management
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Owl Fenc is the AI-powered platform built for ALL construction professionals—from cleaning 
-            and hauling to general contractors managing million-dollar projects. Streamline your operations 
-            and grow your business, whether you handle 1 or 100 estimates per day.
-          </p>
-        </motion.div>
+    <div className="container mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-4">Acerca de Owl Fenc</h1>
+      <p className="text-muted-foreground mb-8">
+        Del campo de trabajo a la vanguardia tecnológica
+      </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <Card className="overflow-hidden">
-            <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-              <div className="space-y-4 text-muted-foreground">
-                <p>
-                  Owl Fenc was born from a simple observation: contractors across ALL construction trades were 
-                  drowning in paperwork, spending more time on administrative tasks than actual work. We saw talented 
-                  professionals—from cleaning crews to general contractors—losing jobs because they couldn't create 
-                  estimates fast enough, facing legal disputes due to poorly written contracts, and struggling to 
-                  manage multiple projects simultaneously.
-                </p>
-                <p>
-                  Our founders, coming from both the construction industry and Silicon Valley tech sector, 
-                  recognized that artificial intelligence could solve these problems across the entire construction 
-                  ecosystem. But it had to be done right—AI that actually understands construction work at every 
-                  level, from simple hauling jobs to complex multi-million dollar projects, not just generic 
-                  project management software.
-                </p>
-                <p>
-                  After two years of development and feedback from hundreds of contractors across all trades, we 
-                  launched Owl Fenc as the first AI-powered platform designed for the ENTIRE construction industry. 
-                  Today, we're helping contractors save an average of 15 hours per week, increase their bid win rate 
-                  by 40%, and grow their business with confidence—whether they're doing 1 estimate per week or 100 per day.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Mission</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              To empower EVERY construction professional—from solo operators doing cleaning and hauling 
-              to general contractors managing multi-million dollar projects—with enterprise-level tools 
-              and AI assistance, leveling the playing field and helping businesses of all sizes compete 
-              and thrive.
+      <div className="grid grid-cols-1 gap-6">
+        {/* Sección 1: Nuestra Historia */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Forjado en el Trabajo, Construido para el Progreso</CardTitle>
+            <CardDescription>
+              Una historia de determinación y tecnología
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4">
+              Owl Fenc no nació en una sala de juntas corporativa. Nació del sudor, la tierra y la determinación 
+              de un padre y su hijo, trabajadores campesinos de origen indígena mexicano en los campos de California. 
+              Como contratistas, enfrentamos los mismos desafíos que tú: las largas noches preparando estimados, 
+              la frustración de perder trabajos por falta de herramientas rápidas y la lucha constante por competir 
+              en un mercado exigente.
             </p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <Card className="overflow-hidden">
-            <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-6">The Owl Fenc System</h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                An automated, fast, and reliable ecosystem designed for contractors to work with precision, 
-                security, and professionalism—reducing operational time and maximizing productivity.
-              </p>
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Zap className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">AI-Powered Estimates in Under 60 Seconds</h3>
-                    <p className="text-muted-foreground">
-                      Create complete, accurate estimates in less than a minute thanks to intelligent automation 
-                      and dynamic cost analysis. No more hours spent calculating materials and labor.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Contract Generation in 70 Seconds</h3>
-                    <p className="text-muted-foreground">
-                      Once a client approves an estimate, generate a formal project contract with all data and 
-                      legal clauses integrated in just 70 seconds. Complete protection, zero hassle.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Target className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Integrated Digital Signatures</h3>
-                    <p className="text-muted-foreground">
-                      Fast, secure signature collection without depending on external providers. Reduce friction, 
-                      eliminate costs, and close deals faster with our built-in signing system.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">AI-Powered Ownership Verification</h3>
-                    <p className="text-muted-foreground">
-                      Prevent fraud and wasted time before investing resources in creating estimates. Verify real 
-                      property ownership with precise AI-powered data and comprehensive property information.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Target className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Automatic Permit Analysis</h3>
-                    <p className="text-muted-foreground">
-                      Identifies all possible required permits for your project—including those you and your client 
-                      might overlook. Ensure regulatory compliance and prevent costly delays.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <TrendingUp className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Professional Invoices in Under 60 Seconds</h3>
-                    <p className="text-muted-foreground">
-                      Generate professional invoices for completed projects in less than a minute, ready to send 
-                      or share immediately with automatic tracking and payment management.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Centralized Project Management</h3>
-                    <p className="text-muted-foreground">
-                      Manage scheduling, progress, documents, and communication for every project from one powerful 
-                      dashboard. Designed for maximum efficiency, control, and real-time visibility.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              These core principles guide everything we build and every decision we make.
+            <p className="text-muted-foreground">
+              Nuestra misión es simple y poderosa: <strong>democratizar el acceso a tecnología de punta para los 
+              verdaderos trabajadores de la construcción</strong>. Creamos Owl Fenc para que cada contratista, 
+              sin importar su especialidad, tenga el poder de la inteligencia artificial en sus manos. Esta es una 
+              plataforma construida por trabajadores, para trabajadores.
             </p>
-          </div>
+          </CardContent>
+        </Card>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="h-full hover-elevate transition-all">
-                  <CardContent className="p-6">
-                    <value.icon className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="text-xl font-bold mb-3">{value.title}</h3>
-                    <p className="text-muted-foreground">{value.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <Card className="bg-primary/5 border-primary/20">
-            <CardContent className="p-12">
-              <h2 className="text-3xl font-bold mb-4">Join Thousands of Contractors</h2>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Start your free trial today and see why contractors are switching to Owl Fenc 
-                for their business management needs.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a href="https://app.owlfenc.com" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" data-testid="button-signup">
-                    Get Started Free
-                  </Button>
-                </a>
-                <Link href="/pricing">
-                  <Button size="lg" variant="outline" data-testid="button-pricing">
-                    View Pricing
-                  </Button>
-                </Link>
+        {/* Sección 2: De las Cercas a Toda la Construcción */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Más Allá de las Cercas: Una Solución para Toda la Construcción</CardTitle>
+            <CardDescription>
+              Evolucionamos para servir a toda la industria
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4">
+              Lo que comenzó como una solución para optimizar nuestro propio negocio de cercas (fencing) ha 
+              evolucionado hasta convertirse en una plataforma integral para toda la industria de la construcción. 
+              Entendimos que los desafíos de un "fencero" son los mismos que los de un "techero" (roofer), 
+              un plomero (plumber), un concretero o un contratista general.
+            </p>
+            <p className="text-muted-foreground mb-4">
+              Hoy, Owl Fenc está diseñado para servir a una amplia gama de especialidades. Ya sea que estés 
+              instalando un techo, colocando cimientos de concreto, gestionando un proyecto de plomería o 
+              construyendo una casa desde cero, nuestra plataforma te proporciona las herramientas para generar 
+              estimados precisos, crear contratos legales y gestionar tus proyectos con una eficiencia sin precedentes.
+            </p>
+            
+            {/* Lista de Especialidades */}
+            <div className="bg-muted/50 p-4 rounded-lg">
+              <h4 className="font-semibold mb-3 text-foreground">Especialidades Soportadas:</h4>
+              <div className="grid grid-cols-2 gap-2">
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-muted-foreground">Techadores (Roofing)</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-muted-foreground">Plomeros (Plumbing)</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-muted-foreground">Concreteros (Concrete)</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-muted-foreground">Contratistas Generales</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-muted-foreground">Cercas (Fencing)</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-muted-foreground">Y muchas más...</span>
+                </div>
               </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Sección 3: Características Principales */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Herramientas Profesionales al Alcance de tu Mano</CardTitle>
+            <CardDescription>
+              Todo lo que necesitas para gestionar tu negocio de construcción
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              <div className="border-l-4 border-primary pl-4">
+                <h4 className="font-medium text-foreground mb-1">Estimador Inteligente con IA</h4>
+                <p className="text-sm text-muted-foreground">
+                  Genera estimaciones precisas en minutos para cualquier tipo de proyecto de construcción, 
+                  con cálculos automáticos de materiales y mano de obra.
+                </p>
+              </div>
+              <div className="border-l-4 border-primary pl-4">
+                <h4 className="font-medium text-foreground mb-1">Generador de Contratos Legales</h4>
+                <p className="text-sm text-muted-foreground">
+                  Crea documentos profesionales y legalmente sólidos adaptados a tu proyecto específico, 
+                  listos para firma digital.
+                </p>
+              </div>
+              <div className="border-l-4 border-primary pl-4">
+                <h4 className="font-medium text-foreground mb-1">Mervin AI - Tu Asistente y Agente</h4>
+                <p className="text-sm text-muted-foreground">
+                  Inteligencia artificial que responde preguntas, ejecuta tareas y te ayuda con cada aspecto 
+                  de tu negocio, disponible 24/7.
+                </p>
+              </div>
+              <div className="border-l-4 border-primary pl-4">
+                <h4 className="font-medium text-foreground mb-1">Verificación de Propiedad</h4>
+                <p className="text-sm text-muted-foreground">
+                  Confirma la propiedad legítima del inmueble antes de comenzar el trabajo, evitando 
+                  problemas legales y estafas.
+                </p>
+              </div>
+              <div className="border-l-4 border-primary pl-4">
+                <h4 className="font-medium text-foreground mb-1">Asesor de Permisos</h4>
+                <p className="text-sm text-muted-foreground">
+                  Investiga y comprende los requisitos de permisos locales para tu proyecto con ayuda de IA.
+                </p>
+              </div>
+              <div className="border-l-4 border-primary pl-4">
+                <h4 className="font-medium text-foreground mb-1">Gestión Completa de Proyectos</h4>
+                <p className="text-sm text-muted-foreground">
+                  Seguimiento de proyectos, clientes, facturas y pagos, todo en un solo lugar.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Sección 4: Nuestra Visión */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Construyendo el Futuro, Honrando Nuestras Raíces</CardTitle>
+            <CardDescription>
+              Nuestra visión y compromiso con la comunidad
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4">
+              Nuestra visión es un futuro donde la tecnología no sea una barrera, sino un puente para el éxito 
+              de la comunidad trabajadora. Somos la prueba de que la innovación puede surgir de cualquier lugar, 
+              impulsada por la necesidad y la pasión. La plataforma es co-creada por un joven de 16 años, Mervin, 
+              quien junto a su padre, combinó la sabiduría del trabajo manual con el poder del código.
+            </p>
+            <p className="text-muted-foreground">
+              Estamos comprometidos a mejorar continuamente Owl Fenc, manteniéndonos fieles a nuestros valores 
+              de trabajo duro, integridad y comunidad. Queremos que cada contratista en California y más allá 
+              sienta el orgullo y la confianza de tener las mejores herramientas a su disposición, herramientas 
+              que entienden su idioma, su cultura y sus desafíos diarios.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Llamada a la Acción */}
+      <div className="mt-8 p-6 bg-muted rounded-lg text-center">
+        <h3 className="text-xl font-semibold mb-2">¿Necesitas Ayuda?</h3>
+        <p className="mb-4 text-muted-foreground">
+          Nuestro equipo, nuestra familia, está aquí para ayudarte. Hablamos tu idioma.
+        </p>
+        <a 
+          href="mailto:mervin@owlfenc.com" 
+          className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+        >
+          Contactar Soporte
+        </a>
       </div>
     </div>
   );

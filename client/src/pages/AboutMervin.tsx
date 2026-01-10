@@ -1,266 +1,210 @@
-import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Brain, MessageSquare, Lightbulb, Zap, CheckCircle2, Sparkles } from 'lucide-react';
-
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
-};
-
-const capabilities = [
-  {
-    icon: MessageSquare,
-    title: 'Natural Conversations',
-    description: 'Talk to Mervin in plain English, just like texting a colleague. No technical jargon or complicated forms.',
-    examples: [
-      '"Create an estimate for bathroom remodeling"',
-      '"What\'s the current price for 2x4 lumber?"',
-      '"Show me my projects with pending invoices"',
-    ],
-  },
-  {
-    icon: Brain,
-    title: 'Context-Aware Intelligence',
-    description: 'Mervin remembers your business details, previous conversations, and project history to give accurate answers.',
-    examples: [
-      'Recalls your preferred materials and suppliers',
-      'Learns your pricing strategies over time',
-      'Understands regional cost variations',
-    ],
-  },
-  {
-    icon: Lightbulb,
-    title: 'Proactive Suggestions',
-    description: 'Mervin doesn\'t just respond—it anticipates needs and offers helpful recommendations.',
-    examples: [
-      'Suggests material alternatives to save costs',
-      'Recommends project timelines based on weather',
-      'Alerts you to potential issues before they arise',
-    ],
-  },
-  {
-    icon: Zap,
-    title: 'Instant Estimates',
-    description: 'Generate professional, accurate estimates in seconds through simple conversation.',
-    examples: [
-      'Real-time material pricing from DeepSearch',
-      'Automatic labor cost calculations',
-      'PDF generation ready to send to clients',
-    ],
-  },
-];
-
-const aiModels = [
-  { name: 'OpenAI GPT-4', specialty: 'General reasoning and conversation' },
-  { name: 'Anthropic Claude', specialty: 'Contract analysis and legal content' },
-  { name: 'Google Gemini', specialty: 'Multi-modal processing and data analysis' },
-];
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 export default function AboutMervin() {
   return (
-    <div className="min-h-screen py-20">
-      <div className="container mx-auto max-w-7xl px-4">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Badge className="mb-6" variant="secondary" data-testid="badge-mervin">
-            <Sparkles className="w-3 h-3 mr-1" />
-            Meet Mervin AI
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Your AI Construction Assistant
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Mervin is more than just a chatbot—it's your intelligent business partner that understands 
-            ALL construction trades—from cleaning and hauling to electrical, plumbing, roofing, and 
-            general contracting. Built to handle everything from simple jobs to complex million-dollar projects.
-          </p>
-        </motion.div>
+    <div className="container mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-4">Acerca de Mervin AI</h1>
+      <p className="text-muted-foreground mb-8">
+        El corazón y cerebro de Owl Fenc: Más que una inteligencia artificial
+      </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <Card className="overflow-hidden bg-gradient-to-br from-primary/5 to-blue-500/5">
-            <CardContent className="p-8 md:p-12">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Brain className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h2 className="text-3xl font-bold mb-4">What Makes Mervin Different</h2>
-                  <p className="text-muted-foreground text-lg">
-                    Unlike generic AI assistants, Mervin is specifically trained on the ENTIRE construction 
-                    industry across all trades. It understands material types, labor requirements, local building 
-                    codes, and the unique challenges contractors face every day—whether you're doing basic 
-                    hauling, specialized electrical work, or managing complex multi-trade projects.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                <div className="bg-card/50 p-6 rounded-lg">
-                  <div className="text-3xl font-bold text-primary mb-2">10,000+</div>
-                  <div className="text-sm text-muted-foreground">Estimates Generated</div>
-                </div>
-                <div className="bg-card/50 p-6 rounded-lg">
-                  <div className="text-3xl font-bold text-primary mb-2">95%</div>
-                  <div className="text-sm text-muted-foreground">Accuracy Rate</div>
-                </div>
-                <div className="bg-card/50 p-6 rounded-lg">
-                  <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-                  <div className="text-sm text-muted-foreground">Always Available</div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Mervin's Capabilities</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From creating estimates to analyzing contracts, Mervin handles the tasks that 
-              used to take hours of your time.
+      <div className="grid grid-cols-1 gap-6">
+        {/* Sección 1: La Historia Detrás del Nombre */}
+        <Card>
+          <CardHeader>
+            <CardTitle>¿Quién es Mervin?</CardTitle>
+            <CardDescription>
+              La historia detrás del nombre y el alma de nuestra IA
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4">
+              Mervin no es un nombre elegido al azar. <strong>Mervin es el nombre de nuestro co-fundador, 
+              un joven de 16 años, hijo de nuestro fundador principal.</strong> Juntos, este dúo de padre e hijo, 
+              trabajadores campesinos de origen indígena mexicano y residentes de California, son la fuerza 
+              creativa detrás de Owl Fenc.
             </p>
-          </div>
+            <p className="text-muted-foreground mb-4">
+              Mervin AI lleva su nombre como un homenaje a la nueva generación de constructores: jóvenes que 
+              combinan el respeto por el trabajo duro con un dominio innato de la tecnología. La IA fue construida 
+              y entrenada por alguien que entiende la industria desde dos perspectivas: la del campo de trabajo, 
+              a través de los ojos de su padre, y la del futuro digital.
+            </p>
+            <p className="text-muted-foreground">
+              Por eso, Mervin AI no solo procesa datos; <strong>entiende el contexto, la cultura y las necesidades 
+              reales de los contratistas de hoy</strong>.
+            </p>
+          </CardContent>
+        </Card>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {capabilities.map((capability, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="h-full hover-elevate transition-all">
-                  <CardHeader>
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <capability.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <CardTitle className="text-xl">{capability.title}</CardTitle>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">{capability.description}</p>
-                    <div className="space-y-2">
-                      {capability.examples.map((example, idx) => (
-                        <div key={idx} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                          <span className="text-sm text-muted-foreground">{example}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+        {/* Sección 2: Dos Modos de Operación */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Tu Copiloto y Tu Agente: Los Dos Modos de Mervin</CardTitle>
+            <CardDescription>
+              Dos formas de potenciar tu trabajo, según tus necesidades
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-6">
+              Mervin AI opera en dos modos distintos, diseñados para asistirte en cada etapa de tu trabajo. 
+              Entendemos que a veces necesitas un consejo rápido y otras veces necesitas que alguien ejecute 
+              una tarea por ti. Mervin puede hacer ambas cosas.
+            </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <Card>
-            <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-6">Powered by Leading AI Technology</h2>
-              <p className="text-muted-foreground mb-8">
-                Mervin leverages multiple state-of-the-art AI models to provide the best possible 
-                assistance for different tasks. We combine the strengths of each model to deliver 
-                accurate, helpful, and reliable results.
+            {/* Modo Assistant */}
+            <div className="mb-6 p-4 border-2 border-primary/30 rounded-lg bg-primary/5">
+              <div className="flex items-center mb-3">
+                <h4 className="text-lg font-semibold text-foreground mr-2">Modo Assistant (Copiloto)</h4>
+                <Badge variant="secondary">Disponible para todos</Badge>
+              </div>
+              <p className="text-sm text-muted-foreground mb-3">
+                Tu compañero de trabajo conversacional. Hazle preguntas, pide recomendaciones o resuelve dudas 
+                sobre materiales y técnicas. Es tu experto de confianza disponible 24/7.
               </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {aiModels.map((model, index) => (
-                  <div key={index} className="border rounded-lg p-6">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                      <Sparkles className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3 className="font-bold mb-2">{model.name}</h3>
-                    <p className="text-sm text-muted-foreground">{model.specialty}</p>
-                  </div>
-                ))}
+              <div className="space-y-2">
+                <div className="flex items-start">
+                  <span className="text-primary mr-2 mt-0.5">•</span>
+                  <span className="text-sm text-muted-foreground">Responder preguntas técnicas sobre construcción</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-primary mr-2 mt-0.5">•</span>
+                  <span className="text-sm text-muted-foreground">Ofrecer consejos sobre materiales y técnicas</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-primary mr-2 mt-0.5">•</span>
+                  <span className="text-sm text-muted-foreground">Ayudar con la comunicación al cliente</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-primary mr-2 mt-0.5">•</span>
+                  <span className="text-sm text-muted-foreground">Dar recomendaciones de mejores prácticas</span>
+                </div>
               </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+            </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <Card className="bg-muted/30">
-            <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-6">How Mervin Learns Your Business</h2>
-              <div className="space-y-4 text-muted-foreground">
-                <p>
-                  The more you use Mervin, the smarter it gets. Every conversation, estimate, and 
-                  project helps Mervin understand your unique business needs, pricing strategies, 
-                  and preferred workflows—regardless of your trade or specialty.
-                </p>
-                <p>
-                  Mervin uses this knowledge to provide increasingly personalized and accurate assistance. 
-                  It learns your typical markup percentages, favorite material suppliers, regional 
-                  pricing variations, seasonal patterns, and can even handle high-volume operations—
-                  up to 100 estimates per day for busy contractors.
-                </p>
-                <p>
-                  <strong>Privacy First:</strong> All your data is encrypted and used only to improve 
-                  your experience. Mervin never shares your business information with competitors or 
-                  third parties.
-                </p>
+            {/* Modo Agent */}
+            <div className="p-4 border-2 border-orange-500/30 rounded-lg bg-orange-500/5">
+              <div className="flex items-center mb-3">
+                <h4 className="text-lg font-semibold text-foreground mr-2">Modo Agent</h4>
+                <Badge variant="default" className="bg-orange-500 hover:bg-orange-600">Beta</Badge>
+                <Badge variant="outline" className="ml-2">Usuarios Premium</Badge>
               </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <Card className="bg-primary/5 border-primary/20">
-            <CardContent className="p-12">
-              <h2 className="text-3xl font-bold mb-4">Experience Mervin Today</h2>
-              <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Join thousands of contractors who are saving time and growing their business 
-                with Mervin's AI assistance.
+              <p className="text-sm text-muted-foreground mb-3">
+                Tu agente personal de trabajo. Más allá de conversar, el Modo Agente ejecuta tareas reales por ti, 
+                interactuando con las herramientas de Owl Fenc para ahorrarte tiempo y esfuerzo.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                <a href="https://app.owlfenc.com" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" data-testid="button-signup">
-                    Start Free Trial
-                  </Button>
-                </a>
-                <a href="https://app.owlfenc.com" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline" data-testid="button-login">
-                    Sign In
-                  </Button>
-                </a>
+              <div className="space-y-2">
+                <div className="flex items-start">
+                  <span className="text-orange-500 mr-2 mt-0.5">⚡</span>
+                  <span className="text-sm text-muted-foreground">Generar estimados completos automáticamente</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-orange-500 mr-2 mt-0.5">⚡</span>
+                  <span className="text-sm text-muted-foreground">Crear contratos legales listos para firma</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-orange-500 mr-2 mt-0.5">⚡</span>
+                  <span className="text-sm text-muted-foreground">Verificar la propiedad de un inmueble</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-orange-500 mr-2 mt-0.5">⚡</span>
+                  <span className="text-sm text-muted-foreground">Investigar requisitos de permisos locales</span>
+                </div>
+                <div className="flex items-start">
+                  <span className="text-orange-500 mr-2 mt-0.5">⚡</span>
+                  <span className="text-sm text-muted-foreground font-medium">
+                    Y más capacidades en constante desarrollo...
+                  </span>
+                </div>
               </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+            </div>
+
+            <p className="text-xs text-muted-foreground mt-4 italic">
+              El Modo Agent representa el futuro de la gestión de la construcción, donde la IA no solo asiste, 
+              sino que ejecuta.
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Sección 3: Tecnología con Propósito */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Inteligencia Artificial Entrenada en el Mundo Real</CardTitle>
+            <CardDescription>
+              Tecnología que entiende tu trabajo
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-muted-foreground mb-4">
+              La tecnología de Mervin AI va más allá de los modelos de lenguaje genéricos. Ha sido meticulosamente 
+              entrenada y afinada con miles de proyectos de construcción reales, abarcando una multitud de 
+              especialidades como <strong>roofing, plomería, concreto, cercas y más</strong>. Esta base de 
+              conocimiento práctico, combinada con su capacidad para aprender de tus propios proyectos, permite 
+              a Mervin ofrecer respuestas y soluciones que son verdaderamente relevantes para tu negocio.
+            </p>
+            <p className="text-muted-foreground mb-4">
+              Mervin no solo "sabe" de construcción; <strong>entiende el flujo de trabajo de un contratista</strong>. 
+              Cuando le pides que genere un estimado, no solo llena una plantilla; utiliza el contexto de tu cliente, 
+              los precios de tus materiales y las especificaciones de tu proyecto para crear un documento profesional 
+              y preciso, tal como tú lo harías.
+            </p>
+
+            {/* Especialidades */}
+            <div className="bg-muted/50 p-4 rounded-lg">
+              <h4 className="font-semibold mb-3 text-foreground">Especialidades en las que Mervin es Experto:</h4>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-sm text-muted-foreground">Roofing</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-sm text-muted-foreground">Plumbing</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-sm text-muted-foreground">Concrete</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-sm text-muted-foreground">Fencing</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-sm text-muted-foreground">General Contracting</span>
+                </div>
+                <div className="flex items-center">
+                  <span className="text-primary mr-2">✓</span>
+                  <span className="text-sm text-muted-foreground">Y más...</span>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Llamada a la Acción */}
+      <div className="mt-8 p-6 bg-muted rounded-lg text-center">
+        <h3 className="text-xl font-semibold mb-2">
+          ¿Tienes Sugerencias para Mervin?
+        </h3>
+        <p className="mb-4 text-muted-foreground">
+          Mervin AI, al igual que su homónimo humano, está en constante aprendizaje y crecimiento. 
+          Nos encantaría escuchar tus ideas sobre cómo podemos hacerlo aún mejor.
+        </p>
+        <a
+          href="mailto:mervin@owlfenc.com"
+          className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+        >
+          Enviar Sugerencias
+        </a>
       </div>
     </div>
   );
