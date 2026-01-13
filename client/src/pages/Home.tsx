@@ -48,15 +48,15 @@ const scaleIn = {
 const features = [
   {
     icon: Bot,
-    title: 'Mervin AI Assistant',
-    description: 'Create complete, accurate estimates in under 60 seconds. AI-powered automation and dynamic cost analysis through natural conversation.',
+    title: 'Mervin AI Copilot',
+    description: 'Your AI copilot helps you work faster with instant answers and step-by-step guidance. Generate estimates, get permit advice, and make informed decisions through natural conversation.',
     gradient: 'from-primary to-chart-2'
   },
 
   {
     icon: Shield,
     title: 'Smart Contract Generator',
-    description: 'Generate formal project contracts in just 70 seconds with all legal clauses integrated. Complete protection, zero hassle.',
+    description: 'Generate formal project contracts in 66 seconds with industry-specific legal clauses. Our Legal Defense Engine analyzes risks and generates protective clauses tailored to your project.',
     gradient: 'from-primary to-chart-2'
   },
   {
@@ -68,7 +68,7 @@ const features = [
   {
     icon: CreditCard,
     title: 'Integrated Payments & Invoicing',
-    description: 'Generate invoices in under 60 seconds. Accept payments through Stripe with integrated digital signatures.',
+    description: 'Generate professional invoices in 60 seconds. Accept payments through Stripe with integrated digital signatures. Get paid faster.',
     gradient: 'from-primary to-chart-2'
   },
   {
@@ -134,7 +134,7 @@ export default function Home() {
               className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto"
               {...fadeIn}
             >
-              Generate estimates in 60 seconds. Create legal contracts in 70 seconds. Verify property ownership instantly. 
+              Generate estimates in 99 seconds. Create legal contracts in 66 seconds. Verify property ownership instantly. 
               Close more deals, eliminate paperwork, and scale your construction business with AI that works as hard as you do.
               <span className="block mt-4 text-2xl md:text-3xl font-semibold bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">
                 From $500 jobs to $5M+ projects—one platform, unlimited power.
