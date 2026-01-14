@@ -265,7 +265,7 @@ export default function Pricing() {
               </CardContent>
 
               <CardFooter>
-                <a href={APP_URL} className="w-full" data-testid={`button-cta-${plan.code.toLowerCase()}`}>
+                <a href={APP_URL} className="w-full" data-testid={`button-cta-${plan.code.toLowerCase()}`} onClick={() => { if (window.fbq) window.fbq('track', 'CompleteRegistration'); }}>
                   <Button 
                     variant={plan.ctaVariant} 
                     className="w-full"

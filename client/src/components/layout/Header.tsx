@@ -59,7 +59,7 @@ export default function Header() {
                   Log In
                 </Button>
               </a>
-              <a href={APP_URL} target="_blank" rel="noopener noreferrer" data-testid="button-signup">
+              <a href={APP_URL} target="_blank" rel="noopener noreferrer" data-testid="button-signup" onClick={() => { if (window.fbq) window.fbq('track', 'CompleteRegistration'); }}>
                 <Button size="sm">
                   Start Free Trial
                 </Button>
@@ -110,7 +110,7 @@ export default function Header() {
                     Log In
                   </Button>
                 </a>
-                <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="w-full" data-testid="button-mobile-signup">
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="w-full" data-testid="button-mobile-signup" onClick={() => { if (window.fbq) window.fbq('track', 'CompleteRegistration'); }}>
                   <Button className="w-full">
                     Start Free Trial
                   </Button>

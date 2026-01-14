@@ -473,7 +473,7 @@ export default function Features() {
                   Join thousands of contractors who are closing deals faster and getting paid on time.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a href={APP_URL}>
+                  <a href={APP_URL} onClick={() => { if (window.fbq) window.fbq('track', 'CompleteRegistration'); }}>
                     <Button size="lg" className="text-lg px-8">
                       Start Free Trial
                       <ArrowRight className="w-5 h-5 ml-2" />
