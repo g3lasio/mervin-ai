@@ -28,6 +28,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import LegalPolicy from "@/pages/LegalPolicy";
 import ComingSoon from "@/pages/ComingSoon";
+import Compare from "@/pages/Compare";
 
 function Router() {
   return (
@@ -35,6 +36,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/features" component={Features} />
       <Route path="/pricing" component={Pricing} />
+      <Route path="/compare" component={Compare} />
       <Route path="/resources" component={Resources} />
       <Route path="/docs" component={DocsHome} />
       <Route path="/docs/getting-started/creating-first-estimate" component={CreatingFirstEstimate} />
