@@ -44,6 +44,15 @@ export default function Header() {
               Pricing
             </Link>
             <Link 
+              href="/compare" 
+              className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
+                isActive('/compare') ? 'text-foreground' : 'text-muted-foreground'
+              }`}
+              data-testid="link-compare"
+            >
+              Compare
+            </Link>
+            <Link 
               href="/docs" 
               className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
                 isActive('/docs') || isActive('/resources') ? 'text-foreground' : 'text-muted-foreground'
@@ -94,6 +103,14 @@ export default function Header() {
                 data-testid="link-mobile-pricing"
               >
                 Pricing
+              </Link>
+              <Link 
+                href="/compare" 
+                className="text-sm font-medium hover-elevate px-3 py-2 rounded-md"
+                onClick={() => setMobileMenuOpen(false)}
+                data-testid="link-mobile-compare"
+              >
+                Compare
               </Link>
               <Link 
                 href="/docs" 
