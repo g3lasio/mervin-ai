@@ -27,7 +27,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-6">
             <Link 
               href="/features" 
-              className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
+              className={`text-sm font-medium transition-colors hover:text-foreground px-3 py-2 rounded-md ${
                 isActive('/features') ? 'text-foreground' : 'text-muted-foreground'
               }`}
               data-testid="link-features"
@@ -36,7 +36,7 @@ export default function Header() {
             </Link>
             <Link 
               href="/pricing" 
-              className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
+              className={`text-sm font-medium transition-colors hover:text-foreground px-3 py-2 rounded-md ${
                 isActive('/pricing') ? 'text-foreground' : 'text-muted-foreground'
               }`}
               data-testid="link-pricing"
@@ -45,7 +45,7 @@ export default function Header() {
             </Link>
             <Link 
               href="/compare" 
-              className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
+              className={`text-sm font-medium transition-colors hover:text-foreground px-3 py-2 rounded-md ${
                 isActive('/compare') ? 'text-foreground' : 'text-muted-foreground'
               }`}
               data-testid="link-compare"
@@ -54,7 +54,7 @@ export default function Header() {
             </Link>
             <Link 
               href="/docs" 
-              className={`text-sm font-medium transition-colors hover-elevate px-3 py-2 rounded-md ${
+              className={`text-sm font-medium transition-colors hover:text-foreground px-3 py-2 rounded-md ${
                 isActive('/docs') || isActive('/resources') ? 'text-foreground' : 'text-muted-foreground'
               }`}
               data-testid="link-resources"
@@ -63,7 +63,7 @@ export default function Header() {
             </Link>
 
             <div className="flex items-center gap-3 ml-4">
-              <a href={APP_URL} target="_blank" rel="noopener noreferrer" data-testid="button-login">
+              <a href={`${APP_URL}/auth`} target="_blank" rel="noopener noreferrer" data-testid="button-login">
                 <Button variant="ghost" size="sm">
                   Log In
                 </Button>
@@ -90,7 +90,7 @@ export default function Header() {
             <div className="flex flex-col space-y-3">
               <Link 
                 href="/features" 
-                className="text-sm font-medium hover-elevate px-3 py-2 rounded-md"
+                className="text-sm font-medium px-3 py-2 rounded-md text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid="link-mobile-features"
               >
@@ -98,7 +98,7 @@ export default function Header() {
               </Link>
               <Link 
                 href="/pricing" 
-                className="text-sm font-medium hover-elevate px-3 py-2 rounded-md"
+                className="text-sm font-medium px-3 py-2 rounded-md text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid="link-mobile-pricing"
               >
@@ -106,7 +106,7 @@ export default function Header() {
               </Link>
               <Link 
                 href="/compare" 
-                className="text-sm font-medium hover-elevate px-3 py-2 rounded-md"
+                className="text-sm font-medium px-3 py-2 rounded-md text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid="link-mobile-compare"
               >
@@ -114,7 +114,7 @@ export default function Header() {
               </Link>
               <Link 
                 href="/docs" 
-                className="text-sm font-medium hover-elevate px-3 py-2 rounded-md"
+                className="text-sm font-medium px-3 py-2 rounded-md text-foreground"
                 onClick={() => setMobileMenuOpen(false)}
                 data-testid="link-mobile-resources"
               >
@@ -122,7 +122,7 @@ export default function Header() {
               </Link>
 
               <div className="pt-3 border-t flex flex-col gap-2">
-                <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="w-full" data-testid="button-mobile-login">
+                <a href={`${APP_URL}/auth`} target="_blank" rel="noopener noreferrer" className="w-full" data-testid="button-mobile-login">
                   <Button variant="outline" className="w-full">
                     Log In
                   </Button>

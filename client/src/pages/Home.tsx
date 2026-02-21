@@ -6,22 +6,21 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 import { 
   Bot, 
-  Search, 
   FileText, 
   Shield, 
   CreditCard, 
   TrendingUp,
-  Hammer,
-  Building2,
-  Users,
   CheckCircle2,
   Zap,
   Target,
   FileCheck,
   Scale,
   PenTool,
-  DollarSign
+  DollarSign,
+  ChevronDown,
+  Play
 } from 'lucide-react';
+import { useState } from 'react';
 
 const APP_URL = 'https://app.owlfenc.com';
 
@@ -39,78 +38,97 @@ const staggerContainer = {
   }
 };
 
-const scaleIn = {
-  initial: { opacity: 0, scale: 0.9 },
-  animate: { opacity: 1, scale: 1 },
-  transition: { duration: 0.5 }
-};
-
 const features = [
   {
     icon: Bot,
     title: 'Mervin AI Copilot',
     description: 'Your AI copilot helps you work faster with instant answers and step-by-step guidance. Generate estimates, get permit advice, and make informed decisions through natural conversation.',
-    gradient: 'from-primary to-chart-2'
+    gradient: 'from-orange-500 to-amber-500'
   },
-
   {
     icon: Shield,
     title: 'Smart Contract Generator',
     description: 'Generate formal project contracts in 66 seconds with industry-specific legal clauses. Our Legal Defense Engine analyzes risks and generates protective clauses tailored to your project.',
-    gradient: 'from-primary to-chart-2'
+    gradient: 'from-blue-600 to-cyan-500'
   },
   {
     icon: FileText,
     title: 'Property Verification',
     description: 'AI-powered ownership verification prevents fraud and wasted time before you invest in creating estimates.',
-    gradient: 'from-chart-2 to-primary'
+    gradient: 'from-emerald-500 to-teal-500'
   },
   {
     icon: CreditCard,
     title: 'Integrated Payments & Invoicing',
     description: 'Generate professional invoices in 60 seconds. Accept payments through Stripe with integrated digital signatures. Get paid faster.',
-    gradient: 'from-primary to-chart-2'
+    gradient: 'from-violet-500 to-purple-500'
   },
   {
     icon: TrendingUp,
     title: 'Project Management',
-    description: 'Organize your projects, track progress, and manage documents efficiently.',
-    gradient: 'from-chart-2 to-primary'
+    description: 'Organize your projects, track progress, and manage documents efficiently. Everything in one place so nothing falls through the cracks.',
+    gradient: 'from-rose-500 to-pink-500'
   }
 ];
 
-const targetAudiences = [
+const faqs = [
   {
-    icon: Building2,
-    title: 'General Contractors',
-    description: 'Managing multiple projects and trades efficiently—from $500 jobs to multi-million dollar developments',
-    specialties: ['Multi-Project Management', 'Subcontractor Coordination', 'Budget Control']
+    question: 'How accurate are the AI-generated estimates?',
+    answer: 'Our AI achieves 98% accuracy by analyzing real-time material pricing, labor rates, and regional cost data. Every estimate is based on current market conditions, not outdated templates.'
   },
   {
-    icon: Users,
-    title: 'Specialized Contractors',
-    description: 'Electrical, plumbing, HVAC, roofing, painting, flooring, and all trades',
-    specialties: ['Quick Estimates', 'Professional Proposals', 'Material Pricing']
+    question: 'Are the electronic signatures legally binding?',
+    answer: 'Yes. Our dual-signature system complies with the ESIGN Act and UETA, making all electronic signatures legally binding across all 50 states. Each signature includes a complete audit trail.'
   },
   {
-    icon: Hammer,
-    title: 'Service Contractors',
-    description: 'Cleaning, hauling, demolition, landscaping, and maintenance services',
-    specialties: ['Rapid Quoting', 'Volume Operations', 'Payment Processing']
+    question: 'Can I try it before committing?',
+    answer: 'Absolutely. Start with a free trial — no credit card required. You get full access to all features so you can see the value before you pay.'
+  },
+  {
+    question: 'Does it work for my trade?',
+    answer: 'Owl Fenc works for all construction trades — fencing, roofing, electrical, plumbing, HVAC, painting, landscaping, general contracting, and more. From $500 service calls to $5M+ projects.'
+  },
+  {
+    question: 'What about my existing contracts and documents?',
+    answer: 'You can start fresh with our AI-generated contracts or use our system alongside your existing workflow. There is no migration required — start creating better documents from day one.'
+  },
+  {
+    question: 'Is my data secure?',
+    answer: 'Your data is encrypted at rest and in transit. We use bank-level security standards and never share your business data with third parties. Your client information stays yours.'
   }
 ];
+
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="border border-border rounded-lg overflow-hidden">
+      <button
+        className="w-full flex items-center justify-between p-5 text-left hover:bg-muted/50 transition-colors"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className="font-semibold text-foreground pr-4">{question}</span>
+        <ChevronDown className={`w-5 h-5 text-muted-foreground flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      {isOpen && (
+        <div className="px-5 pb-5 text-muted-foreground">
+          {answer}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       <Helmet>
         <title>Owl Fenc - AI-Powered Construction Management for Contractors</title>
-        <meta name="description" content="Complete construction management platform with AI-powered estimates, legal contracts, property verification, and payment processing. Built for fence contractors and subcontractors." />
+        <meta name="description" content="Complete construction management platform with AI-powered estimates, legal contracts, property verification, and payment processing. Built for contractors of all trades." />
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-chart-2/10" />
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-chart-2/5" />
         <motion.div 
           className="container mx-auto max-w-7xl px-4 relative z-10"
           initial="initial"
@@ -125,79 +143,100 @@ export default function Home() {
               </Badge>
             </motion.div>
             <motion.h1 
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-foreground to-chart-2 bg-clip-text text-transparent"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground"
               {...fadeIn}
             >
-              Your AI Team Member That Never Sleeps
+              Your AI Team Member That{' '}
+              <span className="text-primary">Never Sleeps</span>
             </motion.h1>
             <motion.p 
-              className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed"
               {...fadeIn}
             >
-              Generate estimates in 99 seconds. Create legal contracts in 66 seconds. Verify property ownership instantly. 
-              Close more deals, eliminate paperwork, and scale your construction business with AI that works as hard as you do.
-              <span className="block mt-4 text-2xl md:text-3xl font-semibold bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">
-                From $500 jobs to $5M+ projects—one platform, unlimited power.
-              </span>
+              Generate estimates in 99 seconds. Create legal contracts in 66 seconds. 
+              Verify property ownership instantly. One platform to close more deals and eliminate paperwork.
             </motion.p>
             <motion.div 
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               {...fadeIn}
             >
               <a href={APP_URL} data-testid="button-hero-cta" onClick={() => { if (window.fbq) window.fbq('track', 'CompleteRegistration'); }}>
-                <Button size="lg" className="text-lg px-8 py-6">
+                <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow">
                   <Target className="w-5 h-5 mr-2" />
                   Start Free Trial
                 </Button>
               </a>
               <Link href="/pricing">
-                <Button size="lg" variant="outline" className="text-lg px-8 py-6" data-testid="button-view-pricing">
+                <Button size="lg" variant="secondary" className="text-lg px-8 py-6" data-testid="button-view-pricing">
                   View Pricing
                 </Button>
               </Link>
             </motion.div>
+            <motion.p 
+              className="mt-4 text-sm text-muted-foreground"
+              {...fadeIn}
+            >
+              No credit card required · Free trial for all features
+            </motion.p>
           </div>
+
+          {/* Demo Video Placeholder */}
+          <motion.div 
+            className="max-w-4xl mx-auto mt-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            <div id="demo-video-container" className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-card aspect-video flex items-center justify-center">
+              <div className="text-center">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <Play className="w-8 h-8 text-primary ml-1" />
+                </div>
+                <p className="text-muted-foreground font-medium">Product Demo Coming Soon</p>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </section>
 
       {/* Statistics Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-background">
+      <section className="py-16 bg-gradient-to-br from-primary/5 via-background to-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Why Contractors Choose Owl Fenc
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Join hundreds of contractors transforming their businesses with AI-powered tools
+              Powerful AI tools that save you time and help you win more jobs
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow" data-testid="stat-0">
-              <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+            <div className="text-center p-8 rounded-xl bg-card border border-border shadow-sm hover:shadow-md transition-shadow" data-testid="stat-0">
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-3">
                 10x
               </div>
-              <div className="text-xl font-semibold mb-2">Faster Estimates</div>
+              <div className="text-xl font-semibold text-foreground mb-2">Faster Estimates</div>
               <p className="text-muted-foreground">
                 Generate quotes in minutes, not hours
               </p>
             </div>
             
-            <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow" data-testid="stat-1">
-              <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+            <div className="text-center p-8 rounded-xl bg-card border border-border shadow-sm hover:shadow-md transition-shadow" data-testid="stat-1">
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-3">
                 98%
               </div>
-              <div className="text-xl font-semibold mb-2">Calculation Accuracy</div>
+              <div className="text-xl font-semibold text-foreground mb-2">Calculation Accuracy</div>
               <p className="text-muted-foreground">
                 AI-powered precision for materials & labor
               </p>
             </div>
             
-            <div className="text-center p-8 rounded-lg bg-card border border-border/40 hover:shadow-lg transition-shadow" data-testid="stat-2">
-              <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-3">
+            <div className="text-center p-8 rounded-xl bg-card border border-border shadow-sm hover:shadow-md transition-shadow" data-testid="stat-2">
+              <div className="text-5xl md:text-6xl font-bold text-primary mb-3">
                 +40%
               </div>
-              <div className="text-xl font-semibold mb-2">More Jobs Won</div>
+              <div className="text-xl font-semibold text-foreground mb-2">More Jobs Won</div>
               <p className="text-muted-foreground">
                 Professional proposals close more deals
               </p>
@@ -207,103 +246,60 @@ export default function Home() {
       </section>
 
       {/* Key Features */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="container mx-auto max-w-7xl px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Everything You Need to Succeed
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Powerful tools designed specifically for construction professionals
             </p>
           </motion.div>
           
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={staggerContainer}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
-              <motion.div key={index} variants={fadeIn}>
-                <Card className="hover-elevate transition-all h-full" data-testid={`feature-card-${index}`}>
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <Card className="h-full border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300" data-testid={`feature-card-${index}`}>
                   <CardContent className="p-6">
-                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4`}>
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 shadow-sm`}>
                       <feature.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                    <p className="text-muted-foreground">{feature.description}</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </section>
+          </div>
 
-      {/* Target Audience */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto max-w-7xl px-4">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Built for ALL Construction Trades
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From simple hauling jobs to complex multi-million dollar projects—Owl Fenc adapts to your 
-              trade, your volume, and your workflow
-            </p>
-          </motion.div>
-          
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={staggerContainer}
-          >
-            {targetAudiences.map((audience, index) => (
-              <motion.div key={index} variants={fadeIn}>
-                <Card className="hover-elevate transition-all h-full" data-testid={`audience-card-${index}`}>
-                  <CardContent className="p-8">
-                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                      <audience.icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3">{audience.title}</h3>
-                    <p className="text-muted-foreground mb-6">{audience.description}</p>
-                    <div className="space-y-2">
-                      {audience.specialties.map((specialty, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="w-4 h-4 text-primary" />
-                          <span>{specialty}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="text-center mt-10">
+            <Link href="/features">
+              <Button variant="outline" size="lg" className="text-base">
+                See All Features
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Legal Powerhouse Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 via-background to-chart-2/5">
+      <section className="py-16 bg-gradient-to-br from-primary/5 via-background to-chart-2/5">
         <div className="container mx-auto max-w-7xl px-4">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -313,80 +309,84 @@ export default function Home() {
               <Shield className="w-3 h-3 mr-1" />
               Your Legal Command Center
             </Badge>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
               Say Goodbye to DocuSign & Rocket Lawyer
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-4">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
               Save <span className="font-bold text-primary">$780+ per year</span> by replacing multiple subscriptions with one powerful system
             </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Generate legal contracts AND collect electronic signatures—all in one place. No more juggling between platforms or paying for separate services.
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+              Generate legal contracts AND collect electronic signatures—all in one place. No more juggling between platforms.
             </p>
           </motion.div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={staggerContainer}
-          >
-            <motion.div variants={fadeIn}>
-              <Card className="hover-elevate transition-all h-full border-primary/20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5 }}
+            >
+              <Card className="h-full border border-border shadow-sm hover:shadow-md transition-all duration-300">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                    <Scale className="w-8 h-8 text-primary" />
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <Scale className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Legal Defense Engine</h3>
-                  <p className="text-muted-foreground mb-6">
-                    Our AI analyzes your project details and automatically generates contracts with protective clauses tailored to your specific risks. No more generic templates from Rocket Lawyer.
+                  <h3 className="text-2xl font-bold text-foreground mb-4">Legal Defense Engine</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    Our AI analyzes your project details and automatically generates contracts with protective clauses tailored to your specific risks. No more generic templates.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">AI-powered risk analysis</span>
+                      <span className="text-sm text-foreground">AI-powered risk analysis</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Industry-specific legal clauses</span>
+                      <span className="text-sm text-foreground">Industry-specific legal clauses</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Automatic compliance updates</span>
+                      <span className="text-sm text-foreground">Automatic compliance updates</span>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
 
-            <motion.div variants={fadeIn}>
-              <Card className="hover-elevate transition-all h-full border-primary/20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <Card className="h-full border border-border shadow-sm hover:shadow-md transition-all duration-300">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                    <PenTool className="w-8 h-8 text-primary" />
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <PenTool className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Dual-Signature System</h3>
-                  <p className="text-muted-foreground mb-6">
+                  <h3 className="text-2xl font-bold text-foreground mb-4">Dual-Signature System</h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
                     Collect legally-binding electronic signatures from both you and your client—no DocuSign subscription needed. Fast, secure, and built right into your workflow.
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Legally binding e-signatures</span>
+                      <span className="text-sm text-foreground">Legally binding e-signatures</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Sign from any device</span>
+                      <span className="text-sm text-foreground">Sign from any device</span>
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Automatic audit trail</span>
+                      <span className="text-sm text-foreground">Automatic audit trail</span>
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </motion.div>
-          </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -394,14 +394,14 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <Card className="bg-gradient-to-r from-primary/10 to-chart-2/10 border-primary/20">
+            <Card className="bg-gradient-to-r from-primary/10 to-chart-2/10 border border-border shadow-sm">
               <CardContent className="p-8">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
                     <FileCheck className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">Complete Document Library</h3>
+                    <h3 className="text-2xl font-bold text-foreground mb-2">Complete Document Library</h3>
                     <p className="text-muted-foreground">
                       Generate any legal document your construction business needs—all from one platform
                     </p>
@@ -420,7 +420,7 @@ export default function Home() {
                   ].map((doc, idx) => (
                     <div key={idx} className="flex items-center gap-2 text-sm">
                       <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span>{doc}</span>
+                      <span className="text-foreground">{doc}</span>
                     </div>
                   ))}
                 </div>
@@ -429,7 +429,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            className="text-center mt-12"
+            className="text-center mt-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -437,13 +437,13 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary/10 rounded-full mb-6">
               <DollarSign className="w-5 h-5 text-primary" />
-              <span className="font-semibold">DocuSign ($300/year) + Rocket Lawyer ($480/year) = $780/year</span>
+              <span className="font-semibold text-foreground">DocuSign ($300/yr) + Rocket Lawyer ($480/yr) = $780/year</span>
             </div>
             <p className="text-xl font-bold text-primary mb-4">
               With Owl Fenc: Everything included in your subscription
             </p>
             <a href={APP_URL}>
-              <Button size="lg" className="text-lg px-8 py-6">
+              <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow">
                 Start Saving Today
               </Button>
             </a>
@@ -451,110 +451,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LeadPrime CRM Partnership Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto max-w-7xl px-4">
+      {/* FAQ Section */}
+      <section className="py-16">
+        <div className="container mx-auto max-w-3xl px-4">
           <motion.div 
-            className="text-center mb-12"
+            className="text-center mb-10"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Badge className="mb-6" variant="secondary">
-              <Users className="w-3 h-3 mr-1" />
-              Exclusive Partnership
-            </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Supercharge Your Sales with LeadPrime CRM
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Frequently Asked Questions
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Owl Fenc handles your estimates and contracts. LeadPrime manages your entire sales pipeline.
+            <p className="text-lg text-muted-foreground">
+              Got questions? We have answers.
             </p>
           </motion.div>
 
-          <motion.div
+          <motion.div 
+            className="space-y-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <Card className="overflow-hidden">
-              <div className="grid md:grid-cols-2 gap-0">
-                <CardContent className="p-8 md:p-12 bg-gradient-to-br from-primary/5 to-chart-2/5">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
-                      <Users className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold">LeadPrime CRM</h3>
-                  </div>
-                  <p className="text-muted-foreground mb-6">
-                    A specialized mobile CRM built exclusively for contractors. Manage leads, track your sales pipeline, communicate with clients via SMS, and close more deals—all from your phone.
-                  </p>
-                  <div className="space-y-3 mb-8">
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Lead management & pipeline tracking</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">SMS communication with clients</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Meta (Facebook/Instagram) lead integration</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">AI voice assistant for calls</span>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">Public booking system</span>
-                    </div>
-                  </div>
-                  <a href="https://leadprime.chyrris.com/" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="w-full">
-                      Learn More About LeadPrime
-                    </Button>
-                  </a>
-                </CardContent>
-
-                <CardContent className="p-8 md:p-12 flex flex-col justify-center bg-gradient-to-br from-chart-2/5 to-primary/5">
-                  <div className="mb-6">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-4">
-                      <Zap className="w-4 h-4 text-primary" />
-                      <span className="font-semibold text-primary">Exclusive Benefit</span>
-                    </div>
-                    <h3 className="text-2xl font-bold mb-4">
-                      30% Discount for Owl Fenc Members
-                    </h3>
-                    <p className="text-muted-foreground mb-6">
-                      As a paid Owl Fenc subscriber, you get exclusive access to LeadPrime at a significantly reduced rate. Build the perfect contractor tech stack and dominate your market.
-                    </p>
-                  </div>
-                  <div className="bg-background/50 rounded-lg p-6 border border-border/50">
-                    <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-3xl font-bold text-primary">70%</span>
-                      <span className="text-muted-foreground">of regular price</span>
-                    </div>
-                    <p className="text-sm text-muted-foreground mb-4">
-                      Available exclusively to Mero Patrón and Master Contractor plan members
-                    </p>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="w-4 h-4 text-primary" />
-                      <span>Automatic discount applied at checkout</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </div>
-            </Card>
+            {faqs.map((faq, index) => (
+              <FAQItem key={index} question={faq.question} answer={faq.answer} />
+            ))}
           </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-12">
         <motion.div 
           className="container mx-auto max-w-7xl px-4"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -568,7 +498,7 @@ export default function Home() {
                 Ready to Transform Your Business?
               </h2>
               <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Join hundreds of contractors who are saving time and winning more jobs with Owl Fenc
+                Join contractors who are saving time, winning more jobs, and scaling their businesses with Owl Fenc
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href={APP_URL} data-testid="button-cta-signup" onClick={() => { if (window.fbq) window.fbq('track', 'CompleteRegistration'); }}>
