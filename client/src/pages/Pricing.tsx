@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
-import { Check, X, Sparkles, Calendar } from 'lucide-react';
+import { Check, X, Sparkles, Calendar, Zap } from 'lucide-react';
 
 const APP_URL = 'https://app.owlfenc.com';
 
@@ -27,6 +27,8 @@ interface PricingPlan {
   cta: string;
   ctaVariant: 'default' | 'outline';
   leadprimeDiscount?: boolean;
+  welcomeCredits?: number;
+  monthlyCredits?: number;
 }
 
 const pricingPlans: PricingPlan[] = [
@@ -39,12 +41,14 @@ const pricingPlans: PricingPlan[] = [
     yearlyPrice: 0,
     description: 'Perfect for getting started',
     popular: false,
+    welcomeCredits: 120,
+    monthlyCredits: 0,
     features: [
       { name: 'Unlimited basic estimates', included: true, note: 'With watermark' },
       { name: '5 AI estimates per month', included: true, note: 'With watermark' },
       { name: '5 property verifications', included: true },
       { name: '5 permit advisor queries', included: true },
-      { name: 'Legal contracts', included: false, note: '14-day trial available' },
+      { name: 'Legal contracts', included: false },
       { name: 'Invoicing', included: false },
       { name: 'Payment tracking', included: false },
       { name: 'Projects management', included: false },
@@ -60,23 +64,26 @@ const pricingPlans: PricingPlan[] = [
     code: 'mero_patron',
     motto: 'Para contratistas profesionales',
     price: 49.99,
-    yearlyPrice: 499.90,
+    yearlyPrice: 509.88,
     description: 'Most popular for growing contractors',
     popular: true,
+    welcomeCredits: 120,
+    monthlyCredits: 500,
     features: [
-      { name: '50 basic estimates per month', included: true, note: 'No watermark' },
-      { name: '50 AI estimates per month', included: true, note: 'No watermark' },
-      { name: '50 legal contracts per month', included: true },
-      { name: '50 property verifications', included: true },
-      { name: '50 permit advisor queries', included: true },
-      { name: '50 invoices per month', included: true },
+      { name: '500 AI credits per month', included: true, note: 'Resets monthly' },
+      { name: 'Unlimited basic estimates', included: true, note: 'No watermark' },
+      { name: 'AI estimates', included: true, note: 'No watermark' },
+      { name: 'Legal contracts + e-signatures', included: true },
+      { name: 'Property verifications', included: true },
+      { name: 'Permit advisor queries', included: true },
+      { name: 'Invoicing', included: true },
       { name: 'Unlimited projects', included: true },
       { name: 'Basic payment tracking', included: true },
       { name: 'Access to networking/training events', included: true },
       { name: '30% discount on LeadPrime CRM', included: true, note: 'Exclusive benefit' },
       { name: 'Priority support', included: true },
     ],
-    cta: 'Start Free Trial',
+    cta: 'Get Started',
     ctaVariant: 'default',
     leadprimeDiscount: true,
   },
@@ -86,13 +93,16 @@ const pricingPlans: PricingPlan[] = [
     code: 'MASTER_CONTRACTOR',
     motto: 'Sin límites para profesionales',
     price: 99.99,
-    yearlyPrice: 999.90,
+    yearlyPrice: 1019.89,
     description: 'Unlimited everything for professionals',
     popular: false,
+    welcomeCredits: 120,
+    monthlyCredits: 1200,
     features: [
+      { name: '1,200 AI credits per month', included: true, note: 'Resets monthly' },
       { name: 'Unlimited basic estimates', included: true, note: 'No watermark' },
       { name: 'Unlimited AI estimates', included: true, note: 'No watermark' },
-      { name: 'Unlimited legal contracts', included: true },
+      { name: 'Unlimited legal contracts + e-signatures', included: true },
       { name: 'Unlimited property verifications', included: true },
       { name: 'Unlimited permit advisor', included: true },
       { name: 'Unlimited invoicing', included: true },
@@ -102,7 +112,7 @@ const pricingPlans: PricingPlan[] = [
       { name: '30% discount on LeadPrime CRM', included: true, note: 'Exclusive benefit' },
       { name: 'VIP support 24/7', included: true },
     ],
-    cta: 'Start Free Trial',
+    cta: 'Get Started',
     ctaVariant: 'default',
     leadprimeDiscount: true,
   },
@@ -136,7 +146,7 @@ export default function Pricing() {
     <div className="min-h-screen py-20">
       <Helmet>
         <title>Pricing Plans - Owl Fenc</title>
-        <meta name="description" content="Choose the perfect plan for your construction business. From free to unlimited. 14-day trial with no credit card required." />
+        <meta name="description" content="Choose the perfect plan for your construction business. From free to professional. Start with 120 welcome credits — no credit card required." />
       </Helmet>
 
       <div className="container mx-auto max-w-7xl px-4">
@@ -152,8 +162,11 @@ export default function Pricing() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Choose the Right Plan for Your Business
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Start free and scale as you grow. All plans include a 14-day free trial with full access to features.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
+            Start free with <strong>120 welcome credits</strong> — no credit card required. Upgrade anytime as your business grows.
+          </p>
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-8">
+            Credits power every AI feature: estimates, contracts, permit advisor, and more. Paid plans include monthly credit refills automatically.
           </p>
 
           {/* Billing Toggle */}
@@ -212,7 +225,7 @@ export default function Pricing() {
                 <div className="mt-4">
                   <div className="flex items-baseline gap-2">
                     <span className="text-4xl font-bold">
-                      ${billingCycle === 'monthly' ? plan.price.toFixed(2) : (plan.yearlyPrice / 12).toFixed(2)}
+                      ${billingCycle === 'monthly' ? plan.price.toFixed(2) : (plan.yearlyPrice > 0 ? (plan.yearlyPrice / 12).toFixed(2) : '0.00')}
                     </span>
                     <span className="text-muted-foreground">/month</span>
                   </div>
@@ -227,6 +240,20 @@ export default function Pricing() {
                     </div>
                   )}
                 </div>
+
+                {/* Credits badge */}
+                {plan.monthlyCredits && plan.monthlyCredits > 0 ? (
+                  <div className="mt-3 flex items-center gap-2 text-sm font-semibold text-primary">
+                    <Zap className="w-4 h-4" />
+                    <span>{plan.monthlyCredits.toLocaleString()} AI credits/month</span>
+                  </div>
+                ) : (
+                  <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground">
+                    <Zap className="w-4 h-4" />
+                    <span>120 welcome credits to start</span>
+                  </div>
+                )}
+
                 <p className="text-muted-foreground mt-4">{plan.description}</p>
               </CardHeader>
 
@@ -265,7 +292,7 @@ export default function Pricing() {
               </CardContent>
 
               <CardFooter>
-                <a href={APP_URL} className="w-full" data-testid={`button-cta-${plan.code.toLowerCase()}`} onClick={() => { if (window.fbq) window.fbq('track', 'CompleteRegistration'); }}>
+                <a href={APP_URL} className="w-full" data-testid={`button-cta-${plan.code.toLowerCase()}`} onClick={() => { if ((window as any).fbq) (window as any).fbq('track', 'CompleteRegistration'); }}>
                   <Button 
                     variant={plan.ctaVariant} 
                     className="w-full"
@@ -275,40 +302,48 @@ export default function Pricing() {
                   </Button>
                 </a>
               </CardFooter>
-            </Card>
+              </Card>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* LeadPrime CRM Info Section */}
+        {/* Credit System Explainer */}
         <motion.div
           className="mb-16 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Card className="bg-gradient-to-br from-primary/5 to-chart-2/5 border-primary/20">
             <CardContent className="p-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Sparkles className="w-6 h-6 text-primary" />
+                  <Zap className="w-6 h-6 text-primary" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2">Exclusive Benefit: LeadPrime CRM Discount</h3>
+                  <h3 className="text-xl font-bold mb-2">How the Credit System Works</h3>
                   <p className="text-muted-foreground mb-4">
-                    All paid Owl Fenc members get <strong>30% off LeadPrime CRM</strong> - our powerful mobile CRM 
-                    designed specifically for contractors. Manage leads, track your sales pipeline, and never miss 
-                    a follow-up opportunity.
+                    Every AI-powered action in Owl Fenc uses credits. All new accounts receive <strong>120 welcome credits</strong> to explore the platform. 
+                    Paid plans include automatic monthly credit refills so you never run out mid-project.
                   </p>
-                  <a 
-                    href="https://leadprime.chyrris.com/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="outline">
-                      Learn More About LeadPrime
-                    </Button>
-                  </a>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                    <div className="text-center p-3 bg-background rounded-lg border border-border">
+                      <div className="text-2xl font-bold text-primary">12</div>
+                      <div className="text-xs text-muted-foreground mt-1">Contract generation</div>
+                    </div>
+                    <div className="text-center p-3 bg-background rounded-lg border border-border">
+                      <div className="text-2xl font-bold text-primary">8</div>
+                      <div className="text-xs text-muted-foreground mt-1">Dual e-signature</div>
+                    </div>
+                    <div className="text-center p-3 bg-background rounded-lg border border-border">
+                      <div className="text-2xl font-bold text-primary">15</div>
+                      <div className="text-xs text-muted-foreground mt-1">Permit advisor</div>
+                    </div>
+                    <div className="text-center p-3 bg-background rounded-lg border border-border">
+                      <div className="text-2xl font-bold text-primary">18</div>
+                      <div className="text-xs text-muted-foreground mt-1">Contract + signature bundle</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </CardContent>
@@ -358,6 +393,20 @@ export default function Pricing() {
             
             <Card>
               <CardHeader>
+                <CardTitle className="text-xl">What are AI credits?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  AI credits power every intelligent feature in Owl Fenc — generating contracts, running permit analysis, 
+                  creating AI-powered estimates, and more. All new accounts start with <strong>120 welcome credits</strong>. 
+                  Paid plans automatically refill your credits every billing cycle: 500 credits/month for Mero Patrón 
+                  and 1,200 credits/month for Master Contractor.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
                 <CardTitle className="text-xl">What are AI estimates?</CardTitle>
               </CardHeader>
               <CardContent>
@@ -371,17 +420,17 @@ export default function Pricing() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl">How do the monthly limits work?</CardTitle>
+                <CardTitle className="text-xl">Is there a free plan?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  For the Mero Patrón plan, you get 50 of each feature per month: 50 basic estimates, 
-                  50 AI estimates, 50 contracts, 50 property verifications, 50 permit advisor queries, 
-                  and 50 invoices. Limits reset at the beginning of each billing cycle.
+                  Yes! The <strong>Primo Chambeador</strong> plan is free forever. You also receive <strong>120 welcome credits</strong> when 
+                  you sign up — no credit card required. Use them to explore contracts, permit advisor, and other AI features 
+                  before deciding on a paid plan.
                 </p>
               </CardContent>
             </Card>
-            
+
             <Card>
               <CardHeader>
                 <CardTitle className="text-xl">What payment methods do you accept?</CardTitle>
@@ -396,25 +445,13 @@ export default function Pricing() {
             
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl">Is there a free trial?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Yes! All paid plans include a 14-day free trial with full access to all features. 
-                  No credit card required to start. The free Primo Chambeador plan is available forever.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
                 <CardTitle className="text-xl">Can I create contracts on the free plan?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  The free Primo Chambeador plan allows you to explore the contract features in demo mode. 
-                  To create and send actual contracts, you can start a 14-day free trial or upgrade to 
-                  a paid plan.
+                  Yes — using your welcome credits. All new accounts receive 120 credits, and each contract 
+                  generation costs 12 credits. Once your welcome credits are used, upgrade to a paid plan 
+                  to get monthly credit refills and keep generating contracts without interruption.
                 </p>
               </CardContent>
             </Card>

@@ -24,7 +24,7 @@ interface ComparisonFeature {
 
 const pricingComparison = [
   { name: 'Starting Price', owlFenc: '$50/mo', jobber: '$89/mo', housecallPro: '$149/mo', buildertrend: '$666+/mo', highlight: true },
-  { name: 'Free Trial', owlFenc: '14 days', jobber: '14 days', housecallPro: '14 days', buildertrend: 'Demo only' },
+  { name: 'Free Tier', owlFenc: '120 welcome credits', jobber: '14 days', housecallPro: '14 days', buildertrend: 'Demo only' },
   { name: 'Annual Savings vs Jobber', owlFenc: '$468/year', jobber: '-', housecallPro: '-$720/year', buildertrend: '-$7,392/year', highlight: true },
 ];
 
@@ -254,7 +254,7 @@ export default function Compare() {
                 className="text-lg px-8"
                 onClick={() => window.location.href = APP_URL}
               >
-                Start Free Trial
+                Get Started Free
               </Button>
               <Button 
                 size="lg" 
@@ -266,7 +266,7 @@ export default function Compare() {
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-4">
-              14-day free trial • No credit card required • Cancel anytime
+              120 welcome credits included • No credit card required • Cancel anytime
             </p>
           </motion.div>
         </div>

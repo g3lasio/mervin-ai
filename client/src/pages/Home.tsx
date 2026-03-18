@@ -82,7 +82,7 @@ const faqs = [
   },
   {
     question: 'Can I try it before committing?',
-    answer: 'Absolutely. Start with a free trial — no credit card required. You get full access to all features so you can see the value before you pay.'
+    answer: 'Absolutely. All new accounts receive 120 welcome credits — no credit card required. Use them to generate contracts, run permit analysis, and explore all AI features before deciding on a paid plan.'
   },
   {
     question: 'Does it work for my trade?',
@@ -163,7 +163,7 @@ export default function Home() {
               <a href={APP_URL} data-testid="button-hero-cta" onClick={() => { if (window.fbq) window.fbq('track', 'CompleteRegistration'); }}>
                 <Button size="lg" className="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-shadow">
                   <Target className="w-5 h-5 mr-2" />
-                  Start Free Trial
+                  Get Started Free
                 </Button>
               </a>
               <Link href="/pricing">
@@ -176,24 +176,33 @@ export default function Home() {
               className="mt-4 text-sm text-muted-foreground"
               {...fadeIn}
             >
-              No credit card required · Free trial for all features
+              No credit card required · 120 welcome credits included
             </motion.p>
           </div>
 
-          {/* Demo Video Placeholder */}
+          {/* Demo Video */}
           <motion.div 
             className="max-w-4xl mx-auto mt-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div id="demo-video-container" className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-card aspect-video flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <Play className="w-8 h-8 text-primary ml-1" />
-                </div>
-                <p className="text-muted-foreground font-medium">Product Demo Coming Soon</p>
-              </div>
+            <div className="text-center mb-4">
+              <Badge variant="secondary" className="mb-2">
+                <Play className="w-3 h-3 mr-1" />
+                Watch How It Works
+              </Badge>
+              <p className="text-sm text-muted-foreground">See how to generate AI-powered contracts in minutes</p>
+            </div>
+            <div id="demo-video-container" className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-card aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/dLAcg3vz2ZU?rel=0&modestbranding=1"
+                title="Owl Fenc Demo - How to Generate Contracts with AI"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full absolute inset-0"
+                style={{ border: 0 }}
+              />
             </div>
           </motion.div>
         </motion.div>
@@ -503,7 +512,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href={APP_URL} data-testid="button-cta-signup" onClick={() => { if (window.fbq) window.fbq('track', 'CompleteRegistration'); }}>
                   <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                    Start Free Trial
+                    Get Started Free
                   </Button>
                 </a>
                 <Link href="/features">

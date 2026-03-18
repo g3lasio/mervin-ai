@@ -475,7 +475,7 @@ export default function Features() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <a href={APP_URL} onClick={() => { if (window.fbq) window.fbq('track', 'CompleteRegistration'); }}>
                     <Button size="lg" className="text-lg px-8">
-                      Start Free Trial
+                      Get Started Free
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
                   </a>
@@ -486,7 +486,7 @@ export default function Features() {
                   </a>
                 </div>
                 <p className="text-sm text-muted-foreground mt-6">
-                  14-day free trial • No credit card required • Cancel anytime
+                  120 welcome credits included • No credit card required • Cancel anytime
                 </p>
               </CardContent>
             </Card>
