@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter }
 import { Badge } from '@/components/ui/badge';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
-import { Check, X, Sparkles, Calendar, Zap } from 'lucide-react';
+import { Check, X, Sparkles, Calendar, Zap, ShoppingCart } from 'lucide-react';
 
 const APP_URL = 'https://app.owlfenc.com';
 
@@ -29,6 +29,7 @@ interface PricingPlan {
   leadprimeDiscount?: boolean;
   welcomeCredits?: number;
   monthlyCredits?: number;
+  isPAYG?: boolean;
 }
 
 const pricingPlans: PricingPlan[] = [
@@ -39,19 +40,20 @@ const pricingPlans: PricingPlan[] = [
     motto: 'Ningún trabajo es pequeño cuando tu espíritu es grande',
     price: 0,
     yearlyPrice: 0,
-    description: 'Perfect for getting started',
+    description: 'Pay As You Go — full access, no monthly fee',
     popular: false,
     welcomeCredits: 120,
     monthlyCredits: 0,
+    isPAYG: true,
     features: [
-      { name: 'Unlimited basic estimates', included: true, note: 'With watermark' },
-      { name: '5 AI estimates per month', included: true, note: 'With watermark' },
-      { name: '5 property verifications', included: true },
-      { name: '5 permit advisor queries', included: true },
-      { name: 'Legal contracts', included: false },
-      { name: 'Invoicing', included: false },
-      { name: 'Payment tracking', included: false },
-      { name: 'Projects management', included: false },
+      { name: 'Full access to all features', included: true, note: 'Powered by credits' },
+      { name: 'AI Estimates', included: true, note: '8 credits each' },
+      { name: 'Legal Contracts + e-signatures', included: true, note: '18 credits bundle' },
+      { name: 'Permit Advisor', included: true, note: '15 credits each' },
+      { name: 'Property Verification', included: true, note: '15 credits each' },
+      { name: 'Invoicing & Payment Tracking', included: true, note: '5 credits per invoice' },
+      { name: 'Projects Management', included: true, note: 'With credits' },
+      { name: 'Watermark on documents', included: true, note: 'Removed on paid plans' },
       { name: 'Community support', included: true },
     ],
     cta: 'Get Started Free',
@@ -78,7 +80,7 @@ const pricingPlans: PricingPlan[] = [
       { name: 'Permit advisor queries', included: true },
       { name: 'Invoicing', included: true },
       { name: 'Unlimited projects', included: true },
-      { name: 'Basic payment tracking', included: true },
+      { name: 'Payment tracking', included: true },
       { name: 'Access to networking/training events', included: true },
       { name: '30% discount on LeadPrime CRM', included: true, note: 'Exclusive benefit' },
       { name: 'Priority support', included: true },
@@ -146,7 +148,7 @@ export default function Pricing() {
     <div className="min-h-screen py-20">
       <Helmet>
         <title>Pricing Plans - Owl Fenc</title>
-        <meta name="description" content="Choose the perfect plan for your construction business. From free to professional. Start with 120 welcome credits — no credit card required." />
+        <meta name="description" content="Choose the perfect plan for your construction business. Start Pay As You Go with 120 welcome credits — no monthly fee, no credit card required. Upgrade anytime." />
       </Helmet>
 
       <div className="container mx-auto max-w-7xl px-4">
@@ -163,10 +165,10 @@ export default function Pricing() {
             Choose the Right Plan for Your Business
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
-            Start free with <strong>120 welcome credits</strong> — no credit card required. Upgrade anytime as your business grows.
+            Start <strong>Pay As You Go</strong> with <strong>120 welcome credits</strong> — no monthly fee, no credit card required. Upgrade to a subscription for automatic monthly credit refills and no watermarks.
           </p>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-8">
-            Credits power every AI feature: estimates, contracts, permit advisor, and more. Paid plans include monthly credit refills automatically.
+            Credits power every AI feature: estimates, contracts, permit advisor, property verification, and more.
           </p>
 
           {/* Billing Toggle */}
@@ -223,36 +225,51 @@ export default function Pricing() {
                 <CardTitle className="text-2xl">{plan.name}</CardTitle>
                 <CardDescription className="italic">{plan.motto}</CardDescription>
                 <div className="mt-4">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl font-bold">
-                      ${billingCycle === 'monthly' ? plan.price.toFixed(2) : (plan.yearlyPrice > 0 ? (plan.yearlyPrice / 12).toFixed(2) : '0.00')}
-                    </span>
-                    <span className="text-muted-foreground">/month</span>
-                  </div>
-                  {billingCycle === 'yearly' && plan.price > 0 && (
-                    <div className="text-sm text-muted-foreground mt-2">
-                      ${plan.yearlyPrice.toFixed(2)}/year • Save ${calculateYearlySavings(plan.price, plan.yearlyPrice)}
+                  {plan.isPAYG ? (
+                    <div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-4xl font-bold">$0</span>
+                        <span className="text-muted-foreground">/month</span>
+                      </div>
+                      <div className="text-sm text-primary font-medium mt-2 flex items-center gap-1">
+                        <ShoppingCart className="w-3 h-3" />
+                        Pay only for what you use
+                      </div>
                     </div>
-                  )}
-                  {billingCycle === 'monthly' && plan.price > 0 && (
-                    <div className="text-sm text-muted-foreground mt-2">
-                      Billed monthly
+                  ) : (
+                    <div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-4xl font-bold">
+                          ${billingCycle === 'monthly' ? plan.price.toFixed(2) : (plan.yearlyPrice > 0 ? (plan.yearlyPrice / 12).toFixed(2) : '0.00')}
+                        </span>
+                        <span className="text-muted-foreground">/month</span>
+                      </div>
+                      {billingCycle === 'yearly' && plan.price > 0 && (
+                        <div className="text-sm text-muted-foreground mt-2">
+                          ${plan.yearlyPrice.toFixed(2)}/year • Save ${calculateYearlySavings(plan.price, plan.yearlyPrice)}
+                        </div>
+                      )}
+                      {billingCycle === 'monthly' && plan.price > 0 && (
+                        <div className="text-sm text-muted-foreground mt-2">
+                          Billed monthly
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
 
                 {/* Credits badge */}
-                {plan.monthlyCredits && plan.monthlyCredits > 0 ? (
+                {plan.isPAYG ? (
+                  <div className="mt-3 flex items-center gap-2 text-sm font-semibold text-primary">
+                    <Zap className="w-4 h-4" />
+                    <span>120 welcome credits included</span>
+                  </div>
+                ) : plan.monthlyCredits && plan.monthlyCredits > 0 ? (
                   <div className="mt-3 flex items-center gap-2 text-sm font-semibold text-primary">
                     <Zap className="w-4 h-4" />
                     <span>{plan.monthlyCredits.toLocaleString()} AI credits/month</span>
                   </div>
-                ) : (
-                  <div className="mt-3 flex items-center gap-2 text-sm text-muted-foreground">
-                    <Zap className="w-4 h-4" />
-                    <span>120 welcome credits to start</span>
-                  </div>
-                )}
+                ) : null}
 
                 <p className="text-muted-foreground mt-4">{plan.description}</p>
               </CardHeader>
@@ -267,7 +284,7 @@ export default function Pricing() {
                         <X className="w-5 h-5 text-muted-foreground flex-shrink-0 mt-0.5" />
                       )}
                       <div className="flex-1">
-                        <span className={feature.included ? '' : 'text-muted-foreground line-through'}>
+                        <span className={`text-sm ${!feature.included ? 'text-muted-foreground' : ''}`}>
                           {feature.name}
                         </span>
                         {feature.note && (
@@ -279,6 +296,31 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
+
+                {/* PAYG Credit Packages hint */}
+                {plan.isPAYG && (
+                  <div className="mt-6 p-3 bg-gradient-to-r from-primary/10 to-chart-2/10 rounded-lg border border-primary/20">
+                    <div className="flex items-center gap-2 text-sm font-medium mb-2">
+                      <ShoppingCart className="w-4 h-4 text-primary" />
+                      <span>Credit Packages</span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-2 text-xs text-center">
+                      <div className="bg-background rounded p-2 border border-border">
+                        <div className="font-bold text-primary">50</div>
+                        <div className="text-muted-foreground">$10</div>
+                      </div>
+                      <div className="bg-background rounded p-2 border border-primary/30">
+                        <div className="font-bold text-primary">225</div>
+                        <div className="text-muted-foreground">$30</div>
+                      </div>
+                      <div className="bg-background rounded p-2 border border-border">
+                        <div className="font-bold text-primary">700</div>
+                        <div className="text-muted-foreground">$75</div>
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground mt-2">Credits never expire</p>
+                  </div>
+                )}
 
                 {/* LeadPrime Discount Badge */}
                 {plan.leadprimeDiscount && (
@@ -323,27 +365,30 @@ export default function Pricing() {
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-2">How the Credit System Works</h3>
                   <p className="text-muted-foreground mb-4">
-                    Every AI-powered action in Owl Fenc uses credits. All new accounts receive <strong>120 welcome credits</strong> to explore the platform. 
+                    Every AI-powered action in Owl Fenc uses credits. All new accounts receive <strong>120 welcome credits</strong> to explore the full platform — no monthly fee required.
                     Paid plans include automatic monthly credit refills so you never run out mid-project.
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                     <div className="text-center p-3 bg-background rounded-lg border border-border">
-                      <div className="text-2xl font-bold text-primary">12</div>
-                      <div className="text-xs text-muted-foreground mt-1">Contract generation</div>
-                    </div>
-                    <div className="text-center p-3 bg-background rounded-lg border border-border">
                       <div className="text-2xl font-bold text-primary">8</div>
-                      <div className="text-xs text-muted-foreground mt-1">Dual e-signature</div>
-                    </div>
-                    <div className="text-center p-3 bg-background rounded-lg border border-border">
-                      <div className="text-2xl font-bold text-primary">15</div>
-                      <div className="text-xs text-muted-foreground mt-1">Permit advisor</div>
+                      <div className="text-xs text-muted-foreground mt-1">AI Estimate</div>
                     </div>
                     <div className="text-center p-3 bg-background rounded-lg border border-border">
                       <div className="text-2xl font-bold text-primary">18</div>
-                      <div className="text-xs text-muted-foreground mt-1">Contract + signature bundle</div>
+                      <div className="text-xs text-muted-foreground mt-1">Contract + e-signature</div>
+                    </div>
+                    <div className="text-center p-3 bg-background rounded-lg border border-border">
+                      <div className="text-2xl font-bold text-primary">15</div>
+                      <div className="text-xs text-muted-foreground mt-1">Permit Advisor</div>
+                    </div>
+                    <div className="text-center p-3 bg-background rounded-lg border border-border">
+                      <div className="text-2xl font-bold text-primary">15</div>
+                      <div className="text-xs text-muted-foreground mt-1">Property Verification</div>
                     </div>
                   </div>
+                  <p className="text-xs text-muted-foreground mt-3">
+                    Basic estimates and chat with Mervin are always free — no credits needed.
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -398,9 +443,23 @@ export default function Pricing() {
               <CardContent>
                 <p className="text-muted-foreground">
                   AI credits power every intelligent feature in Owl Fenc — generating contracts, running permit analysis, 
-                  creating AI-powered estimates, and more. All new accounts start with <strong>120 welcome credits</strong>. 
+                  creating AI-powered estimates, property verification, and more. All new accounts start with <strong>120 welcome credits</strong>. 
                   Paid plans automatically refill your credits every billing cycle: 500 credits/month for Mero Patrón 
-                  and 1,200 credits/month for Master Contractor.
+                  and 1,200 credits/month for Master Contractor. On the Pay As You Go plan, you can purchase credit packages anytime — they never expire.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">What is the Pay As You Go plan?</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  The <strong>Primo Chambeador</strong> plan is our Pay As You Go option — no monthly subscription fee. 
+                  You get full access to every feature in Owl Fenc using credits. Start with 120 welcome credits, 
+                  then buy more anytime in packages ($10, $30, or $75). Credits never expire, so you only pay for what you actually use.
+                  Documents will include a watermark; upgrade to a paid plan to remove it.
                 </p>
               </CardContent>
             </Card>
@@ -420,19 +479,6 @@ export default function Pricing() {
 
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl">Is there a free plan?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  Yes! The <strong>Primo Chambeador</strong> plan is free forever. You also receive <strong>120 welcome credits</strong> when 
-                  you sign up — no credit card required. Use them to explore contracts, permit advisor, and other AI features 
-                  before deciding on a paid plan.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
                 <CardTitle className="text-xl">What payment methods do you accept?</CardTitle>
               </CardHeader>
               <CardContent>
@@ -445,13 +491,13 @@ export default function Pricing() {
             
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl">Can I create contracts on the free plan?</CardTitle>
+                <CardTitle className="text-xl">Can I create contracts on the Pay As You Go plan?</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Yes — using your welcome credits. All new accounts receive 120 credits, and each contract 
-                  generation costs 12 credits. Once your welcome credits are used, upgrade to a paid plan 
-                  to get monthly credit refills and keep generating contracts without interruption.
+                  Yes — using your credits. All new accounts receive 120 welcome credits, and each contract 
+                  with e-signature costs 18 credits. Once your welcome credits are used, purchase a credit package 
+                  or upgrade to a paid plan to get automatic monthly credit refills.
                 </p>
               </CardContent>
             </Card>

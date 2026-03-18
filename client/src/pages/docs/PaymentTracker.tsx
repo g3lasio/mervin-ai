@@ -157,7 +157,7 @@ Reconcile your Payment Tracker records with your bank statements regularly to en
 
 ## Subscription Access
 
-Payment Tracker is available on paid tiers (Mero Patron & Master Contractor). The free tier (Primo Chambeador) does not include Payment Tracker functionality. Upgrade to access payment tracking, automated reminders, cash flow projections, and payment analytics.
+Payment Tracker is available on all plans. On the **Primo Chambeador (Pay As You Go)** plan, payment tracking features are accessible using credits — pay only for what you use. **Mero Patrón** and **Master Contractor** subscribers get enhanced payment tracking with automated reminders, cash flow projections, and priority processing included in their monthly credit allowance.
 
 ---
 

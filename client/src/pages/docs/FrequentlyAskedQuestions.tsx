@@ -26,10 +26,10 @@ Find quick answers to common questions about Owl Fenc features and capabilities.
 **Yes!** Go to "Mis Estimados", find your estimate, and click the "Edit" button to make changes.
 
 ### How many estimates can I create?
-This depends on your subscription plan:
-- **Primo Chambeador (Free)**: 5 estimates per month
-- **Mero Patrón**: 50 estimates per month  
-- **Master Contractor**: Unlimited estimates
+Basic estimates (manual entry) are unlimited on all plans at no credit cost. AI-powered estimates use credits:
+- **Primo Chambeador (Pay As You Go)**: Unlimited basic estimates + AI estimates using credits (8 credits each). Start with 120 welcome credits.
+- **Mero Patrón**: Unlimited basic estimates + AI estimates included in your 500 monthly credits.
+- **Master Contractor**: Unlimited basic and AI estimates included in your 1,200 monthly credits.
 
 ## Clients
 

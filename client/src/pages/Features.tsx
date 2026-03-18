@@ -63,7 +63,7 @@ const workflowSteps: WorkflowStep[] = [
       },
       {
         title: 'AI-Powered Estimation',
-        description: 'Chat with Mervin AI to generate professional estimates in 60 seconds. DeepSearch calculates materials & costs automatically.',
+        description: 'Chat with Mervin AI to generate professional estimates in 60 seconds. Mervin AI calculates materials & costs automatically — no manual entry needed.',
         icon: Bot,
         badge: 'Core Feature'
       }

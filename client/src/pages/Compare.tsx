@@ -23,9 +23,10 @@ interface ComparisonFeature {
 }
 
 const pricingComparison = [
-  { name: 'Starting Price', owlFenc: '$50/mo', jobber: '$89/mo', housecallPro: '$149/mo', buildertrend: '$666+/mo', highlight: true },
-  { name: 'Free Tier', owlFenc: '120 welcome credits', jobber: '14 days', housecallPro: '14 days', buildertrend: 'Demo only' },
-  { name: 'Annual Savings vs Jobber', owlFenc: '$468/year', jobber: '-', housecallPro: '-$720/year', buildertrend: '-$7,392/year', highlight: true },
+  { name: 'Starting Price', owlFenc: '$0 Pay As You Go', jobber: '$89/mo', housecallPro: '$149/mo', buildertrend: '$666+/mo', highlight: true },
+  { name: 'Subscription Plan', owlFenc: '$50/mo', jobber: '$89/mo', housecallPro: '$149/mo', buildertrend: '$666+/mo' },
+  { name: 'No Monthly Fee Option', owlFenc: '✓ Pay As You Go', jobber: 'No', housecallPro: 'No', buildertrend: 'No', highlight: true },
+  { name: 'Annual Savings vs Jobber', owlFenc: '$468+/year', jobber: '-', housecallPro: '-$720/year', buildertrend: '-$7,392/year', highlight: true },
 ];
 
 const aiFeatures: ComparisonFeature[] = [
@@ -38,17 +39,18 @@ const aiFeatures: ComparisonFeature[] = [
 const coreFeatures: ComparisonFeature[] = [
   { name: 'Estimates & Quotes', owlFenc: true, jobber: true, housecallPro: true, buildertrend: true },
   { name: 'Legal Contract Generator', owlFenc: true, jobber: false, housecallPro: false, buildertrend: 'Basic', highlight: true },
-  { name: 'Digital Signatures', owlFenc: true, jobber: 'Add-on', housecallPro: 'Add-on', buildertrend: true },
+  { name: 'Built-in Dual E-Signatures', owlFenc: true, jobber: 'Add-on', housecallPro: 'Add-on', buildertrend: true, highlight: true },
   { name: 'Invoicing', owlFenc: true, jobber: true, housecallPro: true, buildertrend: true },
   { name: 'Payment Processing', owlFenc: true, jobber: true, housecallPro: true, buildertrend: true },
-  { name: 'Scheduling', owlFenc: 'Coming Soon', jobber: true, housecallPro: true, buildertrend: true },
+  { name: 'Project Management', owlFenc: true, jobber: true, housecallPro: true, buildertrend: true },
 ];
 
 const advancedFeatures: ComparisonFeature[] = [
   { name: 'Replaces DocuSign + Rocket Lawyer', owlFenc: 'Save $780/year', jobber: false, housecallPro: false, buildertrend: false, highlight: true },
-  { name: 'QuickBooks Integration', owlFenc: 'Coming Soon', jobber: true, housecallPro: true, buildertrend: true },
-  { name: 'GPS Tracking', owlFenc: 'Coming Soon', jobber: 'Add-on', housecallPro: '$20/vehicle/mo', buildertrend: true },
-  { name: 'Marketing Automation', owlFenc: 'Coming Soon', jobber: '$79/mo add-on', housecallPro: 'Included', buildertrend: 'Limited' },
+  { name: 'Permit Research & Compliance', owlFenc: true, jobber: false, housecallPro: false, buildertrend: false, highlight: true },
+  { name: 'Credit-Based Pricing (pay only what you use)', owlFenc: true, jobber: false, housecallPro: false, buildertrend: false, highlight: true },
+  { name: 'Legal Defense Engine (risk analysis)', owlFenc: true, jobber: false, housecallPro: false, buildertrend: false, highlight: true },
+  { name: 'Fraud Prevention (property ownership check)', owlFenc: true, jobber: false, housecallPro: false, buildertrend: false, highlight: true },
 ];
 
 function ComparisonTable({ 

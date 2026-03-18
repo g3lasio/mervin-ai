@@ -10,7 +10,7 @@ interface Integration {
   category: string;
   description: string;
   features: string[];
-  status: 'active' | 'premium';
+  status: 'active' | 'premium' | 'coming_soon';
   color: string;
   icon?: React.ComponentType<{ className?: string }>;
 }
@@ -60,14 +60,14 @@ const integrations: Integration[] = [
   {
     name: 'QuickBooks',
     category: 'Accounting',
-    description: 'Seamless accounting integration for financial management',
+    description: 'QuickBooks accounting integration is on our roadmap. Export invoices and sync payments with your accounting software.',
     features: [
-      'Automatic invoice sync',
-      'Payment reconciliation',
-      'Expense tracking',
-      'Financial reporting',
+      'Automatic invoice sync (coming soon)',
+      'Payment reconciliation (coming soon)',
+      'Expense tracking (coming soon)',
+      'Financial reporting (coming soon)',
     ],
-    status: 'premium',
+    status: 'coming_soon',
     color: '#2ca01c',
     icon: SiQuickbooks,
   },
@@ -92,7 +92,7 @@ export default function Integrations() {
     <div className="min-h-screen py-20">
       <Helmet>
         <title>Integraciones - Owl Fenc Platform</title>
-        <meta name="description" content="Owl Fenc se integra con Stripe, OpenAI, Claude y QuickBooks para brindarte una experiencia completa de gestión de construcción. Powered by ATTOM Data." />
+        <meta name="description" content="Owl Fenc se integra con Stripe, OpenAI y Claude para brindarte una experiencia completa de gestión de construcción. Powered by ATTOM Data para verificación de propiedades." />
       </Helmet>
 
       <div className="container mx-auto max-w-7xl px-4">
@@ -138,10 +138,10 @@ export default function Integrations() {
                     )}
                   </div>
                   <Badge 
-                    variant={integration.status === 'active' ? 'default' : 'secondary'}
+                    variant={integration.status === 'active' ? 'default' : integration.status === 'coming_soon' ? 'outline' : 'secondary'}
                     className="text-xs"
                   >
-                    {integration.status === 'active' ? 'Active' : 'Premium'}
+                    {integration.status === 'active' ? 'Active' : integration.status === 'coming_soon' ? 'Coming Soon' : 'Premium'}
                   </Badge>
                 </div>
                 <CardTitle className="text-xl">{integration.name}</CardTitle>
