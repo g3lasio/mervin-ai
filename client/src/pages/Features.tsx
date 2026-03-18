@@ -486,7 +486,7 @@ export default function Features() {
                   </a>
                 </div>
                 <p className="text-sm text-muted-foreground mt-6">
-                  120 welcome credits included • No credit card required • Cancel anytime
+                  20 welcome credits included • $0.20/credit • No credit card required • Cancel anytime
                 </p>
               </CardContent>
             </Card>

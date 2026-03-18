@@ -63,7 +63,7 @@ export default function Header() {
             </Link>
 
             <div className="flex items-center gap-3 ml-4">
-              <a href={`${APP_URL}/auth`} target="_blank" rel="noopener noreferrer" data-testid="button-login">
+              <a href={APP_URL} target="_blank" rel="noopener noreferrer" data-testid="button-login">
                 <Button variant="ghost" size="sm">
                   Log In
                 </Button>
@@ -122,7 +122,7 @@ export default function Header() {
               </Link>
 
               <div className="pt-3 border-t flex flex-col gap-2">
-                <a href={`${APP_URL}/auth`} target="_blank" rel="noopener noreferrer" className="w-full" data-testid="button-mobile-login">
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="w-full" data-testid="button-mobile-login">
                   <Button variant="outline" className="w-full">
                     Log In
                   </Button>

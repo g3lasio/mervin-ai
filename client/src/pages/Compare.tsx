@@ -23,7 +23,8 @@ interface ComparisonFeature {
 }
 
 const pricingComparison = [
-  { name: 'Starting Price', owlFenc: '$0 Pay As You Go', jobber: '$89/mo', housecallPro: '$149/mo', buildertrend: '$666+/mo', highlight: true },
+  { name: 'Starting Price', owlFenc: '$0/month (PAYG)', jobber: '$89/mo', housecallPro: '$149/mo', buildertrend: '$666+/mo', highlight: true },
+  { name: 'Credit Cost (PAYG)', owlFenc: '$0.20/credit', jobber: 'N/A', housecallPro: 'N/A', buildertrend: 'N/A', highlight: true },
   { name: 'Subscription Plan', owlFenc: '$50/mo', jobber: '$89/mo', housecallPro: '$149/mo', buildertrend: '$666+/mo' },
   { name: 'No Monthly Fee Option', owlFenc: '✓ Pay As You Go', jobber: 'No', housecallPro: 'No', buildertrend: 'No', highlight: true },
   { name: 'Annual Savings vs Jobber', owlFenc: '$468+/year', jobber: '-', housecallPro: '-$720/year', buildertrend: '-$7,392/year', highlight: true },
@@ -268,7 +269,7 @@ export default function Compare() {
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-4">
-              120 welcome credits included • No credit card required • Cancel anytime
+              20 welcome credits included • $0.20/credit • No credit card required • Cancel anytime
             </p>
           </motion.div>
         </div>

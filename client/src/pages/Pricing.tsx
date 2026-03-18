@@ -42,7 +42,7 @@ const pricingPlans: PricingPlan[] = [
     yearlyPrice: 0,
     description: 'Pay As You Go — full access, no monthly fee',
     popular: false,
-    welcomeCredits: 120,
+    welcomeCredits: 20,
     monthlyCredits: 0,
     isPAYG: true,
     features: [
@@ -148,7 +148,7 @@ export default function Pricing() {
     <div className="min-h-screen py-20">
       <Helmet>
         <title>Pricing Plans - Owl Fenc</title>
-        <meta name="description" content="Choose the perfect plan for your construction business. Start Pay As You Go with 120 welcome credits — no monthly fee, no credit card required. Upgrade anytime." />
+        <meta name="description" content="Choose the perfect plan for your construction business. Start Pay As You Go at $0.20/credit with 20 welcome credits — no monthly fee, no credit card required. Upgrade anytime." />
       </Helmet>
 
       <div className="container mx-auto max-w-7xl px-4">
@@ -165,7 +165,7 @@ export default function Pricing() {
             Choose the Right Plan for Your Business
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
-            Start <strong>Pay As You Go</strong> with <strong>120 welcome credits</strong> — no monthly fee, no credit card required. Upgrade to a subscription for automatic monthly credit refills and no watermarks.
+            Start <strong>Pay As You Go</strong> with <strong>20 welcome credits</strong> at <strong>$0.20/credit</strong> — no monthly fee, no credit card required. Upgrade to a subscription for automatic monthly credit refills and no watermarks.
           </p>
           <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-8">
             Credits power every AI feature: estimates, contracts, permit advisor, property verification, and more.
@@ -235,6 +235,9 @@ export default function Pricing() {
                         <ShoppingCart className="w-3 h-3" />
                         Pay only for what you use
                       </div>
+                      <div className="text-xs text-muted-foreground mt-1">
+                        $0.20 per credit — credits never expire
+                      </div>
                     </div>
                   ) : (
                     <div>
@@ -262,7 +265,7 @@ export default function Pricing() {
                 {plan.isPAYG ? (
                   <div className="mt-3 flex items-center gap-2 text-sm font-semibold text-primary">
                     <Zap className="w-4 h-4" />
-                    <span>120 welcome credits included</span>
+                    <span>20 welcome credits included</span>
                   </div>
                 ) : plan.monthlyCredits && plan.monthlyCredits > 0 ? (
                   <div className="mt-3 flex items-center gap-2 text-sm font-semibold text-primary">
@@ -365,7 +368,7 @@ export default function Pricing() {
                 <div className="flex-1">
                   <h3 className="text-xl font-bold mb-2">How the Credit System Works</h3>
                   <p className="text-muted-foreground mb-4">
-                    Every AI-powered action in Owl Fenc uses credits. All new accounts receive <strong>120 welcome credits</strong> to explore the full platform — no monthly fee required.
+                    Every AI-powered action in Owl Fenc uses credits. All new accounts receive <strong>20 welcome credits</strong> to explore the full platform — credits cost <strong>$0.20 each</strong>, no monthly fee required.
                     Paid plans include automatic monthly credit refills so you never run out mid-project.
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
@@ -443,7 +446,7 @@ export default function Pricing() {
               <CardContent>
                 <p className="text-muted-foreground">
                   AI credits power every intelligent feature in Owl Fenc — generating contracts, running permit analysis, 
-                  creating AI-powered estimates, property verification, and more. All new accounts start with <strong>120 welcome credits</strong>. 
+                  creating AI-powered estimates, property verification, and more. All new accounts start with <strong>20 welcome credits</strong> (credits cost <strong>$0.20 each</strong>). 
                   Paid plans automatically refill your credits every billing cycle: 500 credits/month for Mero Patrón 
                   and 1,200 credits/month for Master Contractor. On the Pay As You Go plan, you can purchase credit packages anytime — they never expire.
                 </p>
@@ -457,7 +460,7 @@ export default function Pricing() {
               <CardContent>
                 <p className="text-muted-foreground">
                   The <strong>Primo Chambeador</strong> plan is our Pay As You Go option — no monthly subscription fee. 
-                  You get full access to every feature in Owl Fenc using credits. Start with 120 welcome credits, 
+                  You get full access to every feature in Owl Fenc using credits at <strong>$0.20 per credit</strong>. Start with 20 welcome credits, 
                   then buy more anytime in packages ($10, $30, or $75). Credits never expire, so you only pay for what you actually use.
                   Documents will include a watermark; upgrade to a paid plan to remove it.
                 </p>
@@ -495,7 +498,7 @@ export default function Pricing() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Yes — using your credits. All new accounts receive 120 welcome credits, and each contract 
+                  Yes — using your credits. All new accounts receive 20 welcome credits, and each contract 
                   with e-signature costs 18 credits. Once your welcome credits are used, purchase a credit package 
                   or upgrade to a paid plan to get automatic monthly credit refills.
                 </p>

@@ -27,7 +27,7 @@ Find quick answers to common questions about Owl Fenc features and capabilities.
 
 ### How many estimates can I create?
 Basic estimates (manual entry) are unlimited on all plans at no credit cost. AI-powered estimates use credits:
-- **Primo Chambeador (Pay As You Go)**: Unlimited basic estimates + AI estimates using credits (8 credits each). Start with 120 welcome credits.
+- **Primo Chambeador (Pay As You Go)**: Unlimited basic estimates + AI estimates using credits (8 credits each). Start with 20 welcome credits at $0.20/credit.
 - **Mero Patrón**: Unlimited basic estimates + AI estimates included in your 500 monthly credits.
 - **Master Contractor**: Unlimited basic and AI estimates included in your 1,200 monthly credits.
 

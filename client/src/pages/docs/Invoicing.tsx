@@ -125,7 +125,7 @@ Most payment delays result from oversight rather than refusal to pay. Polite rem
 
 ## Subscription Access
 
-Invoicing is available on all plans through the credit system. On the **Primo Chambeador (Pay As You Go)** plan, each invoice costs 5 credits. Start with 120 welcome credits, or purchase credit packages anytime — credits never expire. This ensures all contractors can manage their billing regardless of subscription level.
+Invoicing is available on all plans through the credit system. On the **Primo Chambeador (Pay As You Go)** plan, each invoice costs 5 credits at $0.20/credit. Start with 20 welcome credits, or purchase credit packages anytime — credits never expire. This ensures all contractors can manage their billing regardless of subscription level.
 
 **Mero Patrón** and **Master Contractor** subscribers receive automatic monthly credit refills (500 and 1,200 credits respectively), making invoicing effectively unlimited within their monthly credit allowance. Paid plans also remove watermarks from all generated documents.
 
