@@ -269,7 +269,7 @@ export default function Compare() {
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-4">
-              20 welcome credits included • $0.20/credit • No credit card required • Cancel anytime
+              120 welcome credits included • $0.20/credit • No credit card required • Cancel anytime
             </p>
           </motion.div>
         </div>

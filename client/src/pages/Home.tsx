@@ -82,7 +82,7 @@ const faqs = [
   },
   {
     question: 'Can I try it before committing?',
-    answer: 'Absolutely. All new accounts receive 20 welcome credits at $0.20/credit — no credit card required. Use them to generate contracts, run permit analysis, and explore all AI features before deciding on a paid plan. You can purchase more credits anytime in packages starting at $10.'
+    answer: 'Absolutely. All new accounts receive 120 welcome credits at $0.20/credit — no credit card required. Use them to generate contracts, run permit analysis, and explore all AI features before deciding on a paid plan. You can purchase more credits anytime in packages starting at $10.'
   },
   {
     question: 'Does it work for my trade?',
@@ -176,7 +176,7 @@ export default function Home() {
               className="mt-4 text-sm text-muted-foreground"
               {...fadeIn}
             >
-              No credit card required · 20 welcome credits included · $0.20/credit
+              No credit card required · 120 welcome credits included · $0.20/credit
             </motion.p>
           </div>
 
