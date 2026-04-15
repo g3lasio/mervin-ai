@@ -38,9 +38,9 @@ const BENEFITS = [
   },
   {
     icon: TrendingUp,
-    title: '10% Monthly Residual',
+    title: '10% Monthly Residual (First 12 Months)',
     description:
-      'Keep earning every month your client stays active. Build a book of 50 clients and earn $495–$990/month without making another call.',
+      'Earn 10% every month for the first 12 months your client stays active. Close 10 clients and earn $99–$247/month in residual income for a full year.',
   },
   {
     icon: Zap,
@@ -100,7 +100,7 @@ const FAQS = [
   },
   {
     q: 'What happens if a client cancels?',
-    a: 'Your residual commission stops when the client cancels. Your upfront commission on the first month is always yours to keep.',
+    a: 'Your 10% residual commission runs for the first 12 months the client is active. After month 12, the upfront commission you earned on day one is still yours. If a client cancels before 12 months, residual stops at that point.',
   },
 ];
 
@@ -146,13 +146,28 @@ export default function Partners() {
     }));
   };
 
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate form submission — replace with real API endpoint
-    await new Promise((res) => setTimeout(res, 1500));
-    setLoading(false);
-    setSubmitted(true);
+    setSubmitError(null);
+    try {
+      const response = await fetch('/api/partner-apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong. Please try again.');
+      }
+      setSubmitted(true);
+    } catch (err: any) {
+      setSubmitError(err.message || 'Failed to submit. Please try again or email partners@owlfenc.com');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -183,7 +198,7 @@ export default function Partners() {
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
               If you already talk to fence contractors, general contractors, or home improvement
-              pros — you can earn <strong>25% upfront + 10% monthly residual</strong> just by
+              pros — you can earn <strong>25% upfront + 10% monthly residual for 12 months</strong> just by
               showing them what Owl Fenc does.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -208,7 +223,7 @@ export default function Partners() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
               { label: 'Upfront Commission', value: COMMISSION_DETAILS.upfront, sub: 'of first month per client' },
-              { label: 'Monthly Residual', value: COMMISSION_DETAILS.recurring, sub: 'for life of the client' },
+              { label: 'Monthly Residual', value: COMMISSION_DETAILS.recurring, sub: 'per client · first 12 months' },
               { label: 'App Price Range', value: COMMISSION_DETAILS.avgMonthly, sub: 'per contractor per month' },
               { label: 'Residual at 10 Clients', value: COMMISSION_DETAILS.residual10, sub: 'every month, passively' },
             ].map((stat) => (
@@ -564,6 +579,12 @@ export default function Partners() {
                   <Button type="submit" className="w-full" size="lg" disabled={loading}>
                     {loading ? 'Submitting...' : 'Submit Application'}
                   </Button>
+
+                  {submitError && (
+                    <div className="bg-red-50 border border-red-200 rounded-md px-4 py-3 text-sm text-red-700">
+                      {submitError}
+                    </div>
+                  )}
 
                   <p className="text-xs text-center text-muted-foreground">
                     Questions? Email us at{' '}
