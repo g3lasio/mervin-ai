@@ -61,6 +61,11 @@ export default function Footer() {
                   About Mervin AI
                 </Link>
               </li>
+              <li>
+                <Link href="/partners" className="text-muted-foreground hover:text-foreground transition-colors text-sm" data-testid="link-footer-partners">
+                  Sell With Us
+                </Link>
+              </li>
             </ul>
           </div>
           

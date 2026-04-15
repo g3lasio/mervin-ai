@@ -61,6 +61,15 @@ export default function Header() {
             >
               Resources
             </Link>
+            <Link 
+              href="/partners" 
+              className={`text-sm font-medium transition-colors hover:text-foreground px-3 py-2 rounded-md ${
+                isActive('/partners') ? 'text-foreground' : 'text-muted-foreground'
+              }`}
+              data-testid="link-partners"
+            >
+              Sell With Us
+            </Link>
 
             <div className="flex items-center gap-3 ml-4">
               <a href={APP_URL} target="_blank" rel="noopener noreferrer" data-testid="button-login">
@@ -119,6 +128,14 @@ export default function Header() {
                 data-testid="link-mobile-resources"
               >
                 Resources
+              </Link>
+              <Link 
+                href="/partners" 
+                className="text-sm font-medium px-3 py-2 rounded-md text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+                data-testid="link-mobile-partners"
+              >
+                Sell With Us
               </Link>
 
               <div className="pt-3 border-t flex flex-col gap-2">

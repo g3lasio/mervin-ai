@@ -29,6 +29,7 @@ import TermsOfService from "@/pages/TermsOfService";
 import LegalPolicy from "@/pages/LegalPolicy";
 import ComingSoon from "@/pages/ComingSoon";
 import Compare from "@/pages/Compare";
+import Partners from "@/pages/Partners";
 
 function Router() {
   return (
@@ -60,6 +61,7 @@ function Router() {
         )}
       </Route>
 
+      <Route path="/partners" component={Partners} />
       <Route path="/about-owlfenc" component={AboutOwlFenc} />
       <Route path="/about-mervin" component={AboutMervin} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
